@@ -10,17 +10,24 @@ use Livewire\Component;
 
 class Educations extends Component
 {
-    #protected $listeners = ['addEducation' => 'save'];
     public $formData;
+    public $employee_id;
+   
 
     protected $listeners = ['addEducation'];
+
+    public function mount()
+    {
+        
+    }
 
     public function addEducation($formData)
     {
         $this->formData = $formData;
+        //$this->employee_id = $employee_id;
 
         $rec = [
-            'employee_id' => '12345',
+            'employee_id' => $this->formData['employee_id'],
             'institution' => $this->formData['institution'],
             'course' => $this->formData['course'],
             'start_date' => $this->formData['start_date'],
@@ -33,6 +40,7 @@ class Educations extends Component
 
     public function render()
     {
-        return view('livewire.admin.education');
+        #$this->emit('employee_id', $this->employee_id);
+        return view('livewire.admin.education', ['education' => Education::all()]);
     }
 }

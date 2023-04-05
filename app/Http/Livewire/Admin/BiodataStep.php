@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 
-class EmployeeBiodata extends Component
+class BiodataStep extends Component
 {
     public function render()
     {
-        return view('livewire.admin.employee-biodata');
+        return view('livewire.admin.biodata-step');
     }
 }

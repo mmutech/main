@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\Admin;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Qualification;
 
@@ -9,6 +10,8 @@ use Livewire\Component;
 class Qualifications extends Component
 {
     public $formData;
+    public $employee_id;
+    public $user_qualifications;
 
     protected $listeners = ['addQualification'];
 
@@ -17,18 +20,22 @@ class Qualifications extends Component
         $this->formData = $formData;
 
         $rec = [
-            'employee_id' => '12345',
-            'institution' => $this->formData['institution'],
-            'certification' => $this->formData['certification'],
-            'certification_date' => $this->formData['certification_date'],
+            'employee_id'           => $this->formData['employee_id'],
+            'institution'           => $this->formData['institution'],
+            'certification'         => $this->formData['certification'],
+            'certification_date'    => $this->formData['certification_date'],
         ];
         
         //print_r($rec);
         Qualification::create($rec);
     }
 
+
+
     public function render()
     {
-        return view('livewire.admin.qualifications');
+        
+        //$this->emit('dataFetched', $user_qualifications);
+        return view('livewire.admin.qualifications', ['qualification'=>Qualification::all()]);
     }
 }

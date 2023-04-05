@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Admin\Employees;
 use App\Http\Livewire\Admin\EmployeeProfile;
+use App\Http\Livewire\Admin\FormWizard;
+use App\Http\Livewire\Admin\EmployeeActivate;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +27,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/dashboard', function () {return view('admin-home');})->name('dashboard');
         Route::get('/all-employees', Employees::class);
         Route::get('/create-employee-profile', EmployeeProfile::class);
+
+        Route::get('/form-wizard', FormWizard::class);
+        Route::get('/employee-activate/{id}', EmployeeActivate::class)->name('employee-activate');
+
 
 });
