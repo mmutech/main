@@ -11,6 +11,14 @@
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
     @endpush
 
+    <div>
+                                @if (session()->has('message'))
+                                    <div class="alert alert-success">
+                                        {{ session('message') }}
+                                    </div>
+                                @endif
+                            </div>
+                            
 <div class="row">  
 
     <div class="col-md-6">
@@ -24,7 +32,7 @@
 </div>
 <div class="row">
             <div class="submit-section">
-                <button class="btn add-btn">Activate Account</button>
+                <button wire:model="emit" class="btn add-btn">Activate Account</button>
             </div>
 </div>
             
@@ -65,7 +73,7 @@
                         </div>
                         <div class="modal-body">
                             <form wire:submit.prevent="saveEducation">
-                              
+                                
                             <input type="hidden" wire:model.defer="employee_id" wire:change="$emit('educations')" id="education_eid" />
 
                             <div class="row">
@@ -173,6 +181,7 @@
                         </div>
                         <div class="modal-body">
                         <form wire:submit.prevent="saveQualification">
+                            
                         <input type="hidden" readonly wire:model.defer="employee_id" id="qualification_eid" />
                             <div class="row">
                                 <div class="col-md-12">
