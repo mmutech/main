@@ -151,7 +151,7 @@
     <!-- End Asset Modal custom -->
 
     {{-- Edit Exit Type --}}
-<div x-cloak x-show="editModel"
+<div x-cloak x-show="editModal"
     class="fixed inset-0 z-30 overflow-y-scroll pt-26 flex items-center bg-black bg-opacity-50 sm:items-center sm:justify-center">
     <!-- Modal -->
     <div x-show="editModal" x-transition:enter="transition ease-out duration-150"
