@@ -14,7 +14,7 @@
                             class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{ url('all-employees') }}">Employees</a></li>
-                        <li><a href="{{ url('new-employee') }}">Add Employee</a></li>
+                        <li><a href="{{ url('create-employee') }}">Add Employee</a></li>
                     </ul>
                 </li>
 

@@ -10,14 +10,10 @@ use Livewire\Component;
 class Qualifications extends Component
 {
     public $formData;
-    //public $employee_id;
-    //public $user_qualifications;
+    public $employee_id;
+    public $user_qualifications;
 
-    //protected $listeners = ['addQualification'];
-    public function mount($employee_id)
-    {
-      $this->employee_id = $employee_id;
-    }
+    protected $listeners = ['addQualification'];
 
     public function addQualification($formData)
     {
@@ -32,15 +28,15 @@ class Qualifications extends Component
         
         //print_r($rec);
         Qualification::create($rec);
+        session()->flash('message', 'Certification successfully updated.');
     }
 
-    
+
 
     public function render()
     {
         
-        $this->qualification = Qualification::all();
-
-        return view('livewire.admin.qualifications');
+        //$this->emit('dataFetched', $user_qualifications);
+        return view('livewire.admin.qualifications', ['qualification'=>Qualification::where('employee_id', $this->employee_id)->orderBy('certification_date','desc')->get()]);
     }
 }
