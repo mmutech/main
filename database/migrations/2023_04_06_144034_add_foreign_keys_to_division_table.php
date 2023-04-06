@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('nok', function (Blueprint $table) {
-            $table->foreign(['bio_data_bioID'], 'fk_nok_bio_data1')->references(['bioID'])->on('bio_data')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        Schema::table('division', function (Blueprint $table) {
+            $table->foreign(['status'], 'division_ibfk_1')->references(['id'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('nok', function (Blueprint $table) {
-            $table->dropForeign('fk_nok_bio_data1');
+        Schema::table('division', function (Blueprint $table) {
+            $table->dropForeign('division_ibfk_1');
         });
     }
 };

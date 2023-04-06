@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('department', function (Blueprint $table) {
+        Schema::create('unit', function (Blueprint $table) {
             $table->integer('id', true);
             $table->string('description', 100);
-            $table->integer('division_id')->index('division_id');
+            $table->integer('department_id')->index('department_id');
             $table->string('comment');
             $table->integer('status')->index('status');
+            $table->integer('added_by');
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable()->index('fk_department_devision1_idx');
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('department');
+        Schema::dropIfExists('unit');
     }
 };

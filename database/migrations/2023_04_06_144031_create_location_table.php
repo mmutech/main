@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('designation', function (Blueprint $table) {
-            $table->foreign(['status'], 'designation_ibfk_1')->references(['statusID'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        Schema::create('location', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->string('location_name');
         });
     }
 
@@ -25,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('designation', function (Blueprint $table) {
-            $table->dropForeign('designation_ibfk_1');
-        });
+        Schema::dropIfExists('location');
     }
 };

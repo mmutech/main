@@ -17,6 +17,9 @@ return new class extends Migration
             $table->integer('id', true);
             $table->string('exit_type', 100);
             $table->string('description', 250);
+            $table->integer('status');
+            $table->integer('added_by');
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
         });

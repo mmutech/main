@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('designation', function (Blueprint $table) {
+        Schema::create('status', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('description', 100);
-            $table->string('comment');
-            $table->integer('status')->index('status');
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable();
+            $table->string('status_name', 45)->nullable();
+            $table->dateTime('stamp_date')->nullable();
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('designation');
+        Schema::dropIfExists('status');
     }
 };

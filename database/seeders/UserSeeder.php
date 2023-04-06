@@ -16,7 +16,6 @@ class UserSeeder extends Seeder
     {
         //
         User::create([
-           
             'biodata_id' => '1',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
