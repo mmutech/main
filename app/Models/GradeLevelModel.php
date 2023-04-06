@@ -15,6 +15,7 @@ class GradeLevelModel extends Model
         'designation_id', 
         'comment',
         'status',
-        'added_by'
+        'added_by',
+        'updated_by'
     ];
 }

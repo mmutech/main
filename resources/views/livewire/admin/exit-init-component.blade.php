@@ -71,8 +71,7 @@
                                 <td class="text-end">
                                     {{-- <a @click="editModal = true" class="btn btn-primary" data-bs-toggle="editExitintForm"
                                         data-bs-target="#edit_Exit Type" wire:click="edit({{$div->id}})"><i class="fa fa-pencil m-r-5"></i></a> --}}
-                                    <a class="btn btn-primary" href="{{ url('exit-view-component', $div->id) }}"
-                                       ><i class="fa fa-eye m-r-5"></i></a>
+                                    <a class="btn btn-primary" href="{{ url('exit-view-component', $div->id) }}"><i class="fa fa-eye m-r-5"></i></a>
                                     {{-- <a class="btn btn-danger" style="color:white" href="#" data-bs-toggle="modal"
                                         data-bs-target="#delete_Exit Type" wire:click="remove({{$div->id}})"><i class="fa fa-trash-o m-r-5"></i>
                                         </a> --}}

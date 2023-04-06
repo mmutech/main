@@ -13,6 +13,7 @@ class DesignationModel extends Model
         'description', 
         'comment',
         'status',
-        'added_by'
+        'added_by',
+        'updated_by'
     ];
 }

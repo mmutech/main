@@ -13,6 +13,7 @@ class ExitTypeModel extends Model
         'description', 
         'exit_type',
         'status',
-        'added_by'
+        'added_by',
+        'updated_by'
     ];
 }

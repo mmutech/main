@@ -43,12 +43,13 @@ class ExitTypeComponent extends Component
     // Create exitType
     public function createExitType()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $exitType = ExitTypeModel::create([
             'exit_type' => $this->exit_type,
             'description' => $this->discription, 
             'status' => 1,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Exit Type Added Successfully!');
@@ -88,12 +89,13 @@ class ExitTypeComponent extends Component
     // Update exitType
     public function updateExitType()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         ExitTypeModel::where('id', $this->exitTypeId)->update([
             'exit_type' => $validateData['exit_type'], 
             'description' => $validateData['discription'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Exit Type Updated Successfully!');

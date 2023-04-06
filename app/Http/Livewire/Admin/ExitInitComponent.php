@@ -48,6 +48,7 @@ class ExitInitComponent extends Component
     // Create exitType
     public function createExitInt()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $exitType = ExitInitModel::create([
             'exit_type_id' => $this->exit_type_id,
@@ -55,7 +56,7 @@ class ExitInitComponent extends Component
             'rdate' => now(),
             'ldate' => $this->ldate,
             'status' => 4,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Exit Initiation Added Successfully!');
@@ -97,6 +98,7 @@ class ExitInitComponent extends Component
     // Update exitType
     public function updateExitType()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         ExitInitModel::where('id', $this->exitIntId)->update([
             'exit_type_id' => $validateData['exit_type_id'], 
@@ -104,7 +106,7 @@ class ExitInitComponent extends Component
             'rdate' => $validateData['rdate'],
             'ldate' => $validateData['ldate'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Exit Initiation Updated Successfully!');

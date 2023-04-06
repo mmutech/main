@@ -14,6 +14,7 @@ class DepartmentModel extends Model
         'division_id',
         'comment',
         'status',
-        'added_by'
+        'added_by',
+        'updated_by'
     ];
 }

@@ -15,6 +15,8 @@ class ExitInitModel extends Model
         'status',
         'added_by',
         'rdate',
-        'ldate'
+        'ldate',
+        'updated_by',
+        'adminComment'
     ];
 }

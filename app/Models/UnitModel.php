@@ -14,6 +14,7 @@ class UnitModel extends Model
         'department_id',
         'comment',
         'status',
-        'added_by'
+        'added_by',
+        'updated_by'
     ];
 }

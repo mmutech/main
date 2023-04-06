@@ -40,6 +40,7 @@ class GradeLevelComponent extends Component
     // Create gradeLevel
     public function createGradeLevel()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $gradeLevel = GradeLevelModel::create([
             'description' => $this->discription, 
@@ -47,7 +48,7 @@ class GradeLevelComponent extends Component
             'comment' => $this->comment, 
             'monthly_gross' => $this->monthly_gross,
             'status' => 1,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Grade Level Added Successfully!');
@@ -89,6 +90,7 @@ class GradeLevelComponent extends Component
     // Update gradeLevel
     public function updateGradeLevel()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         GradeLevelModel::where('id', $this->gradeLevelId)->update([
             'description' => $validateData['discription'],
@@ -96,7 +98,7 @@ class GradeLevelComponent extends Component
             'monthly_gross' => $validateData['monthly_gross'], 
             'comment' => $validateData['comment'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Grade Level Updated Successfully!');

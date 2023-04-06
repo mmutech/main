@@ -52,12 +52,13 @@ class DepartmentComponent extends Component
     // Create department
     public function createdepartment()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $department = DepartmentModel::create([
             'description' => $this->discription, 
             'division_id' => $this->division_id, 
             'comment' => $this->comment, 
-            'status' => 1,
+            'status' => $userId,
             'added_by' => 1
         ]);
 
@@ -99,13 +100,14 @@ class DepartmentComponent extends Component
     // Update department
     public function updateDepartment()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         DepartmentModel::where('id', $this->departmentId)->update([
             'description' => $validateData['discription'],
             'division_id' => $validateData['division_id'], 
             'comment' => $validateData['comment'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Department Updated Successfully!');
