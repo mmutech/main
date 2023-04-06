@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
-            $table->integer('employee_id');
+            $table->integer('biodata_id');
             $table->string('bank_name');
             $table->string('account_name');
-            $table->integer('account_number');
-            $table->string('pfa_name');
-            $table->string('pfa_account_name');
+            $table->string('account_number');
+            $table->string('pfa_name')->nullable();
+            $table->string('pfa_account_name')->nullable();
             $table->string('RSA');
+            $table->string('mortgage_bank_name')->nullable();
             $table->string('mortgage_account_name')->nullable();
-            $table->integer('mortgage_account_number')->nullable();
+            $table->string('mortgage_account_number')->nullable();
             $table->timestamps();
         });
     }

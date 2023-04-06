@@ -249,6 +249,7 @@
                                         </div>
 
                                     </div>
+                                    
                                 </div>
                             </div>
                             
@@ -419,8 +420,7 @@
                     <livewire:admin.educations />
                 </div>
             </div>
-        </div>
-
+       
             <div class="col-md-6 d-flex">
                     <livewire:admin.qualifications />
             </div>
@@ -640,6 +640,8 @@
     </div>
     <!-- End of modal backdrop -->
     <!-- End Qual Modal custom -->
+
+
 
 @push('all-assets-js')
     <!-- Select2 JS -->
