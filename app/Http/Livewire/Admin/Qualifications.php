@@ -10,10 +10,14 @@ use Livewire\Component;
 class Qualifications extends Component
 {
     public $formData;
-    public $employee_id;
-    public $user_qualifications;
+    //public $employee_id;
+    //public $user_qualifications;
 
-    protected $listeners = ['addQualification'];
+    //protected $listeners = ['addQualification'];
+    public function mount($employee_id)
+    {
+      $this->employee_id = $employee_id;
+    }
 
     public function addQualification($formData)
     {
@@ -30,12 +34,13 @@ class Qualifications extends Component
         Qualification::create($rec);
     }
 
-
+    
 
     public function render()
     {
         
-        //$this->emit('dataFetched', $user_qualifications);
-        return view('livewire.admin.qualifications', ['qualification'=>Qualification::all()]);
+        $this->qualification = Qualification::all();
+
+        return view('livewire.admin.qualifications');
     }
 }
