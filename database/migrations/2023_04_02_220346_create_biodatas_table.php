@@ -11,24 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('biodatas', function (Blueprint $table) {
             $table->id();
-            $table->integer('staff_id')->nullable();
+            $table->string('staff_id')->unique('staff_id_UNIQUE');
             $table->string('title')->nullable();
-            $table->string('surname');
-            $table->string('first_name');
-            $table->string('other_name');
-            $table->string('date_of_birth');
+            $table->string('surname')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('other_name')->nullable();
             $table->string('gender')->nullable();
+            $table->date('date_of_birth')->nullable();
             $table->string('marital_status')->nullable();
-            $table->string('phone');
-            $table->string('official_mail')->nullable();
-            $table->string('personal_mail');
+            $table->string('phone')->nullable();
+            $table->string('official_email')->nullable();
+            $table->string('personal_email')->nullable();
+            $table->string('nationality')->nullable();
             $table->string('address')->nullable();
             $table->string('contact_address')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('state')->nullable();
-            $table->string('lga')->nullable();
+            $table->integer('state')->nullable();
+            $table->integer('lga')->nullable();
             $table->string('religion')->nullable();
             $table->timestamps();
         });
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('biodatas');
     }
 };

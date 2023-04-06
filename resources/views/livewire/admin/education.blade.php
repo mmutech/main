@@ -4,30 +4,25 @@
                         <h3 class="card-title">Education <a @click="addEdu = true" href="#" href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
                         <div class="experience-box">
                             <ul class="experience-list">
+                                @foreach ($education as $item)
                                 <li>
                                     <div class="experience-user">
                                         <div class="before-circle"></div>
                                     </div>
                                     <div class="experience-content">
                                         <div class="timeline-content">
-                                            <a href="#/" class="name">International College of Arts and Science (UG)</a>
-                                            <div>Bsc Computer Science</div>
-                                            <span class="time">2000 - 2003</span>
+                                            <a href="#/" class="name">{{$item->institution}}</a>
+                                            <a href="#" title="Remove" class="pull-right text-warning"><i class="fa fa-close"></i></a>
+                                            <div>{{ $item->course }}</div>
+                                            <span class="time">{{$item->start_date}} - {{$item->end_date}}</span>
+
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="experience-user">
-                                        <div class="before-circle"></div>
-                                    </div>
-                                    <div class="experience-content">
-                                        <div class="timeline-content">
-                                            <a href="#/" class="name">International College of Arts and Science (PG)</a>
-                                            <div>Msc Computer Science</div>
-                                            <span class="time">2000 - 2003</span>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
+                                
                             </ul>
                         </div>
+</div>
+</div>
                   

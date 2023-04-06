@@ -89,9 +89,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>User Id</th>
+                                <th>Staff Id</th>
                                 <th>Name</th>
-                                <th>Phone</th>
+                                
                                 <th>Email</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-end"></th>
@@ -110,8 +110,7 @@
                                             {{ $employee->first_name ." ".$employee->surname." ".$employee->other_name }}
                                         </a>
                                     </td>
-                                    <td>{{-- $employee->phone --}}</td>
-                                    <td>{{-- $employee->email --}}</td>
+                                    <td>{{ $employee->email }}</td>
                                     <td class="text-center">
                                         <div class="dropdown action-label">
                                             <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
@@ -139,7 +138,7 @@
                                                     Edit</a>
                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal"
                                                     data-bs-target="#delete_asset"><i class="fa fa-trash-o m-r-5"></i>
-                                                    Delete</a>
+                                                    Deactivate</a>
                                             </div>
                                         </div>
                                     </td>
