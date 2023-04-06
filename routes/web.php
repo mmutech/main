@@ -7,7 +7,7 @@ use App\Http\Livewire\Admin\EmployeeProfile;
 use App\Http\Livewire\Admin\FormWizard;
 use App\Http\Livewire\Admin\EmployeeActivate;
 
-use App\Http\Livewire\Admin\Division;
+use App\Http\Livewire\Admin\division;
 use App\Http\Livewire\Admin\DepartmentComponent;
 use App\Http\Livewire\Admin\UnitComponent;
 use App\Http\Livewire\Admin\JobRoleComponent;
