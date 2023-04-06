@@ -44,17 +44,20 @@ class EmployeeActivate extends Component
 
         $this->emit('addQualification', $formData);  
     }
+
+    public function activate_account()
+    {
+        //
+
+    }
+
     public function mount($id)
     {
-      $this->employee_id = $id;
+        $this->employee_id = $id;
     }
 
     public function render()
     {
-        return view('livewire.admin.employee-activate', [
-            
-            //'educations' => Education::where('employee_id', $this->employee_id)->get(),
-            //'qualifications' => Qualification::where('employee_id', $this->id)->get(),
-        ])->layout('layouts.admin-layout');
+        return view('livewire.admin.employee-activate')->layout('layouts.admin-layout');
     }
 }

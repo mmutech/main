@@ -32,6 +32,7 @@ class Qualifications extends Component
         
         //print_r($rec);
         Qualification::create($rec);
+        session()->flash('message', 'Certification successfully updated.');
     }
 
     
@@ -39,8 +40,8 @@ class Qualifications extends Component
     public function render()
     {
         
-        $this->qualification = Qualification::all();
+        
 
-        return view('livewire.admin.qualifications');
+        return view('livewire.admin.qualifications', ['qualification'=>Qualification::where('employee_id', $this->employee_id)->orderBy('certification_date', 'desc')->get()]);
     }
 }

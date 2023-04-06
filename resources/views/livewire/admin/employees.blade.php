@@ -24,8 +24,10 @@
                     </ul>
                 </div>
                 <div class="col-auto float-end ms-auto">
-                    <a @click="addModal = true" class="btn add-btn" data-bs-toggle="modal"
-                        data-bs-target="#add_employee"><i class="fa fa-plus"></i> Add Employee</a>
+                    <!--<a @click="addModal = true" class="btn add-btn" data-bs-toggle="modal"
+                        data-bs-target="#add_employee"><i class="fa fa-plus"></i> Add Employee</a>-->
+
+                        <a href="{{url('create-employee')}}" class="btn add-btn"><i class="fa fa-plus"></i> Add New Employee</a>
                 </div>
 
               
