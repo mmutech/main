@@ -14,12 +14,7 @@ class Educations extends Component
     public $employee_id;
    
 
-    protected $listeners = ['addEducation'];
-
-    public function mount()
-    {
-        
-    }
+    //protected $listeners = ['addEducation'];
 
     public function addEducation($formData)
     {
@@ -37,10 +32,14 @@ class Educations extends Component
         Education::create($rec);
     }
 
-
+    public function mount($employee_id)
+    {
+      $this->employee_id = $employee_id;
+    }
+    
     public function render()
     {
-        #$this->emit('employee_id', $this->employee_id);
-        return view('livewire.admin.education', ['education' => Education::all()]);
+        $edus = Education::where('employee_id', $this->employee_id)->orderBy('id', 'desc')->get();
+        return view('livewire.admin.education', ['education' => $edus]);
     }
 }
