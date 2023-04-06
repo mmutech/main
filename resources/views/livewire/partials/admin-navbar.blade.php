@@ -27,11 +27,27 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="la la-pen"></i> <span> Exit </span> <span
+                    <a href="#"><i class="la la-sign-out-alt"></i> <span> Exit Procedure</span> <span
                             class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="{{ url('all-users') }}">Exits</a></li>
-                        <li><a href="{{ url('new-user') }}">New Exit</a></li>
+                        <li><a href="{{ url('exit-type-component') }}">Exit Type</a></li>
+                        <li><a href="{{ url('new-user') }}">Exit Interview Questions</a></li>
+                        <li><a href="{{ url('new-user') }}">Setting</a></li>
+                        <li><a href="{{ url('exit-init-component') }}">Initiate/Check Status</a></li>
+                        <li><a href="{{ url('new-user') }}">All Exit Procedures</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="la la-tools"></i> <span> Preferences </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{ url('division') }}">Division</a></li>
+                        <li><a href="{{ url('department-component') }}">Department</a></li>
+                        <li><a href="{{ url('unit-component') }}">Unit</a></li>
+                        <li><a href="{{ url('job-role-component') }}">Job Role</a></li>
+                        <li><a href="{{ url('designation-component') }}">Designation</a></li>
+                        <li><a href="{{ url('grade-level-component') }}">Grade Level</a></li>
+                        <li><a href="{{ url('location-component') }}">Location</a></li>
                     </ul>
                 </li>
             </ul>
