@@ -41,6 +41,6 @@ class Educations extends Component
     public function render()
     {
         #$this->emit('employee_id', $this->employee_id);
-        return view('livewire.admin.education', ['education' => Education::all()]);
+        return view('livewire.admin.education', ['education' => Education::where('employee_id', $this->employee_id)->orderBy('end_date','desc')->get()]);
     }
 }

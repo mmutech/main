@@ -37,6 +37,6 @@ class Qualifications extends Component
     {
         
         //$this->emit('dataFetched', $user_qualifications);
-        return view('livewire.admin.qualifications', ['qualification'=>Qualification::all()]);
+        return view('livewire.admin.qualifications', ['qualification'=>Qualification::where('employee_id', $this->employee_id)->orderBy('certification_date','desc')->get()]);
     }
 }

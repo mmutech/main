@@ -47,7 +47,15 @@ class EmployeeActivate extends Component
 
     public function activate_account()
     {
-        //
+        // Insert login data into users table and activate account
+        $new_user = User::create([
+
+        ]);
+        // Trigger onboarding email to employees personal email
+
+        // Redirect to Full employee profile
+        session()->flash('message', 'Employee Profile Activated.');
+        return redirect()->route('employee-profile',['id' => $this->employee_id]);
 
     }
 

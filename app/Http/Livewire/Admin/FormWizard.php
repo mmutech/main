@@ -209,6 +209,9 @@ class FormWizard extends Component
             
             session()->flash('success', 'Please add employee qualifications and activate profile!');
             return redirect()->route('employee-activate',['id' =>  $user]);
+
+            //clear form
+            
         });
 
         // redirect to education & Qualification Page
