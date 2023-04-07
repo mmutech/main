@@ -14,6 +14,7 @@
         <!-- Page Content -->
     <div>
         <!-- End Update Exit Initiation -->
+        @if(@empty($this->ViewAdminComment))
         <div class="card mb-0">
             <div class="card-header">
                 Head Human Resource Approval
@@ -77,7 +78,8 @@
                     </div>
                 </div>
             </div>
-        </div><br>
+        </div><br>        
+        @endif
         <!-- End Update Exit Initiation -->
 
         <!-- Staff Detais -->
@@ -91,15 +93,15 @@
                         <ul class="personal-info">
                             <li>
                                 <div class="title">Staff Name:</div>
-                                <div class="text">John Doe</div>
+                                <div class="text">{{$this->ViewSurname}} {{$this->ViewFirstName}} {{$this->ViewOtherName}}</div>
                             </li>
                             <li>
                                 <div class="title">Staff ID:</div>
-                                <div class="text">0001</div>
+                                <div class="text">{{$this->ViewStaffId}}</div>
                             </li>
                             <li>
                                 <div class="title">Personal Email:</div>
-                                <div class="text"><a href="">johndoe@google.com</a></div>
+                                <div class="text"><a href="">{{$this->ViewPersonalEmail}}</a></div>
                             </li>
                             <li>
                                 <div class="title">Grade/Job Role:</div>
@@ -110,16 +112,20 @@
                     <div class="col-md-6">
                         <ul class="personal-info">
                             <li>
+                                <div class="title">Location:</div>
+                                <div class="text">Headquater</div>
+                            </li>
+                            <li>
                                 <div class="title">Division:</div>
-                                <div class="text">Operation Support</div>
+                                <div class="text">Finance and Account</div>
                             </li>
                             <li>
                                 <div class="title">Department:</div>
-                                <div class="text">Human Resource</div>
+                                <div class="text">Cooperate Account</div>
                             </li>
                             <li>
-                                <div class="title">Location:</div>
-                                <div class="text">Dogon Dutse</div>
+                                <div class="title">Unit:</div>
+                                <div class="text">Credit Risk Management</div>
                             </li>
                         </ul>
                     </div>
@@ -161,7 +167,10 @@
                                 <div class="title">Process Status:</div>
                                 <div class="text">{{$this->Viewstatus}}</div>
                             </li>
-                            
+                            <li>
+                                <div class="title">HR Comment:</div>
+                                <div class="text">{{$this->ViewAdminComment}}</div>
+                            </li>
                         </ul>
                     </div>
                 </div>

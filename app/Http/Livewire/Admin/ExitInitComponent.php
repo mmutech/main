@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\ExitInitModel;
 use App\Models\ExitTypeModel;
 use App\Models\statusModel;
+use App\Models\User;
+use App\Models\Biodata;
 
 class ExitInitComponent extends Component
 {
@@ -16,10 +18,14 @@ class ExitInitComponent extends Component
     {
         $status = $this->status = statusModel::all();
         $exitType = $this->exitType = ExitTypeModel::all();
-        $this->exitInt = ExitInitModel::select("exit_initiation.id", "exit_initiation.added_by", "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status")
+        $query = $this->exitInt = ExitInitModel::select("exit_initiation.id", "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status",
+        "biodatas.staff_id", "biodatas.surname", "biodatas.first_name", "biodatas.other_name", "biodatas.personal_email")
         ->join('status', 'status.id', "=", 'exit_initiation.status')
         ->join('exit_type', 'exit_type.id', "=", 'exit_initiation.exit_type_id')
+        ->join('biodatas', 'biodatas.id', "=", 'exit_initiation.added_by')
         ->orderByRaw('id DESC')->get();
+
+        // dd($query);
         
         return view('livewire.admin.exit-init-component')->layout('layouts.admin-layout');
     }

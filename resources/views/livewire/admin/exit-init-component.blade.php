@@ -43,7 +43,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Exit Type Name</th>
+                            <th>Staff ID</th>
+                            <th>Exit Type</th>
                             <th>Comment</th>
                             <th>Initiation Date</th>
                             <th>Last Working Date</th>
@@ -55,6 +56,7 @@
                         @foreach ($exitInt as $div)
                             <tr>
                                 <td>#</td>
+                                <td>{{$div->staff_id}}</td>
                                 <td>{{$div->exit_type}}</td>
                                 <td>{{$div->comment}}</td>
                                 <td>{{$div->rdate}}</td>
