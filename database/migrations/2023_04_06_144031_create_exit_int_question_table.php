@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('exit_type_id')->index('exit_type_id');
             $table->string('question');
             $table->string('comment');
+            $table->integer('status')->index('status');
+            $table->integer('added_by');
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
         });
