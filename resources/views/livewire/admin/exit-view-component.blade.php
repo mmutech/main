@@ -16,7 +16,7 @@
         <!-- End Update Exit Initiation -->
         <div class="card mb-0">
             <div class="card-header">
-                Approved Exit Procedure
+                Head Human Resource Approval
             </div>
             <div class="card-body">
                 <div class="row">

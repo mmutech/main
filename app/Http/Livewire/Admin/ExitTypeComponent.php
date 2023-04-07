@@ -22,16 +22,16 @@ class ExitTypeComponent extends Component
     }
 
     // Get Active Record
-    public function mount()
-    {
-        $status = $this->status = statusModel::all();
-        $this->exitType = ExitTypeModel::where('status', 1)
-        ->select("exit_type.id", "exit_type.description", "exit_type.exit_type", "status.status_name AS status")
-        ->join('status', 'status.id', "=", 'exit_type.status')
-        ->orderByRaw('id DESC')->get();
+    // public function mount()
+    // {
+    //     $status = $this->status = statusModel::all();
+    //     $this->exitType = ExitTypeModel::where('status', 1)
+    //     ->select("exit_type.id", "exit_type.description", "exit_type.exit_type", "status.status_name AS status")
+    //     ->join('status', 'status.id', "=", 'exit_type.status')
+    //     ->orderByRaw('id DESC')->get();
 
-        return view('livewire.admin.exit-type-component')->layout('layouts.admin-layout');
-    }
+    //     return view('livewire.admin.exit-type-component')->layout('layouts.admin-layout');
+    // }
 
     // validation
     protected $rules = [

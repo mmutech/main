@@ -67,6 +67,10 @@
                                 <td>
                                     <span class="badge bg-inverse-warning">{{$div->status}}</span>
                                 </td>
+                                @elseif ($div->status == 'Rejected')
+                                <td>
+                                    <span class="badge bg-inverse-danger">{{$div->status}}</span>
+                                </td>
                                 @endif
                                 <td class="text-end">
                                     {{-- <a @click="editModal = true" class="btn btn-primary" data-bs-toggle="editExitintForm"
