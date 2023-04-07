@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
-use App\Models\Employee;
+use App\Models\Biodata;
 
 class Employees extends Component
 {
@@ -65,7 +65,7 @@ class Employees extends Component
 
     public function render()
     {
-        $this->employees = Employee::all();
+        $this->employees = Biodata::all();
         return view('livewire.admin.employees')->layout('layouts.admin-layout');
     }
 }

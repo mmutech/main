@@ -140,6 +140,7 @@
                                                 <div class="form-group">
                                                     <label>State:</label>
                                                     <select class="form-control" id="state" wire:model.defer="state">
+                                                        <option>Choose...</option>
                                                         <option value="1">Abia</option>
                                                     </select>
                                                     <x-input-error for="state"></x-input-error>
@@ -149,6 +150,7 @@
                                                 <div class="form-group">
                                                     <label>LGA:</label>
                                                     <select class="form-control" id="lga" wire:model.defer="lga">
+                                                        <option>Choose...</option>
                                                         <option value="1">Umuahia</option>
                                                     </select>
                                                     <x-input-error for="lga"></x-input-error>
@@ -286,6 +288,7 @@
                             <div class="form-group">
                                 <label>Unit:</label>
                                 <select class="form-control" id="deployment_unit" wire:model.defer="deployment_unit">
+                                    <option value="">Choose</option>
                                     <option value="1">Unit 1</option>
                                 </select>
                                 <x-input-error for="deployment unit"></x-input-error>
@@ -295,6 +298,7 @@
                             <div class="form-group">
                                 <label>Location:</label>
                                 <select class="form-control" id="deployment_location" wire:model.defer="deployment_location">
+                                    <option value="">Choose</option>
                                     <option value="1">Location 1</option>
                                 </select>
                                 <x-input-error for="deployment location"></x-input-error>
