@@ -22,16 +22,16 @@ class ExitTypeComponent extends Component
     }
 
     // Get Active Record
-    public function mount()
-    {
-        $status = $this->status = statusModel::all();
-        $this->exitType = ExitTypeModel::where('status', 1)
-        ->select("exit_type.id", "exit_type.description", "exit_type.exit_type", "status.status_name AS status")
-        ->join('status', 'status.id', "=", 'exit_type.status')
-        ->orderByRaw('id DESC')->get();
+    // public function mount()
+    // {
+    //     $status = $this->status = statusModel::all();
+    //     $this->exitType = ExitTypeModel::where('status', 1)
+    //     ->select("exit_type.id", "exit_type.description", "exit_type.exit_type", "status.status_name AS status")
+    //     ->join('status', 'status.id', "=", 'exit_type.status')
+    //     ->orderByRaw('id DESC')->get();
 
-        return view('livewire.admin.exit-type-component')->layout('layouts.admin-layout');
-    }
+    //     return view('livewire.admin.exit-type-component')->layout('layouts.admin-layout');
+    // }
 
     // validation
     protected $rules = [
@@ -43,12 +43,13 @@ class ExitTypeComponent extends Component
     // Create exitType
     public function createExitType()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $exitType = ExitTypeModel::create([
             'exit_type' => $this->exit_type,
             'description' => $this->discription, 
             'status' => 1,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Exit Type Added Successfully!');
@@ -88,12 +89,13 @@ class ExitTypeComponent extends Component
     // Update exitType
     public function updateExitType()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         ExitTypeModel::where('id', $this->exitTypeId)->update([
             'exit_type' => $validateData['exit_type'], 
             'description' => $validateData['discription'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Exit Type Updated Successfully!');

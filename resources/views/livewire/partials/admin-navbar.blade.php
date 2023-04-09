@@ -31,10 +31,10 @@
                             class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{ url('exit-type-component') }}">Exit Type</a></li>
-                        <li><a href="{{ url('new-user') }}">Exit Interview Questions</a></li>
+                        <li><a href="{{ url('exit-interview-component') }}">Exit Interview Questions</a></li>
                         <li><a href="{{ url('new-user') }}">Setting</a></li>
                         <li><a href="{{ url('exit-init-component') }}">Initiate/Check Status</a></li>
-                        <li><a href="{{ url('new-user') }}">All Exit Procedures</a></li>
+                        <li><a href="{{ url('exit-init-component') }}">All Exit Procedures</a></li>
                     </ul>
                 </li>
                 <li class="submenu">

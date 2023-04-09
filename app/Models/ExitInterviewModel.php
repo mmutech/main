@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ExitTypeModel extends Model
+class ExitInterviewModel extends Model
 {
     use HasFactory;
-    protected $table = 'exit_type';
+
+    protected $table = 'exit_int_question';
     protected $fillable = [
-        'description', 
-        'exit_type',
+        'comment', 
+        'exit_type_id',
         'status',
         'added_by',
-        'updated_by'
+        'question',
+        'updated_by',
     ];
 }

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('division', function (Blueprint $table) {
-            $table->foreign(['status'], 'division_ibfk_1')->references(['statusID'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        Schema::table('department', function (Blueprint $table) {
+            $table->foreign(['status'], 'department_ibfk_2')->references(['id'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('division', function (Blueprint $table) {
-            $table->dropForeign('division_ibfk_1');
+        Schema::table('department', function (Blueprint $table) {
+            $table->dropForeign('department_ibfk_2');
         });
     }
 };

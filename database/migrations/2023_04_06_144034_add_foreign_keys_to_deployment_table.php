@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('deployment', function (Blueprint $table) {
-            $table->foreign(['location_id'], 'deployment_ibfk_2')->references(['locationID'])->on('location')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['location_id'], 'deployment_ibfk_2')->references(['id'])->on('location')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['unit_id'], 'deployment_ibfk_4')->references(['id'])->on('unit')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['bio_id'], 'deployment_ibfk_3')->references(['bioID'])->on('bio_data')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });

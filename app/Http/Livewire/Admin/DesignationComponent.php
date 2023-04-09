@@ -44,12 +44,13 @@ class DesignationComponent extends Component
     // Create designation
     public function createDesignation()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $designation = DesignationModel::create([
             'description' => $this->discription, 
             'comment' => $this->comment, 
             'status' => 1,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Designation Added Successfully!');
@@ -89,12 +90,13 @@ class DesignationComponent extends Component
     // Update designation
     public function updateDesignation()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         DesignationModel::where('id', $this->designationId)->update([
             'description' => $validateData['discription'], 
             'comment' => $validateData['comment'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Designation Updated Successfully!');

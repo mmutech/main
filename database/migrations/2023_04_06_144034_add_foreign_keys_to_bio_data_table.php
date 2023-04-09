@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('bio_data', function (Blueprint $table) {
             $table->foreign(['grade_level_id'], 'fk_bio_data_grade_level1')->references(['id'])->on('grade_level')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign(['status'], 'fk_bio_data_status1')->references(['statusID'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['status'], 'fk_bio_data_status1')->references(['id'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 

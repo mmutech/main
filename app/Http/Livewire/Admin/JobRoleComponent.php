@@ -44,12 +44,13 @@ class JobRoleComponent extends Component
     // Create job_role
     public function createJobRole()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $job_role = JobRoleModel::create([
             'description' => $this->discription, 
             'comment' => $this->comment, 
             'status' => 1,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Job Role Added Successfully!');
@@ -89,12 +90,13 @@ class JobRoleComponent extends Component
     // Update job_role
     public function updateJobRole()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         JobRoleModel::where('id', $this->job_roleId)->update([
             'description' => $validateData['discription'], 
             'comment' => $validateData['comment'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Job Role Updated Successfully!');

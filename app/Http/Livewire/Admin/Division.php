@@ -45,12 +45,13 @@ class Division extends Component
     // Create Division
     public function createDivision()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $division = DivisionModel::create([
             'description' => $this->discription, 
             'comment' => $this->comment, 
             'status' => 1,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Division Added Successfully!');
@@ -90,12 +91,13 @@ class Division extends Component
     // Update Division
     public function updateDivision()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         DivisionModel::where('id', $this->divisionId)->update([
             'description' => $validateData['discription'], 
             'comment' => $validateData['comment'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Division Updated Successfully!');

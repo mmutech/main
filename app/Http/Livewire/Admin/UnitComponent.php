@@ -52,13 +52,14 @@ class UnitComponent extends Component
     // Create unit
     public function createUnit()
     {
+        $userId = auth()->user()->id;
         $this->validate();
         $unit = unitModel::create([
             'description' => $this->discription, 
             'department_id' => $this->departmentId, 
             'comment' => $this->comment, 
             'status' => 1,
-            'added_by' => 1
+            'added_by' => $userId
         ]);
 
         session()->flash('message', 'Unit Added Successfully!');
@@ -99,13 +100,14 @@ class UnitComponent extends Component
     // Update unit
     public function updateUnit()
     {
+        $userId = auth()->user()->id;
         $validateData = $this->validate();
         unitModel::where('id', $this->unitId)->update([
             'description' => $validateData['discription'],
             'department_id' => $validateData['departmentId'], 
             'comment' => $validateData['comment'], 
             'status' => $validateData['status'],
-            'added_by' => 1
+            'updated_by' => $userId
         ]);
 
         session()->flash('message', 'Unit Updated Successfully!');

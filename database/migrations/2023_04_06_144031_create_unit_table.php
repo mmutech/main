@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('exit_int_question', function (Blueprint $table) {
+        Schema::create('unit', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->integer('exit_type_id')->index('exit_type_id');
-            $table->string('question');
+            $table->string('description', 100);
+            $table->integer('department_id')->index('department_id');
             $table->string('comment');
+            $table->integer('status')->index('status');
+            $table->integer('added_by');
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
         });
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exit_int_question');
+        Schema::dropIfExists('unit');
     }
 };

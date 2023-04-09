@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('unit_models', function (Blueprint $table) {
+        Schema::create('exit_interview_models', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('unit_models');
+        Schema::dropIfExists('exit_interview_models');
     }
 };

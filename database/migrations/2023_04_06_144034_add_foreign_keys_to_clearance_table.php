@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('clearance', function (Blueprint $table) {
             $table->foreign(['exit_int_id'], 'clearance_ibfk_1')->references(['id'])->on('exit_initiation')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['cleared_by'], 'clearance_ibfk_3')->references(['bioID'])->on('bio_data')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign(['clr_status'], 'clearance_ibfk_2')->references(['statusID'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['clr_status'], 'clearance_ibfk_2')->references(['id'])->on('status')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
