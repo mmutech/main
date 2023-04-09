@@ -15,7 +15,7 @@ class GradeLevelComponent extends Component
     public function render()
     {
         $status = $this->status = statusModel::all();
-        $designationId = $this->designationId = DesignationModel::all();
+        $designationId = $this->designationId = DesignationModel::where('status', 1)->get();
         $this->gradeLevel = GradeLevelModel::select("grade_level.id", "grade_level.monthly_gross", "grade_level.description", "grade_level.comment", "status.status_name AS status", "designation.description AS designationId")
         ->join('status', 'status.id', "=", 'grade_level.status')
         ->join('designation', 'designation.id', "=", 'grade_level.designation_id')

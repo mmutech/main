@@ -15,7 +15,7 @@ class DepartmentComponent extends Component
     public function render()
     {
         $status = $this->status = statusModel::all();
-        $division_id = $this->division_id = DivisionModel::all();
+        $division_id = $this->division_id = DivisionModel::where('status', 1)->get();
         $this->department = DepartmentModel::select("department.id", "department.description", "department.comment", "status.status_name AS status", "division.description AS division_id")
         ->join('status', 'status.id', "=", 'department.status')
         ->join('division', 'division.id', "=", 'department.division_id')

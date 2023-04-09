@@ -47,14 +47,16 @@ class ExitViewComponent extends Component
         $user = User::where('id', $this->ViewAddedBy)->first();
 
         $this->ViewBiodataId = $user->biodata_id;
-
+        // dd($this->ViewBiodataId);
         // Get Biodata
-        $biodata = Biodata::where('biodatas.staff_id', $this->ViewBiodataId)
+        $biodata = Biodata::where('biodatas.id', $this->ViewBiodataId)
         ->select('biodatas.surname', 'biodatas.first_name', 'biodatas.other_name', 'biodatas.personal_email', 'biodatas.staff_id',
-         'grade_level.description AS grade_level', 'job_role.description AS job_role')
+        'grade_level.description AS grade_level', 'job_role.description AS job_role')
         ->join('grade_level', 'grade_level.id', "=", 'biodatas.grade_level')
         ->join('job_role', 'job_role.id', "=", 'biodatas.job_role')
         ->first();
+
+        // dd($biodata);
             $this->ViewSurname = $biodata->surname;
             $this->ViewFirstName = $biodata->first_name;
             $this->ViewOtherName = $biodata->other_name;
@@ -62,11 +64,10 @@ class ExitViewComponent extends Component
             $this->ViewStaffId = $biodata->staff_id;
             $this->ViewJobRole = $biodata->job_role;
             $this->ViewGradeLevel = $biodata->grade_level;
-
-            // dd($biodata);
+            // $this->ViewBiodataId = $biodata->id;
 
         // Get Deployment
-        $deployment = Deployment::where('deployments.biodata_id', $this->ViewStaffId)
+        $deployment = Deployment::where('deployments.biodata_id', $this->ViewBiodataId)
             ->select('deployments.id', 'location.description AS location_id', 'deployments.comment', 'deployments.biodata_id',
             'unit.description AS unit_id', 'unit.id AS unitId')
             ->join('location', 'location.id', "=", 'deployments.location_id')

@@ -15,7 +15,7 @@ class UnitComponent extends Component
     public function render()
     {
         $status = $this->status = statusModel::all();
-        $departmentId = $this->departmentId = DepartmentModel::all();
+        $departmentId = $this->departmentId = DepartmentModel::where('status', 1)->get();
         $this->unit = unitModel::select("unit.id", "unit.description", "unit.comment", "status.status_name AS status", "department.description AS departmentId")
         ->join('status', 'status.id', "=", 'unit.status')
         ->join('department', 'department.id', "=", 'unit.department_id')

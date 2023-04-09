@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('deployment', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('bio_id')->index('deployment_table_ibfk_3');
+        Schema::create('deployments', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('biodata_id');
             $table->integer('location_id')->index('deployment_table_ibfk_2');
             $table->integer('unit_id')->index('unit_id');
             $table->string('comment');
-            $table->integer('status');
-            $table->date('deloyment_date');
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable();
+            $table->enum('status', ['Active', 'Inactive'])->default('Active');
+            $table->date('deployment_date');
+            $table->timestamps();
         });
     }
 
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deployment');
+        Schema::dropIfExists('deployments');
     }
 };

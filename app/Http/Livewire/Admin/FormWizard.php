@@ -10,6 +10,10 @@ use App\Models\NextOfKin;
 use App\Models\MedicalHistory;
 use App\Models\Deployment;
 use App\Models\Bank;
+use App\Models\LocationModel;
+use App\Models\UnitModel;
+use App\Models\JobRoleModel;
+use App\Models\GradeLevelModel;
 
 class FormWizard extends Component
 {
@@ -19,7 +23,7 @@ class FormWizard extends Component
     //Biodata
     public $title, $surname, $first_name, $other_name, $personal_mail, 
             $phone, $date_of_birth, $gender, $marital_status,
-            $official_mail, $address, $nationality, $state, $lga, $job_role, $grade_level, $nok_name, $nok_relationship, $nok_phone, $nok_mail, $nok_address;
+            $official_mail, $address, $nationality, $state, $lga, $job_role, $grade_level, $gradeLevel, $jobRole, $nok_name, $nok_relationship, $nok_phone, $nok_mail, $nok_address;
     // NextOfKin        
     
     // MedicalHistory
@@ -40,6 +44,10 @@ class FormWizard extends Component
 
     public function mount()
     {
+        $deployment_location = $this->deployment_location = LocationModel::where('status', 1)->get();
+        $deployment_unit = $this->deployment_unit = UnitModel::where('status', 1)->get();
+        $gradeLevel = $this->gradeLevel = GradeLevelModel::where('status', 1)->get();
+        $jobRole = $this->jobRole = JobRoleModel::where('status', 1)->get();
         $lastRecord = DB::table('biodatas')->orderBy('id', 'desc')->latest()->first();
         $this->lastNumber = $lastRecord ? $lastRecord->staff_id + 1 : 1;
     }
@@ -50,6 +58,12 @@ class FormWizard extends Component
         
         return view('livewire.admin.form-wizard')->layout('layouts.admin-layout');
     }
+
+    protected $rules = [
+        'deployment_location'   => 'required',
+        'deployment_unit'       => 'required',
+        'deployment_date'       => 'required'
+    ];
 
 
     public function nextStep()
@@ -91,12 +105,13 @@ class FormWizard extends Component
                 ]);
                 break;
             case 3:
-                $this->validate([
-                    'deployment_location'   => 'required',
-                    'deployment_unit'       => 'required',
-                    'deployment_date'       => 'required'
+                
+                // $this->validate([
+                //     'deployment_location'   => 'required',
+                //     'deployment_unit'       => 'required',
+                //     'deployment_date'       => 'required'
                     
-                ]);
+                // ]);
                 break;
             /*case 4:
                 $this->validate([
