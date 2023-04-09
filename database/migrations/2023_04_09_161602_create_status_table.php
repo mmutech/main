@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('status', function (Blueprint $table) {
             $table->integer('id', true);
             $table->string('status_name', 45)->nullable();
-            $table->dateTime('stamp_date')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->useCurrent();
         });
     }
 
