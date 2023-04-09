@@ -168,8 +168,21 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Job Role: </label>
-                                                    <input type="text" class="form-control" wire:model.defer="job_role">
+                                                    <select class="form-control" id="job_role" wire:model.defer="job_role">
+                                                        <option>Choose...</option>
+                                                        <option value="1">Umuahia</option>
+                                                    </select>
                                                     <x-input-error for="job_role"></x-input-error>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Grade Level:</label>
+                                                    <select class="form-control" id="grade_level" wire:model.defer="grade_level">
+                                                        <option>Choose...</option>
+                                                        <option value="1">Umuahia</option>
+                                                    </select>
+                                                    <x-input-error for="grade_level"></x-input-error>
                                                 </div>
                                             </div>
                                         </div>

@@ -19,7 +19,7 @@ class FormWizard extends Component
     //Biodata
     public $title, $surname, $first_name, $other_name, $personal_mail, 
             $phone, $date_of_birth, $gender, $marital_status,
-            $official_mail, $address, $nationality, $state, $lga, $job_role, $nok_name, $nok_relationship, $nok_phone, $nok_mail, $nok_address;
+            $official_mail, $address, $nationality, $state, $lga, $job_role, $grade_level, $nok_name, $nok_relationship, $nok_phone, $nok_mail, $nok_address;
     // NextOfKin        
     
     // MedicalHistory
@@ -70,7 +70,8 @@ class FormWizard extends Component
                     'nationality'       => 'required',
                     'state'             => 'required',
                     'lga'               => 'required',
-                    //'job_role'          => 'required',
+                    'job_role'          => 'required',
+                    'grade_level'       => 'required',
                     'official_mail'     => 'email',
                     //
                     'nok_name'          => 'required',
@@ -145,6 +146,7 @@ class FormWizard extends Component
         // ...
         DB::transaction(function () {
             // Insert into table 1
+            $userId = auth()->user()->id;
             $user = DB::table('biodatas')->insertGetId([
                 'title'             => $this->title,
                 'surname'           => $this->surname,
@@ -159,9 +161,11 @@ class FormWizard extends Component
                 'nationality'       => $this->nationality,
                 'state'             => $this->state,
                 'lga'               => $this->lga,
-                //'job_role'          => $this->job_role,
+                'job_role'          => $this->job_role,
+                'grade_level'          => $this->grade_level,
                 'official_email'     => $this->official_mail,
                 'staff_id'          => $this->lastNumber,
+                'added_by'          => $userId,
             ]);
 
             // Insert into table 2

@@ -22,7 +22,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <form wire:submit.prevent="updateIntType">
+                        <form wire:submit.prevent="updateIntiation">
                             <div class="row">
                                 <input wire:model.defer="ViewexitIntId" class="form-control" type="hidden" readonly>
                                 <div class="col-md-6">
@@ -57,7 +57,7 @@
                                 <div class="submit-section">
                                     <button wire:loading.remove
                                     class="btn btn-primary submit-btn">Update</button>
-                                    <button wire:loading wire:target="updateIntType"
+                                    <button wire:loading wire:target="updateIntiation"
                                     class="btn btn-primary submit-btn">Updating..</button>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                             </li>
                             <li>
                                 <div class="title">Grade/Job Role:</div>
-                                <div class="text">JT_1 / Marketer</div>
+                                <div class="text">{{$this->ViewGradeLevel}} / {{$this->ViewJobRole}}</div>
                             </li>
                         </ul>
                     </div>
@@ -113,19 +113,19 @@
                         <ul class="personal-info">
                             <li>
                                 <div class="title">Location:</div>
-                                <div class="text">Headquater</div>
+                                <div class="text">{{$this->ViewLocationId}}</div>
                             </li>
                             <li>
                                 <div class="title">Division:</div>
-                                <div class="text">Finance and Account</div>
+                                <div class="text">{{$this->ViewDivision}}</div>
                             </li>
                             <li>
                                 <div class="title">Department:</div>
-                                <div class="text">Cooperate Account</div>
+                                <div class="text">{{$this->ViewDepartment}}</div>
                             </li>
                             <li>
                                 <div class="title">Unit:</div>
-                                <div class="text">Credit Risk Management</div>
+                                <div class="text">{{$this->ViewUnitId}}</div>
                             </li>
                         </ul>
                     </div>

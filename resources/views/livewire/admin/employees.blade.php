@@ -94,7 +94,7 @@
                                 <th>Staff Id</th>
                                 <th>Name</th>
                                 
-                                <th>Email</th>
+                                <th>Personal Email</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-end"></th>
                             </tr>
@@ -104,7 +104,7 @@
                                 <tr>
                                     <td>#</td>
                                     <td> <a href="{{ url("asset/$employee->id") }}">
-                                            <strong>1234</strong>
+                                            <strong>{{$employee->staff_id}}</strong>
                                         </a></td>
                                     <td>
                                         <a href="{{ url("asset/$employee->id") }}">
@@ -112,7 +112,7 @@
                                             {{ $employee->first_name ." ".$employee->surname." ".$employee->other_name }}
                                         </a>
                                     </td>
-                                    <td>{{ $employee->email }}</td>
+                                    <td>{{ $employee->personal_email }}</td>
                                     <td class="text-center">
                                         <div class="dropdown action-label">
                                             <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
