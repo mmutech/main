@@ -27,5 +27,9 @@ class Biodata extends Model
         'state',
         'lga',
         'religion',
+        'grade_level',
+        'job_role',
+        'added_by',
+        'updated_by',
     ];
 }

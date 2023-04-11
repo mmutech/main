@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('location', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('description');
-            $table->integer('status');
-            $table->integer('added_by');
-            $table->integer('updated_by')->nullable();
+        Schema::create('status', function (Blueprint $table) {
+            $table->integer('id', true);
+            $table->string('status_name', 45)->nullable();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('updated_at')->nullable()->useCurrent();
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location');
+        Schema::dropIfExists('status');
     }
 };

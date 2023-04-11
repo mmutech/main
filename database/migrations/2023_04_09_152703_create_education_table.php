@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('status', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('status_name', 45)->nullable();
-            $table->dateTime('stamp_date')->nullable();
+        Schema::create('education', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('employee_id');
+            $table->string('institution');
+            $table->string('course');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status');
+        Schema::dropIfExists('education');
     }
 };

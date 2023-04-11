@@ -17,7 +17,7 @@ class ExitInitComponent extends Component
     public function render()
     {
         $status = $this->status = statusModel::all();
-        $exitType = $this->exitType = ExitTypeModel::all();
+        $exitType = $this->exitType = ExitTypeModel::where('status', 1)->get();
         $query = $this->exitInt = ExitInitModel::select("exit_initiation.id", "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status",
         "biodatas.staff_id", "biodatas.surname", "biodatas.first_name", "biodatas.other_name", "biodatas.personal_email")
         ->join('status', 'status.id', "=", 'exit_initiation.status')

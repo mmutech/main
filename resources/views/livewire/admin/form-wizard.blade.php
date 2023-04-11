@@ -168,8 +168,25 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Job Role: </label>
-                                                    <input type="text" class="form-control" wire:model.defer="job_role">
+                                                    <select class="form-control" id="job_role" wire:model.defer="job_role">
+                                                        <option>Choose...</option>
+                                                        @foreach($jobRole as $stat)
+                                                            <option value="{{$stat->id}}">{{$stat->description}}</option>
+                                                        @endforeach
+                                                    </select>
                                                     <x-input-error for="job_role"></x-input-error>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Grade Level:</label>
+                                                    <select class="form-control" id="grade_level" wire:model.defer="grade_level">
+                                                        <option>Choose...</option>
+                                                        @foreach($gradeLevel as $stat)
+                                                            <option value="{{$stat->id}}">{{$stat->description}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <x-input-error for="grade_level"></x-input-error>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,9 +306,11 @@
                                 <label>Unit:</label>
                                 <select class="form-control" id="deployment_unit" wire:model.defer="deployment_unit">
                                     <option value="">Choose</option>
-                                    <option value="1">Unit 1</option>
+                                    @foreach($deployment_unit as $stat)
+                                        <option value="{{$stat->id}}">{{$stat->description}}</option>
+                                    @endforeach
                                 </select>
-                                <x-input-error for="deployment unit"></x-input-error>
+                                <x-input-error for="deployment_unit"></x-input-error>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -299,9 +318,11 @@
                                 <label>Location:</label>
                                 <select class="form-control" id="deployment_location" wire:model.defer="deployment_location">
                                     <option value="">Choose</option>
-                                    <option value="1">Location 1</option>
+                                    @foreach($deployment_location as $stat)
+                                        <option value="{{$stat->id}}">{{$stat->description}}</option>
+                                    @endforeach
                                 </select>
-                                <x-input-error for="deployment location"></x-input-error>
+                                <x-input-error for="deployment_location"></x-input-error>
                             </div>
                         </div>
                         

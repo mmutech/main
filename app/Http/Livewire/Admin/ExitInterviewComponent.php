@@ -15,7 +15,7 @@ class ExitInterviewComponent extends Component
     public function render()
     {
         $status = $this->status = statusModel::all();
-        $exitType = $this->exitType = ExitTypeModel::all();
+        $exitType = $this->exitType = ExitTypeModel::where('status', 1)->get();
         $this->exitInt = ExitInterviewModel::select("exit_int_question.id", "exit_int_question.added_by", "exit_int_question.question", "exit_int_question.comment", "exit_type.exit_type", "status.status_name AS status")
         ->join('status', 'status.id', "=", 'exit_int_question.status')
         ->join('exit_type', 'exit_type.id', "=", 'exit_int_question.exit_type_id')
