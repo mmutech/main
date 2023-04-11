@@ -48,8 +48,13 @@ class EmployeeActivate extends Component
     public function activate_account()
     {
         // Insert login data into users table and activate account
+        // Generate Random password
+        $password = "password";
         $new_user = User::create([
-
+                'email' => $this->personal_email,
+                'employee_id' => $this->employee_id,
+                'password' => Hash::make($password),
+                'active' => 0,
         ]);
         // Trigger onboarding email to employees personal email
 
