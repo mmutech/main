@@ -13,6 +13,7 @@ use App\Http\Livewire\Admin\UnitComponent;
 use App\Http\Livewire\Admin\JobRoleComponent;
 use App\Http\Livewire\Admin\DesignationComponent;
 use App\Http\Livewire\Admin\GradeLevelComponent;
+use App\Http\Livewire\Admin\LocationComponent;
 use App\Http\Livewire\Admin\ExitTypeComponent;
 use App\Http\Livewire\Admin\ExitInitComponent;
 use App\Http\Livewire\Admin\ExitViewComponent;
@@ -49,6 +50,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/job-role-component', JobRoleComponent::class);
         Route::get('/designation-component', DesignationComponent::class);
         Route::get('/grade-level-component', GradeLevelComponent::class);
+        Route::get('/location-component', LocationComponent::class);
 
         // Exit Procedures Routes.
         Route::get('/exit-type-component', ExitTypeComponent::class);
