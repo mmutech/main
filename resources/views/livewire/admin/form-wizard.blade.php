@@ -1,31 +1,20 @@
- <!-- Page Header -->
- <div class="page-header">
-     <div class="row">
-         <div class="col-sm-12">
-             <h3 class="page-title">Employees</h3>
-             <ul class="breadcrumb">
-                 <li class="breadcrumb-item">Add Employees</li>
-                 @if ($step >= 1)
-                     <li class="breadcrumb-item {{ $step == 1? 'btn p-0' : '' }}">Profile</li>
-                 @endif
-                 @if ($step >= 2)
-                     <li class="breadcrumb-item {{ $step == 2? 'btn p-0' : '' }}">Medical History</li>
-                 @endif
-                 @if ($step >= 3)
-                     <li class="breadcrumb-item {{ $step == 3? 'btn p-0' : '' }}">Deployment</li>
-                 @endif
-                 @if ($step >= 4)
-                     <li class="breadcrumb-item {{ $step == 4? 'btn p-0' : '' }}">Bank Details</li>
-                 @endif
-             </ul>
-         </div>
-     </div>
- </div>
- <!-- /Page Header -->
-
  <div>
      <!--    <form>-->
      @if ($step == 1)
+         <!-- Page Header -->
+         <div class="page-header">
+             <div class="row">
+                 <div class="col-sm-12">
+                     <h3 class="page-title">Employees</h3>
+                     <ul class="breadcrumb">
+                         <li class="breadcrumb-item">Add Employees</li>
+                         <li class="breadcrumb-item btn p-0">Profile</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <!-- /Page Header -->
+
          <!-- Profile Info Tab -->
          <div class="pro-overview tab-pane fade active show">
              <div class="row">
@@ -40,7 +29,7 @@
                                  <div class="col-md-2">
                                      <div class="form-group">
                                          <label>Staff ID:</label>
-                                         <input wire:model="lastNumber" type="text" readonly class="form-control" />
+                                         <input wire:model="lastNumber" type="text" readonly class="form-control border rounded" />
                                      </div>
                                  </div>
 
@@ -62,7 +51,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Surname:</label>
-                                         <input type="text" class="form-control" wire:model.defer="surname"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="surname"
                                              id="surname" class="border-gray-300 rounded-sm form-control"
                                              type="text">
                                          <x-input-error for="surname">
@@ -74,7 +63,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>First Name:</label>
-                                         <input type="text" class="form-control" wire:model.defer="first_name"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="first_name"
                                              id="first_name" class="border-gray-300 rounded-sm form-control"
                                              type="text">
                                          <x-input-error for="first_name">
@@ -84,7 +73,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Other Name:</label>
-                                         <input type="text" class="form-control" wire:model.defer="other_name"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="other_name"
                                              id="other_name" class="border-gray-300 rounded-sm form-control"
                                              type="text">
                                          <x-input-error for="other_name">
@@ -97,7 +86,7 @@
                                      <div class="form-group">
                                          <label>Date of Birth: </label>
                                          <div class="cal-icon">
-                                             <input class="border-gray-300 rounded-sm form-control" id="date_of_birth"
+                                             <input class="form-control border rounded" id="date_of_birth"
                                                  wire:model.defer="date_of_birth" type="date">
                                          </div>
                                          <x-input-error for="date_of_birth">
@@ -130,7 +119,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Personal Email:</label>
-                                         <input type="text" class="form-control" wire:model.defer="personal_mail"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="personal_mail"
                                              id="personal_email" class="border-gray-300 rounded-sm form-control"
                                              type="text">
                                          <x-input-error for="personal_mail">
@@ -140,7 +129,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Official Email:</label>
-                                         <input type="text" class="form-control" wire:model.defer="official_mail"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="official_mail"
                                              id="official_email" class="border-gray-300 rounded-sm form-control"
                                              type="text">
                                          <x-input-error for="official_mail">
@@ -152,7 +141,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Phone:</label>
-                                         <input type="text" class="form-control" wire:model.defer="phone"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="phone"
                                              id="phone" class="border-gray-300 rounded-sm form-control">
                                          <x-input-error for="phone">
                                          </x-input-error>
@@ -161,7 +150,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Nationality:</label>
-                                         <input type="text" class="form-control" wire:model.defer="nationality"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="nationality"
                                              id="nationality" class="border-gray-300 rounded-sm form-control"
                                              type="text">
                                          <x-input-error for="nationality">
@@ -195,7 +184,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Address line:</label>
-                                         <textarea class="form-control" wire:model.defer="address" id="address"
+                                         <textarea class="form-control border rounded" wire:model.defer="address" id="address"
                                              class="border-gray-300 rounded-sm form-control"></textarea>
                                          <x-input-error for="address"></x-input-error>
                                      </div>
@@ -232,14 +221,14 @@
                                  <div class="col-md-4">
                                      <div class="form-group">
                                          <label>Name:</label>
-                                         <input type="text" class="form-control" wire:model.defer="nok_name" />
+                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_name" />
                                          <x-input-error for="nok_name"></x-input-error>
                                      </div>
                                  </div>
                                  <div class="col-md-4">
                                      <div class="form-group">
                                          <label>Relationship:</label>
-                                         <input type="text" class="form-control"
+                                         <input type="text" class="form-control border rounded"
                                              wire:model.defer="nok_relationship" />
                                          <x-input-error for="nok_relationship"></x-input-error>
                                      </div>
@@ -247,7 +236,7 @@
                                  <div class="col-md-4">
                                      <div class="form-group">
                                          <label>Phone:</label>
-                                         <input type="text" class="form-control" wire:model.defer="nok_phone"
+                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_phone"
                                              id="nok_phone" />
                                          <x-input-error for="nok_phone"></x-input-error>
                                      </div>
@@ -258,7 +247,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Email:</label>
-                                         <input type="email" class="form-control" id=""
+                                         <input type="email" class="form-control border rounded" id=""
                                              wire:model.defer="nok_mail" />
                                          <x-input-error for="nok_mail"></x-input-error>
                                      </div>
@@ -266,7 +255,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Address:</label>
-                                         <textarea class="form-control" wire:model.defer="nok_address"></textarea>
+                                         <textarea class="form-control border rounded" wire:model.defer="nok_address"></textarea>
                                          <x-input-error for="nok_address"></x-input-error>
                                      </div>
                                  </div>
@@ -281,10 +270,37 @@
              </div>
          </div>
          <!-- /Profile Info Tab -->
-         <button wire:click="nextStep">Next</button>
+
+         <div class="pagination-box d-flex justify-content-center align-items-center">
+             <div>
+                 <ul class="pagination pagination-lg">
+                     <li class="page-item disabled">
+                         <button class="page-link">Previous</button>
+                     </li>
+                     <li class="page-item">
+                         <button class="page-link" wire:click="nextStep">Next</button>
+                     </li>
+                 </ul>
+             </div>
+         </div>
      @endif
 
      @if ($step == 2)
+         <!-- Page Header -->
+         <div class="page-header">
+             <div class="row">
+                 <div class="col-sm-12">
+                     <h3 class="page-title">Employees</h3>
+                     <ul class="breadcrumb">
+                         <li class="breadcrumb-item">Add Employees</li>
+                         <li class="breadcrumb-item">Profile</li>
+                         <li class="breadcrumb-item btn p-0">Medical History</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <!-- /Page Header -->
+
          <!-- Medical History -->
          <div class="row">
 
@@ -305,7 +321,7 @@
                          <div class="col-md-3">
                              <div class="form-group">
                                  <label>Genotype:</label>
-                                 <select type="text" class="form-control" wire:model.defer="genotype">
+                                 <select type="text" class="form-control border rounded" wire:model.defer="genotype">
                                      <option value="">Choose</option>
                                      <option value="AA">AA</option>
                                  </select>
@@ -324,13 +340,41 @@
              </div>
 
          </div>
-         <button wire:click="prevStep">Previous</button>
-         <button wire:click="nextStep">Next</button>
+
+         <div class="pagination-box d-flex justify-content-center align-items-center">
+             <div>
+                 <ul class="pagination pagination-lg">
+                     <li class="page-item">
+                         <button class="page-link" wire:click="prevStep">Previous</button>
+                     </li>
+                     <li class="page-item">
+                         <button class="page-link" wire:click="nextStep">Next</button>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+
          <!-- /Medical History -->
      @endif
 
 
      @if ($step == 3)
+         <!-- Page Header -->
+         <div class="page-header">
+             <div class="row">
+                 <div class="col-sm-12">
+                     <h3 class="page-title">Employees</h3>
+                     <ul class="breadcrumb">
+                         <li class="breadcrumb-item">Add Employees</li>
+                         <li class="breadcrumb-item">Profile</li>
+                         <li class="breadcrumb-item">Medical History</li>
+                         <li class="breadcrumb-item btn p-0">Deployment</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <!-- /Page Header -->
+
          <!-- Deployment -->
          <div class="row">
 
@@ -374,7 +418,7 @@
                              <div class="form-group">
                                  <label>Deployment Date: </label>
                                  <div class="cal-icon">
-                                     <input class="border-gray-300 rounded-sm form-control" id="deployment_date"
+                                     <input class="orm-control border rounded" id="deployment_date"
                                          wire:model.defer="deployment_date" type="date">
                                      <x-input-error for="deployment_date"></x-input-error>
                                  </div>
@@ -383,7 +427,7 @@
                          <div class="col-md-8">
                              <div class="form-group">
                                  <label>Comment: </label>
-                                 <textarea class="form-control" wire:model.defer="deployment_comment"></textarea>
+                                 <textarea class="form-control border rounded" wire:model.defer="deployment_comment"></textarea>
                                  <x-input-error for="deployment_comment"></x-input-error>
                              </div>
                          </div>
@@ -392,12 +436,42 @@
              </div>
 
          </div>
-         <button wire:click="prevStep">Previous</button>
-         <button wire:click="nextStep">Next</button>
+
+         <div class="pagination-box d-flex justify-content-center align-items-center">
+             <div>
+                 <ul class="pagination pagination-lg">
+                     <li class="page-item disabled">
+                         <button class="page-link" wire:click="prevStep">Previous</button>
+                     </li>
+                     <li class="page-item">
+                         <button class="page-link" wire:click="nextStep">Next</button>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+
          <!-- /Deployment -->
      @endif
 
      @if ($step == 4)
+         <!-- Page Header -->
+         <div class="page-header">
+             <div class="row">
+                 <div class="col-sm-12">
+                     <h3 class="page-title">Employees</h3>
+                     <ul class="breadcrumb">
+                         <li class="breadcrumb-item">Add Employees</li>
+                         <li class="breadcrumb-item">Profile</li>
+                         <li class="breadcrumb-item">Medical History</li>
+                         <li class="breadcrumb-item">Deployment</li>
+                         <li class="breadcrumb-item btn p-0">Bank Details</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <!-- /Page Header -->
+
+
          <!-- Bank Details tab -->
          <div class="row">
              <div class="col-md-6 d-flex">
@@ -408,21 +482,21 @@
                              <li>
                                  <div class="form-group">
                                      <label>Bank Name:</label>
-                                     <input type="text" class="form-control" wire:model.defer="bank_name">
+                                     <input type="text" class="form-control border rounded" wire:model.defer="bank_name">
                                      <x-input-error for="bank_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
                                      <label>Account Name:</label>
-                                     <input type="text" class="form-control" wire:model.defer="bank_account_name">
+                                     <input type="text" class="form-control border rounded" wire:model.defer="bank_account_name">
                                      <x-input-error for="bank_account_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
                                      <label>Account No:</label>
-                                     <input type="text" class="form-control"
+                                     <input type="text" class="form-control border rounded"
                                          wire:model.defer="bank_account_number">
                                      <x-input-error for="bank_account_number"></x-input-error>
                                  </div>
@@ -440,21 +514,21 @@
                              <li>
                                  <div class="form-group">
                                      <label>PFA Name:</label>
-                                     <input type="text" class="form-control" wire:model.defer="pfa_name">
+                                     <input type="text" class="form-control border rounded" wire:model.defer="pfa_name">
                                      <x-input-error for="pfa_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
                                      <label>Account Name:</label>
-                                     <input type="text" class="form-control" wire:model.defer="pfa_account_name">
+                                     <input type="text" class="form-control border rounded" wire:model.defer="pfa_account_name">
                                      <x-input-error for="pfa_account_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
                                      <label>PIN No:</label>
-                                     <input type="text" class="form-control"
+                                     <input type="text" class="form-control border rounded"
                                          wire:model.defer="pfa_account_number">
                                      <x-input-error for="pfa_account_number"></x-input-error>
                                  </div>
@@ -474,7 +548,7 @@
                              <li>
                                  <div class="form-group">
                                      <label>Bank Name:</label>
-                                     <input type="text" class="form-control"
+                                     <input type="text" class="form-control border rounded"
                                          wire:model.defer="mortgage_bank_name">
                                      <x-input-error for="mortgage_bank_name"></x-input-error>
                                  </div>
@@ -482,7 +556,7 @@
                              <li>
                                  <div class="form-group">
                                      <label>Account Name:</label>
-                                     <input type="text" class="form-control"
+                                     <input type="text" class="form-control border rounded"
                                          wire:model.defer="mortgage_account_name">
                                      <x-input-error for="mortagae_account_name"></x-input-error>
                                  </div>
@@ -490,7 +564,7 @@
                              <li>
                                  <div class="form-group">
                                      <label>Account No:</label>
-                                     <input type="text" class="form-control"
+                                     <input type="text" class="form-control border rounded"
                                          wire:model.defer="mortgage_account_number">
                                      <x-input-error for="mortgage_account_number"></x-input-error>
                                  </div>
@@ -505,8 +579,18 @@
 
          <!-- /Bank Details tab -->
 
-         <button wire:click="prevStep">Previous</button>
-         <button wire:click="submitForm">Submit</button>
+         <div class="pagination-box d-flex justify-content-center align-items-center">
+             <div>
+                 <ul class="pagination pagination-lg">
+                     <li class="page-item disabled">
+                         <button class="page-link" wire:click="prevStep">Previous</button>
+                     </li>
+                     <li class="page-item">
+                         <button class="page-link" wire:click="nextStep">Next</button>
+                     </li>
+                 </ul>
+             </div>
+         </div>
      @endif
      <!--</form>-->
      @if (session()->has('success'))
