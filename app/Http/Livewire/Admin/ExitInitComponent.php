@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\ExitInitModel;
+use App\Models\ClearanceModel;
 use App\Models\ExitTypeModel;
 use App\Models\statusModel;
 use App\Models\User;
@@ -11,7 +12,7 @@ use App\Models\Biodata;
 
 class ExitInitComponent extends Component
 {
-    public $exitType, $exit_type_id, $exitInt, $exitIntId, $status, $addedBy, $comment, $ldate, $exitInitionId, $exitInitionView;
+    public $exitType, $clearance, $exit_type_id, $exitInt, $exitIntId, $status, $addedBy, $comment, $ldate, $exitInitionId, $exitInitionView;
     public $ViewexitType, $Viewexit_type_id, $ViewexitInt, $ViewexitIntId, $Viewstatus, $ViewaddedBy, $Viewcomment, $Viewldate, $ViewexitInitionId, $ViewexitInitionView;
     // Get all Record
     public function render()
@@ -63,7 +64,25 @@ class ExitInitComponent extends Component
             'ldate' => $this->ldate,
             'status' => 4,
             'added_by' => $userId
-        ]);
+        ]); 
+
+        $clearance = [
+            [
+                'added_by' => $userId,
+                'unit_dept' => '1',
+                'clr_status' => '4',
+            ],
+            [
+                'added_by' => $userId,
+                'unit_dept' => '2',
+                'clr_status' => '4',
+            ],
+            
+        ];
+
+        foreach ($clearance as $key => $value) {
+            ClearanceModel::create($value);
+        }
 
         session()->flash('message', 'Exit Initiation Added Successfully!');
 

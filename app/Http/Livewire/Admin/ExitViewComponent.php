@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Models\ExitInitModel;
+use App\Models\ClearanceModel;
 use App\Models\ExitTypeModel;
 use App\Models\Deployment;
 use App\Models\statusModel;
@@ -16,8 +18,9 @@ use App\Models\DivisionModel;
 
 class ExitViewComponent extends Component
 {
-    public $exitIntId, $adminComment, $status, $ViewexitType, $Viewexit_type_id, $ViewexitInt, $ViewexitIntId, $Viewstatus, $ViewAddedBy, $Viewcomment, $Viewldate, $Viewrdate, $ViewexitInitionId, $ViewexitInitionView,
-           $ViewLocationId, $ViewUnitId;
+    use WithFileUploads;
+    public $exitIntId, $clearedById, $ViewClearanceBy, $clearance, $clearedBy, $clearanceView, $cleared_by, $comment, $clr_date, $clr_status, $adminComment, $status, $ViewexitType, $Viewexit_type_id, $ViewexitInt, $ViewexitIntId, $Viewstatus, $ViewAddedBy, $Viewcomment, $Viewldate, $Viewrdate, $ViewexitInitionId, $ViewexitInitionView,
+           $ViewClearanceId, $ViewLocationId, $ViewUnitId, $upload, $overallStatus, $ViewUserId;
     
     // Get Single Record
 
@@ -47,6 +50,7 @@ class ExitViewComponent extends Component
         $user = User::where('id', $this->ViewAddedBy)->first();
 
         $this->ViewBiodataId = $user->biodata_id;
+        $this->ViewUserId = $user->id;
         // dd($this->ViewBiodataId);
         // Get Biodata
         $biodata = Biodata::where('biodatas.id', $this->ViewBiodataId)
@@ -95,22 +99,53 @@ class ExitViewComponent extends Component
 
         // dd($this->ViewDivision);
 
+        // Get Clearance
+
+            // $clearanceView->id;
+            $clearanceView = $this->clearance = ClearanceModel::where('clearance.added_by', $this->ViewUserId)
+                    ->select('clearance.cleared_by AS ClearedBy', 'clearance.id AS id', 'clearance.comment AS Comments', 'clearance.clr_date AS cleared_date', 'department.description AS department', 'status.status_name AS status',
+                    'biodatas.surname AS surName', 'biodatas.first_name AS firstName', 'biodatas.other_name AS otherName', 'biodatas.staff_id AS staffid')
+                    ->join('department', 'department.id', "=", 'clearance.unit_dept')
+                    ->join('status', 'status.id', "=", 'clearance.clr_status')
+                    ->join('biodatas', 'biodatas.id', "=", 'clearance.cleared_by')
+                    ->get();
+                    
+                    // $cleared_by = $clearanceView->ClearedBy;
+            // $clearedById = $this->clearedById = ClearanceModel::where('clearance.cleared_by', 1  OR 'clearance.cleared_by', 0)
+            //     ->select('biodatas.surname AS surName', 'biodatas.first_name AS firstName', 'biodatas.other_name AS otherName', 'biodatas.staff_id AS staffid')
+            //     ->join('biodatas', 'biodatas.id', "=", 'clearance.cleared_by')
+            //     ->get();
+                
+            // dd($clearanceView);
+
     }
 
     // validation
     protected $rules = [
         'adminComment' => 'required',
-        'status' => 'required'
+        // 'status' => 'required',
+        'overallStatus' => 'required',
+        // 'upload' => 'pdf|png|jpg|jpeg|image|max:1024'
     ];
 
     // Update Exit Initiation
     public function updateIntiation()
     {
+        $this->validate([
+            // 'photo' => 'image|max:1024',
+            'adminComment' => 'required',
+            // 'status' => 'required',
+            'overallStatus' => 'required',
+            // 'upload' => 'pdf|png|jpg|jpeg|image|max:1024'
+        ]);
+
         $userId = auth()->user()->id;
         $validateData = $this->validate();
         ExitInitModel::where('id', $this->ViewexitIntId)->update([
             'adminComment' => $validateData['adminComment'], 
-            'status' => $validateData['status'],
+            'status' => 3,
+            'overallStatus' => $validateData['overallStatus'],
+            // 'upload' => $validateData['upload'],
             'updated_by' => $userId
         ]);
 
@@ -119,6 +154,49 @@ class ExitViewComponent extends Component
         session()->flash('message', 'Exit Initiation Updated Successfully!');
         return redirect()->to('/exit-init-component');
     }
+
+    //  Update clearance
+    //  public function editClearance($clearance_Id)
+    // {
+    //     $clearanceId = ClearanceModel::find($clearance_Id);
+    //     if($clearanceId){
+    //         $this->ViewclearanceId = $clearanceId->id;
+    //         $this->comment = $clearanceId->comment;
+    //         $this->clr_status = $clearanceId->clr_status;
+    //         $this->clr_date = $clearanceId->clr_date;
+    //         $this->added_by = $clearanceId->added_by;
+    //     }else{
+    //         return redirect()->to('/exit-view-component');
+    //     }
+    //     // dd($this->ViewclearanceId);
+
+    //     $this->dispatchBrowserEvent('close-modal');
+    // }
+
+     
+    public function updateClearance()
+        {
+            // $this->validate([
+            //     'comment' => 'required',
+            //     'clr_status' => 'required',
+            //     'clr_date' => 'required',
+            //     //  'cleared_by' => 'required'
+            // ]);
+    
+            $userId = auth()->user()->id;
+            $validateData = $this->validate();
+            ClearanceModel::where('id', $ViewClearanceId)->update([
+                'comment' => 'comment', 
+                'clr_status' => 'clr_status',
+                'clr_date' => 'clr_date',
+                'cleared_by' => $userId
+            ]);
+    
+    //         //  dd($exitIntId);
+    
+            session()->flash('message', 'Cleared Successfully!');
+            return redirect()->to('/exit-view-component');
+        }
 
     public function render()
     {

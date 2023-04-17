@@ -44,7 +44,7 @@
                             <th>#</th>
                             <th>Division Name</th>
                             <th>Department Name</th>
-                            <th>Discription</th>
+                            <th>Description</th>
                             <th>Status</th>
                             <th class="text-end">Action</th>
                         </tr>

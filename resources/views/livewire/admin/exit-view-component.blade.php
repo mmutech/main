@@ -14,18 +14,19 @@
         <!-- Page Content -->
     <div>
         <!-- End Update Exit Initiation -->
-        @if(@empty($this->ViewAdminComment))
+        
         <div class="card mb-0">
             <div class="card-header">
                 Head Human Resource Approval
             </div>
             <div class="card-body">
                 <div class="row">
+                    @if(@empty($this->ViewAdminComment))
                     <div class="col-md-6">
                         <form wire:submit.prevent="updateIntiation">
                             <div class="row">
                                 <input wire:model.defer="ViewexitIntId" class="form-control" type="hidden" readonly>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Exit Type Name</label>
                                         <input wire:model.defer="ViewexitTypeId"
@@ -34,15 +35,40 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    @if ($upload)
+                                        File Preview:
+                                        <img src="{{ $upload->temporaryUrl() }}">
+                                    @endif
+                                    <div class="form-group">
+                                        <label>Upload Clearance Form</label>
+                                        <div
+                                            x-data="{ isUploading: false, progress: 0 }"
+                                            x-on:livewire-upload-start="isUploading = true"
+                                            x-on:livewire-upload-finish="isUploading = false"
+                                            x-on:livewire-upload-error="isUploading = false"
+                                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                                        >
+                                            <!-- File Input -->
+                                            <input type="file" wire:model="upload">
+                                        
+                                            <!-- Progress Bar -->
+                                            <div x-show="isUploading">
+                                                <progress max="100" x-bind:value="progress"></progress>
+                                            </div>
+                                        </div>
+                                            @error('upload') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Status</label>
-                                        <select wire:model.defer="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <select wire:model.defer="overallStatus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Select...</option>
                                             @foreach($status as $stat)
                                                 <option value="{{$stat->id}}">{{$stat->status_name}}</option>
                                             @endforeach
                                           </select>
-                                            @error('status') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                                            @error('overallStatus') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                                     </div>                                   
                                 </div>  
                                 <div class="col-md-12">
@@ -63,23 +89,51 @@
                             </div>
                         </form>
                     </div>
+                    @endif
                     <div class="col-md-6">
-                        <ul class="personal-info">
-                            <li>
-                                <div class="title">Raised on:</div>
-                                <div class="text">{{$this->Viewrdate}}</div>
-                            </li>
-                            <li>
-                                <div class="title">Process Status:</div>
-                                <div class="text">{{$this->Viewstatus}}</div>
-                            </li>
-                            
-                        </ul>
+                        <form wire:submit.prevent="updateClearance">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select wire:model.defer="clr_status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                           <option value="">Select...</option>
+                                           @foreach($status as $stat)
+                                               <option value="{{$stat->id}}">{{$stat->status_name}}</option>
+                                           @endforeach
+                                         </select>
+                                           @error('clr_status') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>Date</label>
+                                       <input wire:model.defer="clr_date"
+                                           class="border-gray-300 rounded-sm form-control" type="date">
+                                           @error('clr_date') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                                   </div>
+                               </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Comment</label>
+                                        <textarea wire:model.defer="comment" id="comment" rows="4" 
+                                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comment.."></textarea>
+                                           @error('comment') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>                      
+                                <div class="submit-section">
+                                    <button wire:loading.remove
+                                    class="btn btn-primary submit-btn">Submit</button>
+                                    <button wire:loading wire:target="updateClearance"
+                                    class="btn btn-primary submit-btn">Submitting..</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div><br>        
-        @endif
+       
         <!-- End Update Exit Initiation -->
 
         <!-- Staff Detais -->
@@ -192,37 +246,45 @@
                                     {{-- <th>#</th> --}}
                                     <th>Department / Unit</th>
                                     <th>Name & Staff ID</th>
-                                    <th>Status</th>
-                                    <th class="text-end">Date</th>
+                                    <th>Comment</th>
+                                    <th>Status / Date</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr>
-                                        {{-- <td>#</td> --}}
-                                        <td>Human Resource</td>
-                                        <td>John Doe - 0001</td>
-                                        <td>Pending</td>
-                                        <td>0000-00-00</td>
-                                        {{-- @if ($div->status == 'Approved')
-                                        <td>
-                                            <span class="badge bg-inverse-success">{{$div->status}}</span>
-                                        </td>
-                                        @elseif ($div->status == 'Pending')
-                                        <td>
-                                            <span class="badge bg-inverse-warning">{{$div->status}}</span>
-                                        </td>
-                                        @endif --}}
-                                    </tr>
+                                @foreach ($clearance as $key => $value)
+                                <tr>
+                                    {{-- <td>#</td> --}}
+                                    <td>{{$value->department}}</td>
+                                    @if (empty($clearedById->clearedBy))
+                                    <td>{{$value->surName}} {{$value->firstName}} {{$value->otherName}} / {{$value->staffid}}</td>
+                                    @else
+                                        
+                                    @endif
+                                    <td>{{$value->Comments}}</td>
+                                    @if ($value->status == 'Approved')
+                                    <td>
+                                        <span class="badge bg-inverse-success">{{$value->status}} / {{$value->cleared_date}}</span>
+                                    </td>
+                                    @elseif ($value->status == 'Pending')
+                                    <td>
+                                        <span class="badge bg-inverse-warning">{{$value->status}} / {{$value->cleared_date}}</span>
+                                    </td>
+                                    @endif
+                                    <td>
+                                        {{-- <a @click="addModal = true" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#add_clearance" wire:click="editClearance({{$value->id}})"><i class="fa fa-pencil" style="color:white"></i></a> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Clearance -->
     </div>
-        <!-- End of modal backdrop -->
-        <!-- End Qual Modal custom -->
+
+    
     
     @push('all-assets-js')
         <!-- Select2 JS -->
@@ -231,5 +293,24 @@
         <!-- Datetimepicker JS -->
         <script src="{{ asset('assets/js/moment.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+        <script>
+            let file = document.querySelector('input[type="file"]').files[0]
+         
+            // Upload a file:
+            @this.upload('upload', file, (uploadedFilename) => {
+                // Success callback.
+            }, () => {
+                // Error callback.
+            }, (event) => {
+                // Progress callback.
+                // event.detail.progress contains a number between 1 and 100 as the upload progresses.
+            })
+         
+            // Upload multiple files:
+            @this.uploadMultiple('uploads', [file], successCallback, errorCallback, progressCallback)
+         
+            // Remove single file from multiple uploaded files
+            @this.removeUpload('uploads', uploadedFilename, successCallback)
+        </script>
     @endpush
-    </div>
+</div>

@@ -43,7 +43,7 @@
                         <tr>
                             <th>#</th>
                             <th>Job Role Name</th>
-                            <th>Discription</th>
+                            <th>Description</th>
                             <th>Status</th>
                             <th class="text-end">Action</th>
                         </tr>
