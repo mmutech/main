@@ -19,15 +19,20 @@ class FormWizard extends Component
 {
     public $step = 1;
     public $lastNumber = 0;
+    public $disability_status;
 
     //Biodata
-    public $title, $surname, $first_name, $other_name, $personal_mail, 
-            $phone, $date_of_birth, $gender, $marital_status,
-            $official_mail, $address, $nationality, $state, $lga, $job_role, $grade_level, $gradeLevel, $jobRole, $nok_name, $nok_relationship, $nok_phone, $nok_mail, $nok_address;
-    // NextOfKin        
+    public $title, $nationaIDNumber, $surname, $first_name, $other_name, $personal_mail, 
+            $phone, $date_of_birth, $gender, $marital_status, $official_mail, $address, 
+            $nationality, $state, $lga, $job_role, $grade_level, $gradeLevel, $jobRole, $criminal_record, $debt_status;
+             
+    
+    // NextOfKin    
+    public $nok_firstname, $nok_surname, $nok_relationship, $nok_phone, $nok_mail, $nok_address;    
     
     // MedicalHistory
     public $blood_group, $genotype, $medical_condition;
+    
     //Deployment
     public $deployment_location,
             $deployment_unit, $deployment_date, $deployment_comment;
@@ -71,28 +76,34 @@ class FormWizard extends Component
         switch ($this->step) {
             case 1:
                 $this->validate([
-                    'title'             => 'nullable',
-                    'surname'           => 'required',
-                    'first_name'        => 'required',
-                    'other_name'        => 'required',
-                    'personal_mail'     => 'required|email',
-                    'phone'             => 'required',
-                    'date_of_birth'     => 'required',
-                    'gender'            => 'required',
-                    'marital_status'    => 'required',
-                    'address'           => 'required',
-                    'nationality'       => 'required',
-                    'state'             => 'required',
-                    'lga'               => 'required',
-                    'job_role'          => 'required',
-                    'grade_level'       => 'required',
-                    'official_mail'     => 'email',
+                    'title'                     => 'nullable',
+                    'nationaIDNumber'           => 'required',
+                    'surname'                   => 'string|required',
+                    'first_name'                => 'string|required',
+                    'other_name'                => 'string|nullable',
+                    'personal_mail'             => 'required|email',
+                    'phone'                     => 'required',
+                    'date_of_birth'             => 'required',
+                    'gender'                    => 'required',
+                    'marital_status'            => 'required',
+                    'address'                   => 'required',
+                    'nationality'               => 'required',
+                    'state'                     => 'required',
+                    'lga'                       => 'required',
+                    'job_role'                  => 'required',
+                    'grade_level'               => 'required',
+                    'official_mail'             => 'email|nullable',
                     //
-                    'nok_name'          => 'required',
-                    'nok_relationship'  => 'required',
-                    'nok_mail'          => 'nullable|email',
-                    'nok_phone'         => 'required',
-                    'nok_address'       => 'required'
+                    'nok_firstname'             => 'required',
+                    'nok_surname'               => 'required',
+                    'nok_relationship'          => 'required',
+                    'nok_mail'                  => 'nullable|email',
+                    'nok_phone'                 => 'required',
+                    'nok_address'               => 'required',
+                    //
+                    'disability_status'         => 'required',
+                    'criminal_record'           => 'required',
+                    'debt_status'               => 'required',
                     
                 ]);
                 break;
@@ -106,27 +117,27 @@ class FormWizard extends Component
                 break;
             case 3:
                 
-                // $this->validate([
-                //     'deployment_location'   => 'required',
-                //     'deployment_unit'       => 'required',
-                //     'deployment_date'       => 'required'
-                    
-                // ]);
+                 $this->validate([
+                     'deployment_location'   => 'required',
+                     'deployment_unit'       => 'required',
+                     'deployment_date'       => 'required'
+                  
+                 ]);
                 break;
-            /*case 4:
-                $this->validate([
-                    'bank_name'                 => 'required',
-                    'bank_account_name'         => 'required',
-                    'bank_account_number'       => 'required',
-                    'pfa_name'                  => 'nullable',
-                    'pfa_account_name'          => 'nullable',
-                    'pfa_account_number'        => 'nullable',
-                    'mortgage_bank_name'        => 'nullable',
-                    'mortgage_account_name'     => 'nullable',
-                    'mortgage_account_number'   => 'nullable',
-                    
-                ]);
-                break;*/
+            case 4:
+                //$this->validate([
+                //    'bank_name'                 => 'required',
+                //    'bank_account_name'         => 'required',
+                //    'bank_account_number'       => 'required',
+                //    'pfa_name'                  => 'nullable',
+                //    'pfa_account_name'          => 'nullable',
+                //    'pfa_account_number'        => 'nullable',
+                //    'mortgage_bank_name'        => 'nullable',
+                //    'mortgage_account_name'     => 'nullable',
+                //    'mortgage_account_number'   => 'nullable',
+                //    
+                //]);
+                break;
             default:
                 // handle invalid step number
                 break;
@@ -186,7 +197,8 @@ class FormWizard extends Component
             // Insert into table 2
             NextOfKin::create([
                 'biodata_id'    => $user,
-                'name'          => $this->nok_name,
+                'first_name'    => $this->nok_firstname,
+                'surname'       => $this->nok_surname,
                 'phone'         => $this->nok_phone,
                 'email'         => $this->nok_mail,
                 'address'       => $this->nok_address,
@@ -233,7 +245,6 @@ class FormWizard extends Component
             
         });
 
-        // redirect to education & Qualification Page
        
     }
     /**
