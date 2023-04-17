@@ -34,6 +34,17 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label>National ID Number:</label>
+                                                    <input type="text" class="form-control" wire:model.defer="nationaIDNumber" id ="nationaIDNumber"
+                                                            class="border-gray-300 rounded-sm form-control" type="text">
+                                                            <x-input-error for="nationaIDNumber">
+                                                            </x-input-error>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
                                                     <label>Surname:</label>
                                                     <input type="text" class="form-control" wire:model.defer="surname" id ="surname"
                                                             class="border-gray-300 rounded-sm form-control" type="text">
@@ -41,8 +52,6 @@
                                                             </x-input-error>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>First Name:</label>
@@ -52,6 +61,8 @@
                                                             </x-input-error>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Other Name:</label>
@@ -203,7 +214,13 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Relationship:</label>
-                                                    <input type="text" class="form-control" wire:model.defer="nok_relationship" />
+                                                    <select class="form-control" id="nok_relationship" wire:model.defer="nok_relationship">
+                                                        <option value="Sibling">Sibling</option>
+                                                        <option value="Parent">Parent</option>
+                                                        <option value="Spouse">Spouse</option>
+                                                        <option value="Child">Child</option>
+
+                                                    </select>
                                                     <x-input-error for="nok_relationship"></x-input-error>
                                                 </div>
                                             </div>
@@ -229,6 +246,36 @@
                                                     <label>Address:</label>
                                                     <textarea class="form-control" wire:model.defer="nok_address"></textarea>
                                                     <x-input-error for="nok_address"></x-input-error>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <h3 class="card-title">Declaration</h3>
+                                        <hr />
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+											        <label>Do you have any Criminal Record(s)?</label>
+											        
+                                                    <div class="radio">	
+                                                        <input type="radio" name="radio"> No
+                                                    </div>
+                                                    <div class="radio">
+                                                        <input type="radio" name="radio"> Yes
+                                                    </div> 
+                                                    <x-input-error for="crime_status"></x-input-error>
+										        </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Are you indebted to any indivual/organization?</label>
+                                                    <div class="radio">	
+                                                        <input type="radio" name="radio"> No
+                                                    </div>
+                                                    <div class="radio">
+                                                        <input type="radio" name="radio"> Yes
+                                                    </div>  
+                                                    <x-input-error for="debt_status"></x-input-error>
                                                 </div>
                                             </div>
 

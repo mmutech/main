@@ -123,9 +123,9 @@
                                                 <a class="dropdown-item" href="#"><i
                                                         class="fa fa-dot-circle-o text-danger"></i> Pending</a>
                                                 <a class="dropdown-item" href="#"><i
-                                                        class="fa fa-dot-circle-o text-success"></i> Approved</a>
+                                                        class="fa fa-dot-circle-o text-success"></i> Active</a>
                                                 <a class="dropdown-item" href="#"><i
-                                                        class="fa fa-dot-circle-o text-info"></i> Returned</a>
+                                                        class="fa fa-dot-circle-o text-info"></i> Inactive</a>
                                             </div>
                                         </div>
                                     </td>

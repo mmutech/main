@@ -21,13 +21,15 @@ class FormWizard extends Component
     public $lastNumber = 0;
 
     //Biodata
-    public $title, $surname, $first_name, $other_name, $personal_mail, 
+    public $title, $nationaIDNumber, $surname, $first_name, $other_name, $personal_mail, 
             $phone, $date_of_birth, $gender, $marital_status,
             $official_mail, $address, $nationality, $state, $lga, $job_role, $grade_level, $gradeLevel, $jobRole, $nok_name, $nok_relationship, $nok_phone, $nok_mail, $nok_address;
+    
     // NextOfKin        
     
     // MedicalHistory
     public $blood_group, $genotype, $medical_condition;
+    
     //Deployment
     public $deployment_location,
             $deployment_unit, $deployment_date, $deployment_comment;
@@ -71,28 +73,32 @@ class FormWizard extends Component
         switch ($this->step) {
             case 1:
                 $this->validate([
-                    'title'             => 'nullable',
-                    'surname'           => 'required',
-                    'first_name'        => 'required',
-                    'other_name'        => 'required',
-                    'personal_mail'     => 'required|email',
-                    'phone'             => 'required',
-                    'date_of_birth'     => 'required',
-                    'gender'            => 'required',
-                    'marital_status'    => 'required',
-                    'address'           => 'required',
-                    'nationality'       => 'required',
-                    'state'             => 'required',
-                    'lga'               => 'required',
-                    'job_role'          => 'required',
-                    'grade_level'       => 'required',
-                    'official_mail'     => 'email',
+                    'title'                     => 'nullable',
+                    'nationaIDNumber'           => 'required',
+                    'surname'                   => 'string|required',
+                    'first_name'                => 'string|required',
+                    'other_name'                => 'string|nullable',
+                    'personal_mail'             => 'required|email',
+                    'phone'                     => 'required',
+                    'date_of_birth'             => 'required',
+                    'gender'                    => 'required',
+                    'marital_status'            => 'required',
+                    'address'                   => 'required',
+                    'nationality'               => 'required',
+                    'state'                     => 'required',
+                    'lga'                       => 'required',
+                    'job_role'                  => 'required',
+                    'grade_level'               => 'required',
+                    'official_mail'             => 'email|nullable',
                     //
-                    'nok_name'          => 'required',
-                    'nok_relationship'  => 'required',
-                    'nok_mail'          => 'nullable|email',
-                    'nok_phone'         => 'required',
-                    'nok_address'       => 'required'
+                    'nok_name'                  => 'required',
+                    'nok_relationship'          => 'required',
+                    'nok_mail'                  => 'nullable|email',
+                    'nok_phone'                 => 'required',
+                    'nok_address'               => 'required',
+                    //
+                    'criminal_record'           => 'required',
+                    'financial_indeptedness'    => 'required',
                     
                 ]);
                 break;
@@ -233,7 +239,6 @@ class FormWizard extends Component
             
         });
 
-        // redirect to education & Qualification Page
        
     }
     /**
