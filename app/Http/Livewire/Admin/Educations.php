@@ -14,8 +14,8 @@ class Educations extends Component
     public $employee_id;
    
 
-    protected $listeners = ['addEducation'];
-
+    protected $listeners = ['addEducation', 'refreshActivateEmployee' => '$refresh'];
+    
     public function mount()
     {
         
@@ -35,6 +35,7 @@ class Educations extends Component
         ];
 
         Education::create($rec);
+            
     }
 
 
