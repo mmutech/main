@@ -28,14 +28,14 @@
 
                                  <div class="col-md-2">
                                      <div class="form-group">
-                                         <label>Staff ID:</label>
+                                         <label>Staff ID <span class="text-danger">*</span></label>
                                          <input wire:model="lastNumber" type="text" readonly class="form-control border rounded" />
                                      </div>
                                  </div>
 
                                  <div class="col-md-4">
                                      <div class="form-group">
-                                         <label>Title:</label>
+                                         <label>Title <span class="text-danger">*</span></label>
                                          <select class="form-control" wire:model.defer="title" id="title"
                                              class="border-gray-300 rounded-sm form-control">
                                              <option value="Mr">Mr.</option>
@@ -50,8 +50,7 @@
                                  </div>
                                  <div class="col-md-6">
                                      <div class="form-group">
-
-                                         <label>National ID Number:</label>
+                                         <label>National ID Number <span class="text-danger">*</span></label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="nationaIDNumber"
                                              id="nationaIDNumber" class="border-gray-300 rounded-sm form-control"
                                              type="text">
@@ -63,10 +62,9 @@
                              <div class="row">
                                 <div class="col-md-6">
                                      <div class="form-group">
-
-                                         <label>Surname:</label>
+                                         <label>Surname <span class="text-danger">*</span></label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="surname"
-                                             id="surname" class="border-gray-300 rounded-sm form-control"
+                                             id="surname" class="border-gray-300 rounded-sm form-control" placeholder="Enter surname"
                                              type="text">
                                          <x-input-error for="surname">
                                          </x-input-error>
@@ -78,9 +76,9 @@
 
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>First Name:</label>
+                                         <label>First Name <span class="text-danger">*</span></label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="first_name"
-                                             id="first_name" class="border-gray-300 rounded-sm form-control"
+                                             id="first_name" class="border-gray-300 rounded-sm form-control" placeholder="Enter first name"
                                              type="text">
                                          <x-input-error for="first_name">
                                          </x-input-error>
@@ -92,9 +90,9 @@
 
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Other Name:</label>
+                                         <label>Other Name <span class="text-danger">*</span></label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="other_name"
-                                             id="other_name" class="border-gray-300 rounded-sm form-control"
+                                             id="other_name" class="border-gray-300 rounded-sm form-control" placeholder="Enter orther name"
                                              type="text">
                                          <x-input-error for="other_name">
                                          </x-input-error>
@@ -103,8 +101,9 @@
 
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Date of Birth: </label>
-                                         
+                                         <label>Date of Birth <span class="text-danger">*</span></label>
+                                         <div class="cal-icon">
+
                                              <input class="form-control border rounded" id="date_of_birth"
                                                  wire:model.defer="date_of_birth" type="date">
                                          <x-input-error for="date_of_birth"> </x-input-error>
@@ -114,18 +113,19 @@
                              <div class="row">
                                  <div class="col-md-3">
                                      <div class="form-group">
-                                         <label>Gender: </label>
+                                         <label>Gender <span class="text-danger">*</span></label>
                                          <select wire:model.defer="gender" id="gender" class="form-control">
                                              <option value="">Choose...</option>
                                              <option value="Female">Female</option>
                                              <option value="Male">Male</option>
+                                             <option value="Female">Female</option>
                                          </select>
                                          <x-input-error for="gender"></x-input-error>
                                      </div>
                                  </div>
                                  <div class="col-md-3">
                                      <div class="form-group">
-                                         <label>Marital Status: </label>
+                                         <label>Marital Status <span class="text-danger">*</span></label>
                                          <select wire:model.defer="marital_status" id="marital_status"
                                              class="form-control">
                                              <option>Choose......</option>
@@ -139,8 +139,8 @@
                                  </div>
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Phone:</label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="phone"
+                                         <label>Phone <span class="text-danger">*</span></label>
+                                         <input type="text" class="form-control border rounded" wire:model.defer="phone" placeholder="Enter phone number"
                                              id="phone" class="border-gray-300 rounded-sm form-control">
                                          <x-input-error for="phone">
                                          </x-input-error>
@@ -150,9 +150,9 @@
                              <div class="row">
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Personal Email:</label>
+                                         <label>Personal Email <span class="text-danger">*</span></label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="personal_mail"
-                                             id="personal_email" class="border-gray-300 rounded-sm form-control"
+                                             id="personal_email" class="border-gray-300 rounded-sm form-control" placeholder="Enter personal email"
                                              type="text">
                                          <x-input-error for="personal_mail">
                                          </x-input-error>
@@ -160,8 +160,8 @@
                                  </div>
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Official Email:</label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="official_mail"
+                                         <label>Official Email <span class="text-danger">*</span></label>
+                                         <input type="text" class="form-control border rounded" wire:model.defer="official_mail" placeholder="Enter official mail"
                                              id="official_email" class="border-gray-300 rounded-sm form-control"
                                              type="text">
                                          <x-input-error for="official_mail">
@@ -173,7 +173,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
 
-                                         <label>State:</label>
+                                         <label>State <span class="text-danger">*</span></label>
                                          <select class="form-control" id="state" wire:model.defer="state">
                                              <option>Choose......</option>
                                              <option value="1">Abia</option>
@@ -183,7 +183,7 @@
                                  </div>
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>LGA:</label>
+                                         <label>LGA <span class="text-danger">*</span></label>
                                          <select class="form-control" id="lga" wire:model.defer="lga">
                                              <option>Choose......</option>
                                              <option value="1">Umuahia</option>
@@ -195,7 +195,7 @@
                              <div class="row">
                                 <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Nationality:</label>
+                                         <label>Nationality <span class="text-danger">*</span></label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="nationality"
                                              id="nationality" class="border-gray-300 rounded-sm form-control"
                                              type="text">
@@ -205,8 +205,8 @@
                                  </div>
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Address line:</label>
-                                         <textarea class="form-control border rounded" wire:model.defer="address" id="address"
+                                         <label>Address line <span class="text-danger">*</span></label>
+                                         <textarea class="form-control border rounded" wire:model.defer="address" id="address" placeholder="Enter your address"
                                              class="border-gray-300 rounded-sm form-control"></textarea>
                                          <x-input-error for="address"></x-input-error>
                                      </div>
@@ -215,7 +215,7 @@
                             <div class="row">
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Job Role: </label>
+                                         <label>Job Role <span class="text-danger">*</span></label>
                                          <select class="form-control" id="job_role" wire:model.defer="job_role">
                                              <option>Choose...</option>
                                              @foreach ($jobRole as $stat)
@@ -229,7 +229,7 @@
                                
                                  <div class="col-md-6">
                                      <div class="form-group">
-                                         <label>Grade Level:</label>
+                                         <label>Grade Level <span class="text-danger">*</span></label>
                                          <select class="form-control" id="grade_level"
                                              wire:model.defer="grade_level">
                                              <option>Choose...</option>
@@ -246,21 +246,22 @@
                              <div class="row mt-3">
                                  <div class="col-md-4">
                                      <div class="form-group">
-                                         <label>First Name:</label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_firstname" />
+                                         <label>First Name <span class="text-danger">*</span></label>
+                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_firstname" placeholder="Enter next of kin  first name" />
                                          <x-input-error for="nok_firstname"></x-input-error>
                                      </div>
                                  </div>
                                  <div class="col-md-4">
                                      <div class="form-group">
-                                         <label>Surname:</label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_surname" />
+                                         <label>Surname <span class="text-danger">*</span></label>
+                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_surname" placeholder="Enter next of kin surname" />
                                          <x-input-error for="nok_surname"></x-input-error>
                                      </div>
                                  </div>
                                  <div class="col-md-4">
                                      <div class="form-group">
-                                         <label>Relationship:</label>
+
+                                         <label>Relationship <span class="text-danger">*</span></label>
                                          <select class="form-control border rounded" wire:model.defer="nok_relationship">
                                              <option>...</option>
                                              <option value="Sibling">Sibling</option>
@@ -276,35 +277,24 @@
                              </div>
                              <div class="row">
                                  <div class="col-md-4">
-                                         <label>Phone:</label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_phone"
-                                             id="nok_phone" />
-                                         <x-input-error for="nok_phone"></x-input-error>
-                                     </div>
-                                 </div>
-
-                             </div>
-                             <div class="row">
-                                 <div class="col-md-4">
                                      <div class="form-group">
-                                         <label>Email:</label>
-                                         <input type="email" class="form-control border rounded" id=""
+                                         <label>Email <span class="text-danger">*</span></label>
+                                         <input type="email" class="form-control border rounded" id="" placeholder="Enter next of kin email"
                                              wire:model.defer="nok_mail" />
                                          <x-input-error for="nok_mail"></x-input-error>
                                      </div>
                                  </div>
                                  <div class="col-md-4">
                                      <div class="form-group">
-                                         <label>Phone:</label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_phone"
-                                             id="nok_phone" />
+                                          <label>Phone <span class="text-danger">*</span></label>
+                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_phone" placeholder="Enter next of kin phone number" id="nok_phone" />
                                          <x-input-error for="nok_phone"></x-input-error>
                                      </div>
                                  </div>
                                  <div class="col-md-4">
                                      <div class="form-group">
-                                         <label>Address:</label>
-                                         <textarea class="form-control border rounded" wire:model.defer="nok_address"></textarea>
+                                         <label>Address <span class="text-danger">*</span></label>
+                                         <textarea class="form-control border rounded" wire:model.defer="nok_address" placeholder="Enter next of kin address"></textarea>
                                          <x-input-error for="nok_address"></x-input-error>
                                      </div>
                                  </div>
@@ -400,7 +390,7 @@
                      <div class="row">
                          <div class="col-md-3">
                              <div class="form-group">
-                                 <label>Blood Group:</label>
+                                 <label>Blood Group <span class="text-danger">*</span></label>
                                  <select class="form-control" wire:model.defer="blood_group">
                                      <option value="">Choose...</option>
                                      <option value="A+">A+</option>
@@ -410,7 +400,7 @@
                          </div>
                          <div class="col-md-3">
                              <div class="form-group">
-                                 <label>Genotype:</label>
+                                 <label>Genotype <span class="text-danger">*</span></label>
                                  <select type="text" class="form-control border rounded" wire:model.defer="genotype">
                                      <option value="">Choose...</option>
                                      <option value="AA">AA</option>
@@ -420,8 +410,8 @@
                          </div>
                          <div class="col-md-6">
                              <div class="form-group">
-                                 <label>Pre-existing Condidtion:</label>
-                                 <textarea class="form-control" id="medical_condition" wire:model.defer="medical_condition"></textarea>
+                                 <label>Pre-existing Condidtion <span class="text-danger">*</span></label>
+                                 <textarea class="form-control" id="medical_condition" wire:model.defer="medical_condition" placeholder="Enter current state of health"></textarea>
                                  <x-input-error for="medical_condition"></x-input-error>
                              </div>
                          </div>
@@ -475,7 +465,7 @@
 
                          <div class="col-md-4">
                              <div class="form-group">
-                                 <label>Unit:</label>
+                                 <label>Unit <span class="text-danger">*</span></label>
                                  <select class="form-control" id="deployment_unit"
                                      wire:model.defer="deployment_unit">
                                      <option value="">Choose...</option>
@@ -488,7 +478,7 @@
                          </div>
                          <div class="col-md-4">
                              <div class="form-group">
-                                 <label>Location:</label>
+                                 <label>Location <span class="text-danger">*</span></label>
                                  <select class="form-control" id="deployment_location"
                                      wire:model.defer="deployment_location">
                                      <option value="">Choose...</option>
@@ -506,9 +496,9 @@
 
                          <div class="col-md-4">
                              <div class="form-group">
-                                 <label>Deployment Date: </label>
+                                 <label>Deployment Date <span class="text-danger">*</span></label>
                                  <div class="cal-icon">
-                                     <input class="orm-control border rounded" id="deployment_date"
+                                     <input class="orm-control border rounded" id="deployment_date" placeholder="Enter Date of Deployment"
                                          wire:model.defer="deployment_date" type="date">
                                      <x-input-error for="deployment_date"></x-input-error>
                                  </div>
@@ -516,8 +506,8 @@
                          </div>
                          <div class="col-md-8">
                              <div class="form-group">
-                                 <label>Comment: </label>
-                                 <textarea class="form-control border rounded" wire:model.defer="deployment_comment"></textarea>
+                                 <label>Comment <span class="text-danger">*</span></label>
+                                 <textarea class="form-control border rounded" wire:model.defer="deployment_comment" placeholder="Enter remark"></textarea>
                                  <x-input-error for="deployment_comment"></x-input-error>
                              </div>
                          </div>
@@ -530,7 +520,7 @@
          <div class="pagination-box d-flex justify-content-center align-items-center">
              <div>
                  <ul class="pagination pagination-lg">
-                     <li class="page-item disabled">
+                     <li class="page-item">
                          <button class="page-link" wire:click="prevStep">Previous</button>
                      </li>
                      <li class="page-item">
@@ -571,22 +561,22 @@
                          <ul class="personal-info">
                              <li>
                                  <div class="form-group">
-                                     <label>Bank Name:</label>
-                                     <input type="text" class="form-control border rounded" wire:model.defer="bank_name">
+                                     <label>Bank Name<span class="text-danger">*</span>:</label>
+                                     <input type="text" class="form-control border rounded" placeholder="Enter bank name" wire:model.defer="bank_name">
                                      <x-input-error for="bank_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
-                                     <label>Account Name:</label>
-                                     <input type="text" class="form-control border rounded" wire:model.defer="bank_account_name">
+                                     <label>Account Name <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" wire:model.defer="bank_account_name" placeholder="Enter account name">
                                      <x-input-error for="bank_account_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
-                                     <label>Account No:</label>
-                                     <input type="text" class="form-control border rounded"
+                                     <label>Account No <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" placeholder="Enter account number"
                                          wire:model.defer="bank_account_number">
                                      <x-input-error for="bank_account_number"></x-input-error>
                                  </div>
@@ -603,22 +593,22 @@
                          <ul class="personal-info">
                              <li>
                                  <div class="form-group">
-                                     <label>PFA Name:</label>
-                                     <input type="text" class="form-control border rounded" wire:model.defer="pfa_name">
+                                     <label>PFA Name <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" wire:model.defer="pfa_name" placeholder="Enter PFA">
                                      <x-input-error for="pfa_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
-                                     <label>Account Name:</label>
-                                     <input type="text" class="form-control border rounded" wire:model.defer="pfa_account_name">
+                                     <label>Account Name <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" wire:model.defer="pfa_account_name" placeholder="Enter account name">
                                      <x-input-error for="pfa_account_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
-                                     <label>PIN No:</label>
-                                     <input type="text" class="form-control border rounded"
+                                     <label>PIN No <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" placeholder="Enter PIN"
                                          wire:model.defer="pfa_account_number">
                                      <x-input-error for="pfa_account_number"></x-input-error>
                                  </div>
@@ -637,24 +627,24 @@
                          <ul class="personal-info">
                              <li>
                                  <div class="form-group">
-                                     <label>Bank Name:</label>
-                                     <input type="text" class="form-control border rounded"
+                                     <label>Bank Name <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" placeholder="Enter bank name"
                                          wire:model.defer="mortgage_bank_name">
                                      <x-input-error for="mortgage_bank_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
-                                     <label>Account Name:</label>
-                                     <input type="text" class="form-control border rounded"
+                                     <label>Account Name <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" placeholder="Enter account name"
                                          wire:model.defer="mortgage_account_name">
                                      <x-input-error for="mortagae_account_name"></x-input-error>
                                  </div>
                              </li>
                              <li>
                                  <div class="form-group">
-                                     <label>Account No:</label>
-                                     <input type="text" class="form-control border rounded"
+                                     <label>Account No <span class="text-danger">*</span></label>
+                                     <input type="text" class="form-control border rounded" placeholder="Enter account number"
                                          wire:model.defer="mortgage_account_number">
                                      <x-input-error for="mortgage_account_number"></x-input-error>
                                  </div>
@@ -672,7 +662,7 @@
          <div class="pagination-box d-flex justify-content-center align-items-center">
              <div>
                  <ul class="pagination pagination-lg">
-                     <li class="page-item disabled">
+                     <li class="page-item">
                          <button class="page-link" wire:click="prevStep">Previous</button>
                      </li>
                      <li class="page-item">
