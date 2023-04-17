@@ -1,14 +1,14 @@
 <div>
     @push('dashboard-css')
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="{{ asset("assets/plugins/fontawesome/css/fontawesome.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/plugins/fontawesome/css/all.min.css") }}">
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
 
-    <!-- Material CSS -->
-    <link rel="stylesheet" href="{{ asset("assets/css/material.css") }}">
+        <!-- Material CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/material.css') }}">
 
-    <!-- Chart CSS -->
-    <link rel="stylesheet" href="{{ asset("assets/plugins/morris/morris.css") }}">
+        <!-- Chart CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/morris/morris.css') }}">
     @endpush
 
     <!-- Page Header -->
@@ -24,88 +24,80 @@
     </div>
     <!-- /Page Header -->
 
-          <!-- Count Cards -->
-          <div class="row">
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-              <div class="card dash-widget">
+    <!-- Count Cards -->
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget">
                 <div class="card-body">
-                  <span class="dash-widget-icon"
-                    ><i class="fa fa-cubes"></i
-                  ></span>
-                  <div class="dash-widget-info">
-                    <h3>112</h3>
-                    <span>Leave Request</span>
-                  </div>
+                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                    <div class="dash-widget-info">
+                        <h3>112</h3>
+                        <span>Leave Request</span>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-              <div class="card dash-widget">
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget">
                 <div class="card-body">
-                  <span class="dash-widget-icon"
-                    ><i class="fa fa-usd"></i
-                  ></span>
-                  <div class="dash-widget-info">
-                    <h3>4</h3>
-                    <span>Exit Forms</span>
-                  </div>
+                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
+                    <div class="dash-widget-info">
+                        <h3>4</h3>
+                        <span>Exit Forms</span>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-              <div class="card dash-widget">
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget">
                 <div class="card-body">
-                  <span class="dash-widget-icon"
-                    ><i class="fa fa-diamond"></i
-                  ></span>
-                  <div class="dash-widget-info">
-                    <h3>15</h3>
-                    <span>On Leave</span>
-                  </div>
+                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
+                    <div class="dash-widget-info">
+                        <h3>15</h3>
+                        <span>On Leave</span>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-              <div class="card dash-widget">
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget">
                 <div class="card-body">
-                  <span class="dash-widget-icon"
-                    ><i class="fa fa-user"></i
-                  ></span>
-                  <div class="dash-widget-info">
-                    <h3>218</h3>
-                    <span>All Employees</span>
-                  </div>
+                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
+                    <div class="dash-widget-info">
+                        <h3>218</h3>
+                        <span>All Employees</span>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
 
-          <!-- Chart -->
-          <div class="row">
-            <div class="card">
-              <div class="card-body">
+    <!-- Chart -->
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
                 <h3 class="card-title">Leave Requests Summary</h3>
                 <div id="bar-charts"></div>
-              </div>
             </div>
-            <!--								</div>
-						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-6 text-center">
+        </div>
+        <!--								</div>
+      <div class="col-md-12">
+       <div class="row">
+        <div class="col-md-6 text-center">
  <div class="col-md-6 text-center">
-									<div class="card">
-										<div class="card-body">
-											<h3 class="card-title">Sales Overview</h3>
-											<div id="line-charts"></div>
-										</div>
-									</div>
-								</div>							</div>
-						</div>
- -->
+         <div class="card">
+          <div class="card-body">
+           <h3 class="card-title">Sales Overview</h3>
+           <div id="line-charts"></div>
           </div>
+         </div>
+        </div>							</div>
+      </div>
+ -->
+    </div>
 
-		  <!-- Progress bars -->
-          <!-- <div class="row">
+    <!-- Progress bars -->
+    <!-- <div class="row">
             <div class="col-md-12">
               <div class="card-group m-b-30">
                 <div class="card">
@@ -217,9 +209,9 @@
             </div>
           </div> -->
 
-          <!-- Statistics Widget -->
-          <div class="row">
-            <!-- <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
+    <!-- Statistics Widget -->
+    <div class="row">
+        <!-- <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
               <div class="card flex-fill dash-statistics">
                 <div class="card-body">
                   <h5 class="card-title">Statistics</h5>
@@ -305,135 +297,105 @@
               </div>
             </div> -->
 
-			<!-- Leave statistics -->
-            <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
-              <div class="card flex-fill">
+        <!-- Leave statistics -->
+        <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+            <div class="card flex-fill">
                 <div class="card-body">
-                  <h4 class="card-title">Leave Requests Statistics</h4>
-                  <div class="statistics">
-                    <div class="row">
-                      <div class="col-md-6 col-6 text-center">
-                        <div class="stats-box mb-4">
-                          <p>Total Requests</p>
-                          <h3>85</h3>
+                    <h4 class="card-title">Leave Requests Statistics</h4>
+                    <div class="statistics">
+                        <div class="row">
+                            <div class="col-md-6 col-6 text-center">
+                                <div class="stats-box mb-4">
+                                    <p>Total Requests</p>
+                                    <h3>85</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-6 text-center">
+                                <div class="stats-box mb-4">
+                                    <p>Pending Requests</p>
+                                    <h3>65</h3>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-6 col-6 text-center">
-                        <div class="stats-box mb-4">
-                          <p>Pending Requests</p>
-                          <h3>65</h3>
+                    </div>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 24%"
+                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">
+                            24%
                         </div>
-                      </div>
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 22%"
+                            aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
+                            22%
+                        </div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 66%" aria-valuenow="14"
+                            aria-valuemin="0" aria-valuemax="100">
+                            54%
+                        </div>
                     </div>
-                  </div>
-                  <div class="progress mb-4">
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 24%"
-                      aria-valuenow="12"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      24%
+                    <div>
+                        <p>
+                            <i class="fa fa-dot-circle-o text-success me-2"></i>
+                            Approved Request<span class="float-end">13</span>
+                        </p>
+                        <p>
+                            <i class="fa fa-dot-circle-o text-warning me-2"></i>Pending Request<span
+                                class="float-end">65</span>
+                        </p>
+                        <p>
+                            <i class="fa fa-dot-circle-o text-danger me-2"></i>
+                            Denied Request<span class="float-end">7</span>
+                        </p>
                     </div>
-                    <div
-                      class="progress-bar bg-warning"
-                      role="progressbar"
-                      style="width: 22%"
-                      aria-valuenow="18"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      22%
-                    </div>
-                    <div
-                      class="progress-bar bg-danger"
-                      role="progressbar"
-                      style="width: 66%"
-                      aria-valuenow="14"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      54%
-                    </div>
-                  </div>
-                  <div>
-                    <p>
-                      <i class="fa fa-dot-circle-o text-success me-2"></i>
-					  Approved Request<span class="float-end">13</span>
-                    </p>
-                    <p>
-                      <i class="fa fa-dot-circle-o text-warning me-2"></i
-                      >Pending Request<span class="float-end">65</span>
-                    </p>
-                    <p>
-                      <i class="fa fa-dot-circle-o text-danger me-2"></i>
-					  Denied Request<span class="float-end">7</span>
-                    </p>
-                  </div>
                 </div>
-              </div>
             </div>
+        </div>
 
-			<!-- Exit statistics -->
-            <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
-              <div class="card flex-fill">
+        <!-- Exit statistics -->
+        <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+            <div class="card flex-fill">
                 <div class="card-body">
-                  <h4 class="card-title">Exit Processes Statistics</h4>
-                  <div class="statistics">
-                    <div class="row">
-                      <div class="col-md-6 col-6 text-center">
-                        <div class="stats-box mb-4">
-                          <p>Total Requests</p>
-                          <h3>25</h3>
+                    <h4 class="card-title">Exit Processes Statistics</h4>
+                    <div class="statistics">
+                        <div class="row">
+                            <div class="col-md-6 col-6 text-center">
+                                <div class="stats-box mb-4">
+                                    <p>Total Requests</p>
+                                    <h3>25</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-6 text-center">
+                                <div class="stats-box mb-4">
+                                    <p>Pending Requests</p>
+                                    <h3>19</h3>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-6 col-6 text-center">
-                        <div class="stats-box mb-4">
-                          <p>Pending Requests</p>
-                          <h3>19</h3>
+                    </div>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 78%"
+                            aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
+                            88%
                         </div>
-                      </div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 24%"
+                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">
+                            12%
+                        </div>
                     </div>
-                  </div>
-                  <div class="progress mb-4">
-                    <div
-                      class="progress-bar bg-warning"
-                      role="progressbar"
-                      style="width: 78%"
-                      aria-valuenow="18"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      88%
+                    <div>
+                        <p>
+                            <i class="fa fa-dot-circle-o text-warning me-2"></i>Pending <span
+                                class="float-end">115</span>
+                        </p>
+                        <p>
+                            <i class="fa fa-dot-circle-o text-success me-2"></i>
+                            Completed <span class="float-end">31</span>
+                        </p>
                     </div>
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 24%"
-                      aria-valuenow="12"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      12%
-                    </div>
-                  </div>
-                  <div>
-                    <p>
-                      <i class="fa fa-dot-circle-o text-warning me-2"></i
-                      >Pending <span class="float-end">115</span>
-                    </p>
-                    <p>
-                      <i class="fa fa-dot-circle-o text-success me-2"></i>
-                      Completed <span class="float-end">31</span>
-                    </p>
-                  </div>
                 </div>
-              </div>
             </div>
+        </div>
 
-            <!-- <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+        <!-- <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
               <div class="card flex-fill">
                 <div class="card-body">
                   <h4 class="card-title">
@@ -486,10 +448,10 @@
                 </div>
               </div>
             </div> -->
-          </div>
-          <!-- /Statistics Widget -->
+    </div>
+    <!-- /Statistics Widget -->
 
-          <!-- <div class="row">
+    <!-- <div class="row">
             <div class="col-md-6 d-flex">
               <div class="card card-table flex-fill">
                 <div class="card-header">
