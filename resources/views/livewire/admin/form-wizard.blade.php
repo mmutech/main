@@ -50,6 +50,7 @@
                                  </div>
                                  <div class="col-md-6">
                                      <div class="form-group">
+
                                          <label>National ID Number:</label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="nationaIDNumber"
                                              id="nationaIDNumber" class="border-gray-300 rounded-sm form-control"
@@ -62,6 +63,7 @@
                              <div class="row">
                                 <div class="col-md-6">
                                      <div class="form-group">
+
                                          <label>Surname:</label>
                                          <input type="text" class="form-control border rounded" wire:model.defer="surname"
                                              id="surname" class="border-gray-300 rounded-sm form-control"
@@ -70,6 +72,10 @@
                                          </x-input-error>
                                      </div>
                                  </div>
+
+                             </div>
+                             <div class="row">
+
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>First Name:</label>
@@ -80,8 +86,10 @@
                                          </x-input-error>
                                      </div>
                                  </div>
+
                              </div>
                              <div class="row">
+
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Other Name:</label>
@@ -92,6 +100,7 @@
                                          </x-input-error>
                                      </div>
                                  </div>
+
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Date of Birth: </label>
@@ -103,7 +112,6 @@
                                  </div>
                              </div>
                              <div class="row">
-                                 
                                  <div class="col-md-3">
                                      <div class="form-group">
                                          <label>Gender: </label>
@@ -164,6 +172,7 @@
                              <div class="row">
                                  <div class="col-md-6">
                                      <div class="form-group">
+
                                          <label>State:</label>
                                          <select class="form-control" id="state" wire:model.defer="state">
                                              <option>Choose......</option>
@@ -204,11 +213,11 @@
                                  </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                 <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Job Role: </label>
                                          <select class="form-control" id="job_role" wire:model.defer="job_role">
-                                             <option>Choose......</option>
+                                             <option>Choose...</option>
                                              @foreach ($jobRole as $stat)
                                                  <option value="{{ $stat->id }}">{{ $stat->description }}</option>
                                              @endforeach
@@ -216,13 +225,14 @@
                                          <x-input-error for="job_role"></x-input-error>
                                      </div>
                                      
-                                </div>
+                                  </div>
+                               
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Grade Level:</label>
                                          <select class="form-control" id="grade_level"
                                              wire:model.defer="grade_level">
-                                             <option>Choose......</option>
+                                             <option>Choose...</option>
                                              @foreach ($gradeLevel as $stat)
                                                  <option value="{{ $stat->id }}">{{ $stat->description }}</option>
                                              @endforeach
@@ -266,6 +276,16 @@
                              </div>
                              <div class="row">
                                  <div class="col-md-4">
+                                         <label>Phone:</label>
+                                         <input type="text" class="form-control border rounded" wire:model.defer="nok_phone"
+                                             id="nok_phone" />
+                                         <x-input-error for="nok_phone"></x-input-error>
+                                     </div>
+                                 </div>
+
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-4">
                                      <div class="form-group">
                                          <label>Email:</label>
                                          <input type="email" class="form-control border rounded" id=""
@@ -290,6 +310,7 @@
                                  </div>
 
                              </div>
+                             
                              <h3 class="card-title">Declaration</h3>
                                         <hr />
                                         <div class="row mt-3">
@@ -308,7 +329,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-											        <label>Do you have any criminal record(s)?</label>
+											                              <label>Do you have any criminal record(s)?</label>
 											        
                                                     <div class="radio">
                                                         <input type="radio" wire:model="criminal_record" value="no"> No
@@ -317,7 +338,7 @@
                                                         <input type="radio" wire:model="criminal_record" vlaue="yes"> Yes
                                                     </div> 
                                                     <x-input-error for="criminal_record"></x-input-error>
-										        </div>
+										                             </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -333,12 +354,11 @@
                                             </div>
 
                                         </div>
-
                          </div>
 
                      </div>
                  </div>
-                 
+
 
              </div>
          </div>
