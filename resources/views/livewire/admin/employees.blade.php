@@ -136,8 +136,8 @@
                                                     class="material-icons">more_vert</i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                                    data-bs-target="#edit_asset"><i class="fa fa-pencil m-r-5"></i>
-                                                    Edit</a>
+                                                    data-bs-target="#edit_asset"><i class="fa fa-user m-r-5"></i>
+                                                    View Profile</a>
                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal"
                                                     data-bs-target="#delete_asset"><i class="fa fa-trash-o m-r-5"></i>
                                                     Deactivate</a>
