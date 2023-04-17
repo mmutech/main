@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Education;
 use App\Models\Qualification;
 
+
 class EmployeeActivate extends Component
 {
     public $employee_id;
@@ -17,6 +18,18 @@ class EmployeeActivate extends Component
             $qualification_date;
  
     //protected $queryString = ['employee_id'];
+    public $addEdu = false, $addQual=false;
+
+    public function clearForm() 
+    {
+        $this->education_institution = '';
+        $this->education_course = '';
+        $this->education_from = '';
+        $this->education_to = '';
+        $this->qualification_institition = '';
+        $this->qualification_certification = '';
+        $this->qualification_date = '';
+    }
 
   
     public function saveEducation()
@@ -30,6 +43,20 @@ class EmployeeActivate extends Component
         ];
 
         $this->emit('addEducation', $formData);
+        
+        $this->clearForm();
+
+        $this->addEdu =false;
+
+        session()->flash('message', 'Record has been added');
+        
+        $this->dispatchBrowserEvent('swal:create', [
+            'type' => 'info',
+            'title' => 'Create new record',
+            'text' => 'Enter the details below:',
+        ]);
+        
+        
     }
 
     public function saveQualification()
@@ -42,7 +69,15 @@ class EmployeeActivate extends Component
             
         ];
 
-        $this->emit('addQualification', $formData);  
+        $this->emit('addQualification', $formData);
+
+        $this->clearForm();
+
+        $this->addQual =false;  
+
+        session()->flash('message', 'Record has been added');
+
+        $this->emit(event:'refreshActivateEmployee');
     }
 
     public function activate_account()

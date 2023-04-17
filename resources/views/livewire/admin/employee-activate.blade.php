@@ -11,13 +11,6 @@
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
     @endpush
 
-    <div>
-                                @if (session()->has('message'))
-                                    <div class="alert alert-success">
-                                        {{ session('message') }}
-                                    </div>
-                                @endif
-                            </div>
                             
 <div class="row">  
 
@@ -241,3 +234,13 @@
     </div>
     <!-- End of modal backdrop -->
     <!-- End Qual Modal custom -->
+@if (Session::has('message'))
+    <script>
+        swal("Message", "{{ Session::get('message')}}", 'success', {
+            button:true,
+            button:"OK",
+            timer:3000,
+            dangerMode:true,
+        });
+    </script>
+    @endif

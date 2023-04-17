@@ -12,6 +12,7 @@ class Biodata extends Model
     public $fillable = [
         'staff_id',
         'title',
+        'nationaIDNumber',
         'surname',
         'first_name',
         'other_name',

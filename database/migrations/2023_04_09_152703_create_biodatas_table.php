@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('staff_id')->unique('staff_id_UNIQUE');
             $table->string('title')->nullable();
+            $table->string('nationaIDNumber')->unique();
             $table->string('surname')->nullable();
             $table->string('first_name')->nullable();
             $table->string('other_name')->nullable();
