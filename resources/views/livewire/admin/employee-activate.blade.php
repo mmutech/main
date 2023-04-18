@@ -11,7 +11,11 @@
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
     @endpush
 
-                            
+    @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif                    
 <div class="row">  
 
     <div class="col-md-6">
@@ -23,10 +27,73 @@
         <livewire:admin.qualifications :employee_id="$employee_id" />
     </div>
 </div>
+
 <div class="row">
-            <div class="submit-section">
-                <button wire:model="emit" class="btn add-btn">Activate Account</button>
-            </div>
+<div class="mt-3 col-md-6">
+<div class="card profile-box flex-fill">
+                    <div class="card-body">
+                        <h3 class="card-title">Documents </h3>
+<form wire:submit.prevent="saveDocument">
+        <div class="form-group">
+            <label>Document Type <span class="text-danger">*</span></label>
+            <input type="text" class="border rounded" wire:model.defer="document_type" placeholder="Enter Document Type" />
+            <x-input-error for="document_type"></x-input-error>
+        </div>
+   
+    
+        <div class="form-group">
+            <label>Document <span class="text-danger">*</span></label>
+            <input type="file" wire:model="document" class="form-control border rounded" />
+            <x-input-error for="document"></x-input-error>
+        </div>
+    
+        <div wire:loading wire:target="document">Uploading...</div>
+    
+        <button type="submit">Save document</button>
+</form>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title mb-0">Uploads</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table mb-0">
+											<thead>
+												<tr>
+													<th>S/N</th>
+                                                    <th>File Type</th>
+													<th>Filename</th>
+													
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>#</td>
+													<td>Certificate</td>
+													<td>certificate.png</td>
+												</tr>
+												<tr>
+													<td>#</td>
+													<td>ID Card</td>
+													<td>id.pdf</td>
+												</tr>
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+</div>
+
+<div class="row">
+    <div class="pagination-box d-flex justify-content-center align-items-center">
+        <button wire:model="emit" class="btn add-btn">Activate Account</button>
+    </div>
 </div>
             
             
@@ -234,13 +301,14 @@
     </div>
     <!-- End of modal backdrop -->
     <!-- End Qual Modal custom -->
-@if (Session::has('message'))
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-        swal("Message", "{{ Session::get('message')}}", 'success', {
-            button:true,
-            button:"OK",
-            timer:3000,
-            dangerMode:true,
+    Livewire.on('created', function (type, message) {
+        swal.fire({
+            title: message,
+            icon: type,
+            timer: 3000,
+            timerProgressBar: true,
         });
-    </script>
-    @endif
+    });
+</script>

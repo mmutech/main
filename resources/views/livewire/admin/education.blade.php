@@ -12,7 +12,7 @@
                                     <div class="experience-content">
                                         <div class="timeline-content">
                                             <a href="#/" class="name">{{$item->institution}}</a>
-                                            <a href="#" title="Remove" class="pull-right text-warning"><i class="fa fa-close"></i></a>
+                                            
                                             <div>{{ $item->course }}</div>
                                             <span class="time">{{$item->start_date}} - {{$item->end_date}}</span>
 

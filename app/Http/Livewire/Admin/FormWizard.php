@@ -14,17 +14,22 @@ use App\Models\LocationModel;
 use App\Models\UnitModel;
 use App\Models\JobRoleModel;
 use App\Models\GradeLevelModel;
+use App\Models\State;
+use App\Models\lga;
 
 class FormWizard extends Component
 {
     public $step = 1;
     public $lastNumber = 0;
-    public $disability_status;
+    public $deploy_location, $lgas, $deploy_unit;
+    public  $selectedState=null, $lga =null;
+    
 
     //Biodata
     public $title, $nationaIDNumber, $surname, $first_name, $other_name, $personal_mail, 
-            $phone, $date_of_birth, $gender, $marital_status, $official_mail, $address, 
-            $nationality, $state, $lga, $job_role, $grade_level, $gradeLevel, $jobRole, $criminal_record, $debt_status;
+            $phone, $date_of_birth, $religion, $gender, $marital_status, $official_mail, $address, 
+            $nationality, $state, $job_role, $grade_level, $gradeLevel, $jobRole, 
+            $disability_status, $disability_type, $criminal_record, $debt_status;
              
     
     // NextOfKin    
@@ -48,9 +53,13 @@ class FormWizard extends Component
     */
 
     public function mount()
-    {
-        $deployment_location = $this->deployment_location = LocationModel::where('status', 1)->get();
-        $deployment_unit = $this->deployment_unit = UnitModel::where('status', 1)->get();
+    {        
+        $states = $this->states = State::all();
+        //$lgas = $this->lgas = lga::all();
+        
+        
+        $deploy_location = $this->deploy_location = LocationModel::where('status', 1)->get();
+        $deploy_unit = $this->deploy_unit = UnitModel::where('status', 1)->get();
         $gradeLevel = $this->gradeLevel = GradeLevelModel::where('status', 1)->get();
         $jobRole = $this->jobRole = JobRoleModel::where('status', 1)->get();
         $lastRecord = DB::table('biodatas')->orderBy('id', 'desc')->latest()->first();
@@ -60,15 +69,14 @@ class FormWizard extends Component
 
     public function render()
     {
-        
+               
         return view('livewire.admin.form-wizard')->layout('layouts.admin-layout');
     }
 
-    protected $rules = [
-        'deployment_location'   => 'required',
-        'deployment_unit'       => 'required',
-        'deployment_date'       => 'required'
-    ];
+    public function updatedSelectedState($state_id)
+    {
+        $this->lgas = lga::where('state_id', $state_id)->get();
+    }
 
 
     public function nextStep()
@@ -84,11 +92,12 @@ class FormWizard extends Component
                     'personal_mail'             => 'required|email',
                     'phone'                     => 'required',
                     'date_of_birth'             => 'required',
+                    'religion'                  => 'required',
                     'gender'                    => 'required',
                     'marital_status'            => 'required',
                     'address'                   => 'required',
                     'nationality'               => 'required',
-                    'state'                     => 'required',
+                    'selectedState'             => 'required',
                     'lga'                       => 'required',
                     'job_role'                  => 'required',
                     'grade_level'               => 'required',
@@ -102,6 +111,7 @@ class FormWizard extends Component
                     'nok_address'               => 'required',
                     //
                     'disability_status'         => 'required',
+                    'disability_type'           => 'string|nullable',
                     'criminal_record'           => 'required',
                     'debt_status'               => 'required',
                     
@@ -175,10 +185,11 @@ class FormWizard extends Component
             $userId = auth()->user()->id;
             $user = DB::table('biodatas')->insertGetId([
                 'title'             => $this->title,
+                'nationaIDNumber'   => $this->nationaIDNumber,
                 'surname'           => $this->surname,
                 'first_name'        => $this->first_name,
                 'other_name'        => $this->other_name,
-                'personal_email'     => $this->personal_mail,
+                'personal_email'    => $this->personal_mail,
                 'phone'             => $this->phone,
                 'date_of_birth'     => $this->date_of_birth,
                 'gender'            => $this->gender,
@@ -188,8 +199,11 @@ class FormWizard extends Component
                 'state'             => $this->state,
                 'lga'               => $this->lga,
                 'job_role'          => $this->job_role,
-                'grade_level'          => $this->grade_level,
-                'official_email'     => $this->official_mail,
+                'grade_level'       => $this->grade_level,
+                'official_email'    => $this->official_mail,
+                'disability_status' => $this->disability_status,
+                'criminal_record'   => $this->criminal_record,
+                'debt_status'       => $this->debt_status,  
                 'staff_id'          => $this->lastNumber,
                 'added_by'          => $userId,
             ]);
@@ -238,7 +252,7 @@ class FormWizard extends Component
             ]);
             //$uid = $user;
             
-            session()->flash('success', 'Please add employee qualifications and activate profile!');
+            session()->flash('success', 'Employee records saved. Update qualifications and upload document to activate Employee account.');
             return redirect()->route('employee-activate',['id' =>  $user]);
 
             //clear form

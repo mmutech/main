@@ -3,13 +3,20 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Livewire\WithAlerts;
+
 use App\Models\Education;
 use App\Models\Qualification;
 
 
 class EmployeeActivate extends Component
 {
+    use WithFileUploads;
+    
+
     public $employee_id;
+    public $document, $document_type;
 
     # Education and Qualifications
     public $education_institution, $education_course, $education_from, 
@@ -31,6 +38,23 @@ class EmployeeActivate extends Component
         $this->qualification_date = '';
     }
 
+    public function saveDocument()
+    {
+        $this->validate([
+            'document_type' => 'required',
+            'document' => 'image|max:2048', // 2MB Max
+        ]);
+ 
+        //rename file and save details in db before upload
+        $this->document->store('documents');
+
+        $this->emit('created', [
+            'title' => 'Anything',
+            'icon' => 'success',
+            'iconColor' => 'green',
+        ]);
+    }
+
   
     public function saveEducation()
     {
@@ -48,9 +72,9 @@ class EmployeeActivate extends Component
 
         $this->addEdu =false;
 
-        session()->flash('message', 'Record has been added');
+        //session()->flash('message', 'Record has been added');
         
-        $this->dispatchBrowserEvent('swal:create', [
+        $this->dispatchBrowserEvent('swal:created', [
             'type' => 'info',
             'title' => 'Create new record',
             'text' => 'Enter the details below:',
@@ -75,9 +99,13 @@ class EmployeeActivate extends Component
 
         $this->addQual =false;  
 
-        session()->flash('message', 'Record has been added');
+        // session()->flash('message', 'Record has been added');
 
-        $this->emit(event:'refreshActivateEmployee');
+        $this->dispatchBrowserEvent('created', [
+            'title' => 'Anything',
+            'icon' => 'success',
+            'iconColor' => 'green',
+        ]);
     }
 
     public function activate_account()

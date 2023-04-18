@@ -54,28 +54,7 @@
                     <label class="focus-label">Status</label>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group form-focus">
-                            <div class="cal-icon">
-                                <input class="border-gray-300 rounded-sm form-control floating datetimepicker"
-                                    type="text">
-                            </div>
-                            <label class="focus-label">From</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group form-focus">
-                            <div class="cal-icon">
-                                <input class="border-gray-300 rounded-sm form-control floating datetimepicker"
-                                    type="text">
-                            </div>
-                            <label class="focus-label">To</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-sm-6 col-md-2">
                 <div class="d-grid">
                     <a href="#" class="btn btn-success"> Search </a>
@@ -117,15 +96,15 @@
                                         <div class="dropdown action-label">
                                             <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa fa-dot-circle-o text-danger"></i> Pending
+                                                <i class="fa fa-dot-circle-o text-info"></i> Pending
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item" href="#"><i
-                                                        class="fa fa-dot-circle-o text-danger"></i> Pending</a>
+                                                        class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
                                                 <a class="dropdown-item" href="#"><i
                                                         class="fa fa-dot-circle-o text-success"></i> Active</a>
                                                 <a class="dropdown-item" href="#"><i
-                                                        class="fa fa-dot-circle-o text-info"></i> Inactive</a>
+                                                        class="fa fa-dot-circle-o text-info"></i> Pending</a>
                                             </div>
                                         </div>
                                     </td>
@@ -135,8 +114,7 @@
                                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                                     class="material-icons">more_vert</i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                                    data-bs-target="#edit_asset"><i class="fa fa-user m-r-5"></i>
+                                                <a class="dropdown-item" href="{{ url('employee-profile') }}"><i class="fa fa-user m-r-5"></i>
                                                     View Profile</a>
                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal"
                                                     data-bs-target="#delete_asset"><i class="fa fa-trash-o m-r-5"></i>

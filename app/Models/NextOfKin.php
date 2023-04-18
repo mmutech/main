@@ -11,7 +11,8 @@ class NextOfKin extends Model
 
     protected $fillable = [
         'biodata_id',
-        'name',
+        'first_name',
+        'surname',
         'phone',
         'email',
         'address',

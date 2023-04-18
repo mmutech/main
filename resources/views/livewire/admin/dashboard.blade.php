@@ -29,39 +29,6 @@
         <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
             <div class="card dash-widget">
                 <div class="card-body">
-                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                    <div class="dash-widget-info">
-                        <h3>112</h3>
-                        <span>Leave Request</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-            <div class="card dash-widget">
-                <div class="card-body">
-                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                    <div class="dash-widget-info">
-                        <h3>4</h3>
-                        <span>Exit Forms</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-            <div class="card dash-widget">
-                <div class="card-body">
-                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                    <div class="dash-widget-info">
-                        <h3>15</h3>
-                        <span>On Leave</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-            <div class="card dash-widget">
-                <div class="card-body">
                     <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
                     <div class="dash-widget-info">
                         <h3>218</h3>
@@ -70,17 +37,65 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget">
+                <div class="card-body">
+                    <span class="dash-widget-icon"><i class="fa fa-bed"></i></span>
+                    <div class="dash-widget-info">
+                        <h3>112</h3>
+                        <span>On Leave</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget">
+                <div class="card-body">
+                    <span class="dash-widget-icon"><i class="fa fa-file"></i></span>
+                    <div class="dash-widget-info">
+                        <h3>4</h3>
+                        <span>Leave Requests</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget">
+                <div class="card-body">
+                    <span class="dash-widget-icon"><i class="la la-sign-out-alt"></i></span>
+                    <div class="dash-widget-info">
+                        <h3>15</h3>
+                        <span>Exit Requests</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
     </div>
 
     <!-- Chart -->
-    <div class="row">
-        <div class="card">
+    <!--<div class="row">
+        <div class="card col-md-6">
             <div class="card-body">
                 <h3 class="card-title">Leave Requests Summary</h3>
                 <div id="bar-charts"></div>
             </div>
         </div>
-        <!--								</div>
+        <div class="col-md-6 text-center">
+									<div class="card">
+										<div class="card-body">
+											<h3 class="card-title">Employees Churn Overview</h3>
+											<div id="line-charts" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="342" version="1.1" width="303.8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.400024px; top: -0.600006px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="32.52499961853027" y="303.3999996185303" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="3.59999942779541" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.02499961853027,303.3999996185303H278.8" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.52499961853027" y="233.7999997138977" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="3.5999903678894043" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">25</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.02499961853027,233.7999997138977H278.8" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.52499961853027" y="164.19999980926514" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="3.599996566772461" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.02499961853027,164.19999980926514H278.8" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.52499961853027" y="94.59999990463257" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="3.5999951362609863" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.02499961853027,94.59999990463257H278.8" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.52499961853027" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="3.59999942779541" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.02499961853027,25H278.8" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="278.8" y="315.8999996185303" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.8)"><tspan dy="3.59999942779541" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan></text><text x="200.91056582452174" y="315.8999996185303" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.8)"><tspan dy="3.59999942779541" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010</tspan></text><text x="122.91443379400854" y="315.8999996185303" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.8)"><tspan dy="3.59999942779541" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2008</tspan></text><text x="45.02499961853027" y="315.8999996185303" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.8)"><tspan dy="3.59999942779541" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2006</tspan></text><path fill="none" stroke="#fc6075" d="M45.02499961853027,52.83999996185301C54.76117889046506,70.23999993801115,74.23353743433462,105.03999989032744,83.96971670626941,122.43999986648558C93.7058959782042,139.83999984264372,113.17825452207376,192.03999977111818,122.91443379400854,192.03999977111818C132.67728752970206,192.03999977111818,152.20299500108908,122.43999986648558,161.9658487367826,122.43999986648558C171.70202800871738,122.43999986648558,191.17438655258695,192.03999977111818,200.91056582452174,192.03999977111818C210.64674509645653,192.03999977111818,230.11910364032607,125.9199998617172,239.85528291226086,122.43999986648558C249.59146218419565,118.95999987125394,269.06382072806525,153.75999982357024,278.8,164.19999980926514" stroke-width="3px" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#ff9b44" d="M45.02499961853027,164.19999980926514C54.76117889046506,146.799999833107,74.23353743433462,94.59999990463257,83.96971670626941,94.59999990463257C93.7058959782042,94.59999990463257,113.17825452207376,164.19999980926514,122.91443379400854,164.19999980926514C132.67728752970206,164.19999980926514,152.20299500108908,94.59999990463257,161.9658487367826,94.59999990463257C171.70202800871738,94.59999990463257,191.17438655258695,164.19999980926514,200.91056582452174,164.19999980926514C210.64674509645653,164.19999980926514,230.11910364032607,111.99999988079071,239.85528291226086,94.59999990463257C249.59146218419565,77.19999992847443,269.06382072806525,42.39999997615814,278.8,25" stroke-width="3px" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="45.02499961853027" cy="52.83999996185301" r="4" fill="#fc6075" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="83.96971670626941" cy="122.43999986648558" r="4" fill="#fc6075" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="122.91443379400854" cy="192.03999977111818" r="4" fill="#fc6075" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="161.9658487367826" cy="122.43999986648558" r="4" fill="#fc6075" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="200.91056582452174" cy="192.03999977111818" r="4" fill="#fc6075" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="239.85528291226086" cy="122.43999986648558" r="4" fill="#fc6075" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="278.8" cy="164.19999980926514" r="4" fill="#fc6075" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="45.02499961853027" cy="164.19999980926514" r="4" fill="#ff9b44" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="83.96971670626941" cy="94.59999990463257" r="4" fill="#ff9b44" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="122.91443379400854" cy="164.19999980926514" r="4" fill="#ff9b44" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="161.9658487367826" cy="94.59999990463257" r="4" fill="#ff9b44" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="200.91056582452174" cy="164.19999980926514" r="4" fill="#ff9b44" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="239.85528291226086" cy="94.59999990463257" r="4" fill="#ff9b44" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="278.8" cy="25" r="4" fill="#ff9b44" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 191.862px; top: 35px;"><div class="morris-hover-row-label">2012</div><div class="morris-hover-point" style="color: #ff9b44">
+  Total Sales:
+  100
+</div><div class="morris-hover-point" style="color: #fc6075">
+  Total Revenue:
+  50
+</div></div></div>
+										</div>
+									</div>
+								</div>
+        								</div>
       <div class="col-md-12">
        <div class="row">
         <div class="col-md-6 text-center">
@@ -298,7 +313,7 @@
             </div> -->
 
         <!-- Leave statistics -->
-        <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+        <div class="col-md-6 col-lg-6 col-xl-5 d-flex">
             <div class="card flex-fill">
                 <div class="card-body">
                     <h4 class="card-title">Leave Requests Statistics</h4>
@@ -351,7 +366,7 @@
         </div>
 
         <!-- Exit statistics -->
-        <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+        <div class="col-md-6 col-lg-6 col-xl-5 d-flex">
             <div class="card flex-fill">
                 <div class="card-body">
                     <h4 class="card-title">Exit Processes Statistics</h4>
