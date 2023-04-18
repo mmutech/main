@@ -21,7 +21,7 @@ class ExitInitComponent extends Component
         $exitType = $this->exitType = ExitTypeModel::where('status', 1)->get();
         $query = $this->exitInt = ExitInitModel::select("exit_initiation.id", "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status",
         "biodatas.staff_id", "biodatas.surname", "biodatas.first_name", "biodatas.other_name", "biodatas.personal_email")
-        ->join('status', 'status.id', "=", 'exit_initiation.status')
+        ->join('status', 'status.id', "=", 'exit_initiation.overallStatus')
         ->join('exit_type', 'exit_type.id', "=", 'exit_initiation.exit_type_id')
         ->join('biodatas', 'biodatas.id', "=", 'exit_initiation.added_by')
         ->orderByRaw('id DESC')->get();
@@ -47,7 +47,7 @@ class ExitInitComponent extends Component
     // validation
     protected $rules = [
         'exit_type_id' => 'required',
-        'status' => 'required',
+        'overallStatus' => 'required',
         'comment' => 'required',
         'ldate' => 'required'
     ];
@@ -62,7 +62,7 @@ class ExitInitComponent extends Component
             'comment' => $this->comment,
             'rdate' => now(),
             'ldate' => $this->ldate,
-            'status' => 4,
+            'overallStatus' => 4,
             'added_by' => $userId
         ]); 
 
@@ -108,7 +108,7 @@ class ExitInitComponent extends Component
             $this->exitIntId = $exitInt->id;
             $this->exit_type_id = $exitInt->exit_type_id;
             $this->comment = $exitInt->comment;
-            $this->status = $exitInt->status;
+            $this->overallStatus = $exitInt->overallStatus;
             $this->rdate = $exitInt->rdate;
             $this->ldate = $exitInt->ldate;
             $this->added_by = $exitInt->added_by;
@@ -130,7 +130,7 @@ class ExitInitComponent extends Component
             'comment' => $validateData['comment'], 
             'rdate' => $validateData['rdate'],
             'ldate' => $validateData['ldate'], 
-            'status' => $validateData['status'],
+            'overallStatus' => $validateData['overallStatus'],
             'updated_by' => $userId
         ]);
 

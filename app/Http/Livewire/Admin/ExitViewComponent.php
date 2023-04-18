@@ -31,7 +31,7 @@ class ExitViewComponent extends Component
         $exitInitionView = ExitInitModel::where('exit_initiation.id', $id)->select("exit_initiation.id", "exit_initiation.added_by", 
         "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status",
         "exit_initiation.adminComment")
-        ->join('status', 'status.id', "=", 'exit_initiation.status')
+        ->join('status', 'status.id', "=", 'exit_initiation.overallStatus')
         ->join('exit_type', 'exit_type.id', "=", 'exit_initiation.exit_type_id')
         ->first(); 
 
@@ -107,45 +107,33 @@ class ExitViewComponent extends Component
                     'biodatas.surname AS surName', 'biodatas.first_name AS firstName', 'biodatas.other_name AS otherName', 'biodatas.staff_id AS staffid')
                     ->join('department', 'department.id', "=", 'clearance.unit_dept')
                     ->join('status', 'status.id', "=", 'clearance.clr_status')
-                    ->join('biodatas', 'biodatas.id', "=", 'clearance.cleared_by')
+                    ->leftjoin('biodatas', 'biodatas.id', "=", 'clearance.cleared_by')
                     ->get();
-                    
-                    // $cleared_by = $clearanceView->ClearedBy;
-            // $clearedById = $this->clearedById = ClearanceModel::where('clearance.cleared_by', 1  OR 'clearance.cleared_by', 0)
-            //     ->select('biodatas.surname AS surName', 'biodatas.first_name AS firstName', 'biodatas.other_name AS otherName', 'biodatas.staff_id AS staffid')
-            //     ->join('biodatas', 'biodatas.id', "=", 'clearance.cleared_by')
-            //     ->get();
-                
+                            
             // dd($clearanceView);
 
     }
 
+// Update Exit Initiation
     // validation
     protected $rules = [
         'adminComment' => 'required',
-        // 'status' => 'required',
         'overallStatus' => 'required',
-        // 'upload' => 'pdf|png|jpg|jpeg|image|max:1024'
     ];
 
     // Update Exit Initiation
     public function updateIntiation()
     {
         $this->validate([
-            // 'photo' => 'image|max:1024',
             'adminComment' => 'required',
-            // 'status' => 'required',
             'overallStatus' => 'required',
-            // 'upload' => 'pdf|png|jpg|jpeg|image|max:1024'
         ]);
 
         $userId = auth()->user()->id;
         $validateData = $this->validate();
         ExitInitModel::where('id', $this->ViewexitIntId)->update([
             'adminComment' => $validateData['adminComment'], 
-            'status' => 3,
             'overallStatus' => $validateData['overallStatus'],
-            // 'upload' => $validateData['upload'],
             'updated_by' => $userId
         ]);
 
@@ -156,43 +144,41 @@ class ExitViewComponent extends Component
     }
 
     //  Update clearance
-    //  public function editClearance($clearance_Id)
-    // {
-    //     $clearanceId = ClearanceModel::find($clearance_Id);
-    //     if($clearanceId){
-    //         $this->ViewclearanceId = $clearanceId->id;
-    //         $this->comment = $clearanceId->comment;
-    //         $this->clr_status = $clearanceId->clr_status;
-    //         $this->clr_date = $clearanceId->clr_date;
-    //         $this->added_by = $clearanceId->added_by;
-    //     }else{
-    //         return redirect()->to('/exit-view-component');
-    //     }
-    //     // dd($this->ViewclearanceId);
+     public function editClearance($clearance_Id)
+    {
+        $clearanceId = ClearanceModel::find($clearance_Id);
+        if($clearanceId){
+            $this->ViewclearanceId = $clearanceId->id;
+            $this->comment = $clearanceId->comment;
+            $this->clr_status = $clearanceId->clr_status;
+            $this->clr_date = $clearanceId->clr_date;
+            $this->added_by = $clearanceId->added_by;
+        }else{
+            return redirect()->to('/exit-view-component');
+        }
+        // dd($this->ViewclearanceId);
 
-    //     $this->dispatchBrowserEvent('close-modal');
-    // }
+        // $this->dispatchBrowserEvent('close-modal');
+    }
 
      
     public function updateClearance()
         {
-            // $this->validate([
-            //     'comment' => 'required',
-            //     'clr_status' => 'required',
-            //     'clr_date' => 'required',
-            //     //  'cleared_by' => 'required'
-            // ]);
+            $this->validate([
+                'comment' => 'required',
+                'clr_status' => 'required',
+            ]);
     
             $userId = auth()->user()->id;
             $validateData = $this->validate();
-            ClearanceModel::where('id', $ViewClearanceId)->update([
-                'comment' => 'comment', 
-                'clr_status' => 'clr_status',
-                'clr_date' => 'clr_date',
+            ClearanceModel::where('id', $this->ViewclearanceId)->update([
+                'comment' => $validateData['comment'], 
+                'clr_status' => $validateData['clr_status'],
+                'clr_date' => now(),
                 'cleared_by' => $userId
             ]);
     
-    //         //  dd($exitIntId);
+        //  dd($exitIntId);
     
             session()->flash('message', 'Cleared Successfully!');
             return redirect()->to('/exit-view-component');
