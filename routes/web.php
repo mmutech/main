@@ -18,6 +18,7 @@ use App\Http\Livewire\Admin\ExitTypeComponent;
 use App\Http\Livewire\Admin\ExitInitComponent;
 use App\Http\Livewire\Admin\ExitViewComponent;
 use App\Http\Livewire\Admin\ExitInterviewComponent;
+// use App\Http\Livewire\Admin\Clearance;
 
 
 /*
@@ -57,5 +58,4 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/exit-init-component', ExitInitComponent::class);
         Route::get('/exit-interview-component', ExitInterviewComponent::class);
         Route::get('/exit-view-component/{id}', ExitViewComponent::class)->name('exit-view-component');
-
 });

@@ -108,8 +108,7 @@ class ExitViewComponent extends Component
                     ->join('department', 'department.id', "=", 'clearance.unit_dept')
                     ->join('status', 'status.id', "=", 'clearance.clr_status')
                     ->leftjoin('biodatas', 'biodatas.id', "=", 'clearance.cleared_by')
-                    ->get();
-                            
+                    ->get();           
             // dd($clearanceView);
 
     }
@@ -143,46 +142,16 @@ class ExitViewComponent extends Component
         return redirect()->to('/exit-init-component');
     }
 
-    //  Update clearance
-     public function editClearance($clearance_Id)
+    public function saveClearance()
     {
-        $clearanceId = ClearanceModel::find($clearance_Id);
-        if($clearanceId){
-            $this->ViewclearanceId = $clearanceId->id;
-            $this->comment = $clearanceId->comment;
-            $this->clr_status = $clearanceId->clr_status;
-            $this->clr_date = $clearanceId->clr_date;
-            $this->added_by = $clearanceId->added_by;
-        }else{
-            return redirect()->to('/exit-view-component');
-        }
-        // dd($this->ViewclearanceId);
+        $formData = [
+            'comment' => $this->comment,
+            'clr_status' => $this->clr_status,
+            
+        ];
 
-        // $this->dispatchBrowserEvent('close-modal');
+        $this->emit('updateClearance', $formData);  
     }
-
-     
-    public function updateClearance()
-        {
-            $this->validate([
-                'comment' => 'required',
-                'clr_status' => 'required',
-            ]);
-    
-            $userId = auth()->user()->id;
-            $validateData = $this->validate();
-            ClearanceModel::where('id', $this->ViewclearanceId)->update([
-                'comment' => $validateData['comment'], 
-                'clr_status' => $validateData['clr_status'],
-                'clr_date' => now(),
-                'cleared_by' => $userId
-            ]);
-    
-        //  dd($exitIntId);
-    
-            session()->flash('message', 'Cleared Successfully!');
-            return redirect()->to('/exit-view-component');
-        }
 
     public function render()
     {
