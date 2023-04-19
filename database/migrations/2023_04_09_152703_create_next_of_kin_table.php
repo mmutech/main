@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('next_of_kin', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('biodata_id');
-            $table->string('name')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('first_name');
+            $table->string('surname');
+            $table->string('relationship');
+            $table->string('phone');
             $table->string('email')->nullable();
-            $table->string('address')->nullable();
-            $table->string('relationship')->nullable();
+            $table->string('address');
+            
             $table->timestamps();
         });
     }
