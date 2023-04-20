@@ -55,8 +55,8 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>National ID Number <span class="text-danger">*</span></label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="nationaIDNumber" id="nationaIDNumber" placeholder="Enter NIN">
-                                         <x-input-error for="nationaIDNumber">
+                                         <input type="text" minlength="11" maxlength="11" class="form-control border rounded" wire:model.defer="nationaIDNumber" id="nationaIDNumber" placeholder="Enter NIN">
+                                         <x-input-error for="nationalIDNumber">
                                          </x-input-error>
                                      </div>
                                  </div>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Religion <span class="text-danger">*</span></label>
+                                        <label>Religion </label>
                                         <select class="form-control border rounded" id="religion" wire:model.defer="religion" >
                                             <option value="">Choose...</option>
                                             <option value="Christianity">Christianity</option>
@@ -144,7 +144,7 @@
                                  <div class="col-md-6">
                                      <div class="form-group">
                                          <label>Phone <span class="text-danger">*</span></label>
-                                         <input type="text" class="form-control border rounded" wire:model.defer="phone" placeholder="Enter phone number"
+                                         <input type="text" minlength="11" maxlength="11" class="form-control border rounded" wire:model.defer="phone" placeholder="08012345678"
                                              id="phone" class="border-gray-300 rounded-sm form-control">
                                          <x-input-error for="phone">
                                          </x-input-error>
@@ -343,7 +343,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Are you indebted to any indivual/organization? <span class="text-danger">*</span></label>
+                                                    <label>Are you indebted to any individual/organization? <span class="text-danger">*</span></label>
                                                     <div class="radio">	
                                                         <input type="radio" wire:model="debt_status" value="no"> No
                                                     </div>

@@ -81,12 +81,12 @@
                         <tbody>
                             @foreach ($employees as $employee)
                                 <tr>
-                                    <td>#</td>
-                                    <td> <a href="{{ url("asset/$employee->id") }}">
+                                    <td>{{ $loop->index+1 }}</td>
+                                    <td> <a href="{{ url("employee-profile/$employee->id") }}">
                                             <strong>{{$employee->staff_id}}</strong>
                                         </a></td>
                                     <td>
-                                        <a href="{{ url("asset/$employee->id") }}">
+                                        <a href="{{ url("employee-profile/$employee->id") }}">
 
                                             {{ $employee->first_name ." ".$employee->surname." ".$employee->other_name }}
                                         </a>

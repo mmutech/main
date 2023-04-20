@@ -36,12 +36,12 @@ return new class extends Migration
             $table->integer('job_role');
             $table->integer('grade_level');
             $table->string('disability_status');
+            $table->string('disability_type')->nullable();
             $table->string('criminal_record');
             $table->string('debt_status');
-            $table->integer('added_by');
+            $table->integer('created_by');
             $table->integer('updated_by')->nullable();
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable()->useCurrent();
+            $table->timestamps();
         });
     }
 

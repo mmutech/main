@@ -20,7 +20,7 @@ class Employees extends Component
     
     public $addModal = false, $editModal = false;
 
-
+    
     public function render()
     {
         $this->employees = Biodata::all();

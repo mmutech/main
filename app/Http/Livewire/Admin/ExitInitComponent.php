@@ -12,42 +12,37 @@ use App\Models\Biodata;
 
 class ExitInitComponent extends Component
 {
-    public $exitType, $clearance, $exit_type_id, $exitInt, $exitIntId, $status, $addedBy, $comment, $ldate, $exitInitionId, $exitInitionView;
+    public $exitType, $overallStatus, $clearance, $exit_type_id, $exitInt, $exitIntId, $status, $addedBy, $comment, $ldate, $exitInitionId, $exitInitionView;
     public $ViewexitType, $Viewexit_type_id, $ViewexitInt, $ViewexitIntId, $Viewstatus, $ViewaddedBy, $Viewcomment, $Viewldate, $ViewexitInitionId, $ViewexitInitionView;
-    // Get all Record
+    
+    public $addModal = false, $editModal = false;
+
+    public function mount() {
+
+    }
+    
     public function render()
     {
+        // Get Active Record
         $status = $this->status = statusModel::all();
         $exitType = $this->exitType = ExitTypeModel::where('status', 1)->get();
-        $query = $this->exitInt = ExitInitModel::select("exit_initiation.id", "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status",
+        $this->exitInt = ExitInitModel::select("exit_initiation.id", "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status",
         "biodatas.staff_id", "biodatas.surname", "biodatas.first_name", "biodatas.other_name", "biodatas.personal_email")
         ->join('status', 'status.id', "=", 'exit_initiation.overallStatus')
         ->join('exit_type', 'exit_type.id', "=", 'exit_initiation.exit_type_id')
-        ->join('biodatas', 'biodatas.id', "=", 'exit_initiation.added_by')
+        ->leftjoin('biodatas', 'biodatas.id', "=", 'exit_initiation.added_by')
         ->orderByRaw('id DESC')->get();
-
+        //$this->exitInt = ExitInitModel::all();
         // dd($query);
         
         return view('livewire.admin.exit-init-component')->layout('layouts.admin-layout');
     }
-
-    // Get Active Record
-    // public function mount()
-    // {
-    //     $status = $this->status = statusModel::all();
-    //     $this->exitType = ExitInitModel::where('status', 1)
-    //     ->select("exit_initiation.id", "exit_initiation.comment", "exit_initiation.rdate", "exit_type.exit_type", "status.status_name AS status")
-    //     ->join('status', 'status.id', "=", 'exit_initiation.status')
-    //     ->join('exit_type', 'extit_type.id', "=", 'exit_initiation.exit_type_id')
-    //     ->orderByRaw('id DESC')->get();
-
-    //     return view('livewire.admin.exit-init-component')->layout('layouts.admin-layout');
-    // }
+    
 
     // validation
     protected $rules = [
         'exit_type_id' => 'required',
-        'overallStatus' => 'required',
+        //'overallStatus' => 'required',
         'comment' => 'required',
         'ldate' => 'required'
     ];
@@ -84,9 +79,11 @@ class ExitInitComponent extends Component
             ClearanceModel::create($value);
         }
 
+        $this->addModal = false;
+
         session()->flash('message', 'Exit Initiation Added Successfully!');
 
-        return redirect()->to('/exit-init-component');
+        //return redirect()->to('/exit-init-component');
     }
 
     // Delete exitType
@@ -116,7 +113,7 @@ class ExitInitComponent extends Component
             return redirect()->to('/exit-init-component');
         }
         // dd($exitType);
-
+        
         $this->dispatchBrowserEvent('close-modal');
     }
 
@@ -135,8 +132,9 @@ class ExitInitComponent extends Component
         ]);
 
         session()->flash('message', 'Exit Initiation Updated Successfully!');
-        $this->dispatchBrowserEvent('close-modal');
-        return redirect()->to('/exit-init-component');
+        #$this->dispatchBrowserEvent('close-modal');
+        #return redirect()->to('/exit-init-component');
+        $this->editModal = false;
     }
     
 }

@@ -40,7 +40,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     ->group(function () {
         Route::get('/dashboard', function () {return view('admin-home');})->name('dashboard');
         Route::get('/all-employees', Employees::class);
-        Route::get('/employee-profile', EmployeeProfile::class);
+        Route::get('/employee-profile/{id}', EmployeeProfile::class);
         Route::get('/create-employee', FormWizard::class);
         Route::get('/employee-activate/{id}', EmployeeActivate::class)->name('employee-activate');
 
