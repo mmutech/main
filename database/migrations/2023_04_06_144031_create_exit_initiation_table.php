@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('comment');
             $table->date('rdate')->useCurrent();
             $table->date('ldate');
-            $table->integer('status')->index('status');
             $table->string('adminComment')->nullable();
+            $table->string('upload')->nullable();
+            $table->integer('overallStatus')->index('status');
             $table->integer('added_by');
             $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();

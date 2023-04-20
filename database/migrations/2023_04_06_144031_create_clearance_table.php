@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('clearance', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->integer('exit_int_id')->index('exit_int_id');
-            $table->integer('cleared_by')->index('cleared_by');
-            $table->integer('clr_status')->index('clr_status');
-            $table->string('comment');
-            $table->date('clr_date');
+            $table->integer('added_by')->index('added_by');
+            $table->integer('unit_dept')->index('unit_dept');
+            $table->integer('cleared_by')->index('cleared_by')->nullable();
+            $table->integer('clr_status')->index('clr_status')->nullable();
+            $table->string('comment')->nullable();
+            $table->date('clr_date')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
         });

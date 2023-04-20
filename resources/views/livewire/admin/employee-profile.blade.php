@@ -27,26 +27,26 @@
 									<div class="profile-view">
 										<div class="profile-img-wrap">
 											<div class="profile-img">
-												<a href="#"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
+												<a href="#"><img alt="" src="{{asset('assets/img/profiles/avatar-02.jpg')}}"></a>
 											</div>
 										</div>
 										<div class="profile-basic">
 											<div class="row">
 												<div class="col-md-5">
 													<div class="profile-info-left">
-														<h3 class="user-name m-t-0 mb-0">John Doe</h3>
+														<h3 class="user-name m-t-0 mb-0">{{ $employee->first_name." ".$employee->surname." ".$employee->other_name }}</h3>
 														<h6 class="text-muted">UI/UX Design Team</h6>
-														<small class="text-muted">Web Designer</small>
-														<div class="staff-id">Employee ID : FT-0001</div>
+														<small class="text-muted">{{ $employee->job_role }}</small>
+														<div class="staff-id">Employee ID : {{ $employee->staff_id }}</div>
 														<div class="small doj text-muted">Date of Join : 1st Jan 2013</div>
-														<div class="staff-msg"><a class="btn btn-custom" href="chat.html">Send Message</a></div>
+														
 													</div>
 												</div>
 												<div class="col-md-7">
 													<ul class="personal-info">
 														<li>
 															<div class="title">Phone:</div>
-															<div class="text"><a href="">9876543210</a></div>
+															<div class="text"><a href="">{{ $employee->phone }}</a></div>
 														</li>
 														<li>
 															<div class="title">Email:</div>
@@ -69,7 +69,7 @@
 															<div class="text">
 															   <div class="avatar-box">
 																  <div class="avatar avatar-xs">
-																	 <img src="assets/img/profiles/avatar-16.jpg" alt="">
+																	 <img src="{{ asset('assets/img/profiles/avatar-16.jpg') }}" alt="">
 																  </div>
 															   </div>
 															   <a href="profile.html">

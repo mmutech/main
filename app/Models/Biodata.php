@@ -28,9 +28,13 @@ class Biodata extends Model
         'state',
         'lga',
         'religion',
+        'disability_status',
+        'disability_type',
+        'criminal_record',
+        'debt_status',
         'grade_level',
         'job_role',
-        'added_by',
+        'created_by',
         'updated_by',
     ];
 }

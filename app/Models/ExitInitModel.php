@@ -17,6 +17,8 @@ class ExitInitModel extends Model
         'rdate',
         'ldate',
         'updated_by',
+        'upload',
+        'overallStatus',
         'adminComment'
     ];
 }

@@ -3,10 +3,12 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use App\Models\Biodata;
 
 class EmployeeProfile extends Component
 
 {
+    public $employee;
     # Biodata
     public $surname, $first_name, $other_name, $personal_mail, $phone, 
             $staff_id, $date_of_birth, $gender, $marital_status, 
@@ -19,9 +21,13 @@ class EmployeeProfile extends Component
             $qualification_date;
     
     
-
+    public function mount($id)
+    {
+        $this->employee_id = $id;
+    }
     public function render()
     {
+        $this->employee = Biodata::find($this->employee_id);
         return view('livewire.admin.employee-profile')->layout('layouts.admin-layout');
     }
 

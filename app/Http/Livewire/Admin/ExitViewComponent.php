@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Models\ExitInitModel;
+use App\Models\ClearanceModel;
 use App\Models\ExitTypeModel;
 use App\Models\Deployment;
 use App\Models\statusModel;
@@ -16,8 +18,9 @@ use App\Models\DivisionModel;
 
 class ExitViewComponent extends Component
 {
-    public $exitIntId, $adminComment, $status, $ViewexitType, $Viewexit_type_id, $ViewexitInt, $ViewexitIntId, $Viewstatus, $ViewAddedBy, $Viewcomment, $Viewldate, $Viewrdate, $ViewexitInitionId, $ViewexitInitionView,
-           $ViewLocationId, $ViewUnitId;
+    use WithFileUploads;
+    public $exitIntId, $clearedById, $ViewClearanceBy, $clearance, $clearedBy, $clearanceView, $cleared_by, $comment, $clr_date, $clr_status, $adminComment, $status, $ViewexitType, $Viewexit_type_id, $ViewexitInt, $ViewexitIntId, $Viewstatus, $ViewAddedBy, $Viewcomment, $Viewldate, $Viewrdate, $ViewexitInitionId, $ViewexitInitionView,
+           $ViewClearanceId, $ViewLocationId, $ViewUnitId, $upload, $overallStatus, $ViewUserId;
     
     // Get Single Record
 
@@ -28,7 +31,7 @@ class ExitViewComponent extends Component
         $exitInitionView = ExitInitModel::where('exit_initiation.id', $id)->select("exit_initiation.id", "exit_initiation.added_by", 
         "exit_initiation.ldate", "exit_initiation.rdate", "exit_initiation.comment", "exit_type.exit_type", "status.status_name AS status",
         "exit_initiation.adminComment")
-        ->join('status', 'status.id', "=", 'exit_initiation.status')
+        ->join('status', 'status.id', "=", 'exit_initiation.overallStatus')
         ->join('exit_type', 'exit_type.id', "=", 'exit_initiation.exit_type_id')
         ->first(); 
 
@@ -47,6 +50,7 @@ class ExitViewComponent extends Component
         $user = User::where('id', $this->ViewAddedBy)->first();
 
         $this->ViewBiodataId = $user->biodata_id;
+        $this->ViewUserId = $user->id;
         // dd($this->ViewBiodataId);
         // Get Biodata
         $biodata = Biodata::where('biodatas.id', $this->ViewBiodataId)
@@ -95,22 +99,40 @@ class ExitViewComponent extends Component
 
         // dd($this->ViewDivision);
 
+        // Get Clearance
+
+            // $clearanceView->id;
+            $clearanceView = $this->clearance = ClearanceModel::where('clearance.added_by', $this->ViewUserId)
+                    ->select('clearance.cleared_by AS ClearedBy', 'clearance.id AS id', 'clearance.comment AS Comments', 'clearance.clr_date AS cleared_date', 'department.description AS department', 'status.status_name AS status',
+                    'biodatas.surname AS surName', 'biodatas.first_name AS firstName', 'biodatas.other_name AS otherName', 'biodatas.staff_id AS staffid')
+                    ->join('department', 'department.id', "=", 'clearance.unit_dept')
+                    ->join('status', 'status.id', "=", 'clearance.clr_status')
+                    ->leftjoin('biodatas', 'biodatas.id', "=", 'clearance.cleared_by')
+                    ->get();           
+            // dd($clearanceView);
+
     }
 
+// Update Exit Initiation
     // validation
     protected $rules = [
         'adminComment' => 'required',
-        'status' => 'required'
+        'overallStatus' => 'required',
     ];
 
     // Update Exit Initiation
     public function updateIntiation()
     {
+        $this->validate([
+            'adminComment' => 'required',
+            'overallStatus' => 'required',
+        ]);
+
         $userId = auth()->user()->id;
         $validateData = $this->validate();
         ExitInitModel::where('id', $this->ViewexitIntId)->update([
             'adminComment' => $validateData['adminComment'], 
-            'status' => $validateData['status'],
+            'overallStatus' => $validateData['overallStatus'],
             'updated_by' => $userId
         ]);
 
@@ -118,6 +140,17 @@ class ExitViewComponent extends Component
 
         session()->flash('message', 'Exit Initiation Updated Successfully!');
         return redirect()->to('/exit-init-component');
+    }
+
+    public function saveClearance()
+    {
+        $formData = [
+            'comment' => $this->comment,
+            'clr_status' => $this->clr_status,
+            
+        ];
+
+        $this->emit('updateClearance', $formData);  
     }
 
     public function render()
