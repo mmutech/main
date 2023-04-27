@@ -18,6 +18,9 @@ use App\Http\Livewire\Admin\ExitTypeComponent;
 use App\Http\Livewire\Admin\ExitInitComponent;
 use App\Http\Livewire\Admin\ExitViewComponent;
 use App\Http\Livewire\Admin\ExitInterviewComponent;
+use App\Http\Livewire\User\Myprofile;
+use App\Http\Livewire\User\UserDashboard;
+
 // use App\Http\Livewire\Admin\Clearance;
 
 
@@ -34,6 +37,11 @@ use App\Http\Livewire\Admin\ExitInterviewComponent;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/myprofile', Myprofile::class);
+    Route::get('/user-dashboard', UserDashboard::class);
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
