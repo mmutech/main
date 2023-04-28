@@ -17,4 +17,14 @@ class DepartmentModel extends Model
         'added_by',
         'updated_by'
     ];
+
+    public function units()
+    {
+        return $this->hasMany(UnitModel::class);
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(DivisionModel::class);
+    }
 }

@@ -11,8 +11,12 @@ class Deployment extends Model
 
     protected $fillable = [
         'biodata_id',
-        'location_id',
+        'division_id',
+        'department_id',
         'unit_id',
+        'location_id',
+        'area_office_id',
+        'feeder_id',
         'comment',
         'status',
         'deployment_date',

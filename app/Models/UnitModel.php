@@ -17,4 +17,9 @@ class UnitModel extends Model
         'added_by',
         'updated_by'
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(DepartmentModel::class);
+    }
 }

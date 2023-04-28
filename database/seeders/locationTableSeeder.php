@@ -59,6 +59,21 @@ class locationTableSeeder extends Seeder
                 'status' => '1',
                 'added_by' => '1',
             ],
+            [
+                'description' => 'CCRM Location',
+                'status' => '1',
+                'added_by' => '1',
+            ],
+            [
+                'description' => 'Cash Point',
+                'status' => '1',
+                'added_by' => '1',
+            ],
+            [
+                'description' => 'Injection Sub-station',
+                'status' => '1',
+                'added_by' => '1',
+            ],
         ];
 
         foreach ($location as $key => $value) {

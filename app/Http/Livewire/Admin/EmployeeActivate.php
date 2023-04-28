@@ -38,24 +38,49 @@ class EmployeeActivate extends Component
         $this->qualification_date = '';
     }
 
-    public function saveDocument()
-    {
-        $this->validate([
-            'document_type' => 'required',
-            'document' => 'image|max:2048', // 2MB Max
-        ]);
- 
-        //rename file and save details in db before upload
-        $this->document->store('documents');
+#    public function saveDocument()
+#    {
+#        $this->validate([
+#            'document_type' => 'required',
+#            'document' => 'image|max:2048', // 2MB Max
+#        ]);
+# 
+#        //rename file and save details in db before upload
+#        $this->document->store('documents');
+#        
+#
+#        $this->emit('created', [
+#            'title' => 'Anything',
+#            'icon' => 'success',
+#            'iconColor' => 'green',
+#        ]);
+#    }
 
-        $this->emit('created', [
-            'title' => 'Anything',
-            'icon' => 'success',
-            'iconColor' => 'green',
+    // upload employee educational docuemnets as jpg and pdf
+    public function uploadDocument($file) {
+        $this->validate([
+            'document' => 'image|max:2048', // 2MB Max
+            'document_type' => 'required',
         ]);
+
+        //rename file to user id 
+        //$document->storeAs('documents', $document->hashName());
+        $path = $this->document->storeAs('documents/'.$this->document_type, $document->hashName());
+        
+        // store upload inside document folder
+        $document->store('documents');
+
+        // save document info in documents database table
+
+
+        // Reset the file input field
+        $this->document = null;
+
+        # success message
+        $this->alert('success', 'Document uploaded');
+        
     }
 
-  
     public function saveEducation()
     {
         $formData = [
@@ -70,17 +95,7 @@ class EmployeeActivate extends Component
         
         $this->clearForm();
 
-        $this->addEdu =false;
-
-        //session()->flash('message', 'Record has been added');
-        
-        $this->dispatchBrowserEvent('swal:created', [
-            'type' => 'info',
-            'title' => 'Create new record',
-            'text' => 'Enter the details below:',
-        ]);
-        
-        
+        $this->addEdu =false;       
     }
 
     public function saveQualification()
@@ -98,14 +113,6 @@ class EmployeeActivate extends Component
         $this->clearForm();
 
         $this->addQual =false;  
-
-        // session()->flash('message', 'Record has been added');
-
-        $this->dispatchBrowserEvent('created', [
-            'title' => 'Anything',
-            'icon' => 'success',
-            'iconColor' => 'green',
-        ]);
     }
 
     public function activate_account()

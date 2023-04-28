@@ -12,7 +12,7 @@ class Biodata extends Model
     public $fillable = [
         'staff_id',
         'title',
-        'nationaIDNumber',
+        'nationalIDNumber',
         'surname',
         'first_name',
         'other_name',
@@ -28,6 +28,9 @@ class Biodata extends Model
         'state',
         'lga',
         'religion',
+        'date_of_first_appointment',
+        'date_of_confirmation',
+        'date_of_last_promotion',
         'disability_status',
         'disability_type',
         'criminal_record',

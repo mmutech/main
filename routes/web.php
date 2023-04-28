@@ -18,8 +18,7 @@ use App\Http\Livewire\Admin\ExitTypeComponent;
 use App\Http\Livewire\Admin\ExitInitComponent;
 use App\Http\Livewire\Admin\ExitViewComponent;
 use App\Http\Livewire\Admin\ExitInterviewComponent;
-// use App\Http\Livewire\Admin\Clearance;
-
+use App\Http\Livewire\Admin\Deployment;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +43,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/create-employee', FormWizard::class);
         Route::get('/employee-activate/{id}', EmployeeActivate::class)->name('employee-activate');
 
+
+        //Test Route (To be removed)
+
         // Preferences Routes.
         Route::get('/division', Division::class);
         Route::get('/department-component', DepartmentComponent::class);
@@ -59,3 +61,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/exit-interview-component', ExitInterviewComponent::class);
         Route::get('/exit-view-component/{id}', ExitViewComponent::class)->name('exit-view-component');
 });
+
+Route::post('/logout', [LogoutController::class, 'destroy'])->name('logout');
