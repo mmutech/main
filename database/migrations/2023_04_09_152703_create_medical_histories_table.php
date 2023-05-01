@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('biodata_id');
             $table->string('blood_group');
             $table->string('genotype');
-            $table->string('medical_condition');
+            $table->string('medical_condition')->nullable();
             $table->timestamps();
         });
     }

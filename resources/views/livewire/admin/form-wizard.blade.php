@@ -187,7 +187,7 @@
                                     <div class="form-group">
                                         <label>State <span class="text-danger">*</span></label>
                                         <select class="form-control" id="selectedState" wire:model="selectedState">
-                                            <option>Choose...</option>
+                                            <option value="">Choose...</option>
                                             @foreach($states as $single_state)
                                             <option value="{{$single_state->id}}">{{$single_state->name}}</option>
                                             @endforeach
@@ -198,16 +198,18 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>LGA<span class="text-danger">*</span></label>
+                                        @if(!is_null($selectedState))
                                         <select class="form-control" id="lga" wire:model.defer="lga">
-                                            @if(!is_null($lgas))
+                                            
+                                            <option value="">Choose..</option>
                                             @foreach($lgas as $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                            @elseif(is_null($lgas))
-                                            <option value="">Select State</option>
-                                            @endif
+                                            @endforeach 
                                         </select>
                                         <x-input-error for="lga"></x-input-error>
+                                        @elseif(is_null($selectedState))
+                                            <input type="text" class="form-control border rounded" placeholder="Select State" readonly />
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -609,7 +611,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Comment <span class="text-danger">*</span></label>
+                                <label>Comment </label>
                                 <textarea class="form-control border rounded" wire:model.defer="deployment_comment" placeholder="Enter remark"></textarea>
                                 <x-input-error for="deployment_comment"></x-input-error>
                             </div>

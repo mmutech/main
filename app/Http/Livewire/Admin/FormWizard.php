@@ -160,12 +160,12 @@ public $selectedFeeder      = null;
             case 1:
                 $this->validate([
                     'title'                     => 'nullable',
-                    'nationalIDNumber'          => 'required|digits:11',
+                    'nationalIDNumber'          => 'required|digits:11|unique:biodatas',
                     'surname'                   => 'string|required',
                     'first_name'                => 'string|required',
                     'other_name'                => 'string|nullable',
                     'personal_mail'             => 'required|email',
-                    'phone'                     => 'required|digits:11',
+                    'phone'                     => 'required|digits:11|unique:biodatas',
                     'date_of_birth'             => 'required|date',
                     'religion'                  => 'nullable',
                     'gender'                    => 'required',
@@ -213,7 +213,7 @@ public $selectedFeeder      = null;
                     'selectedAreaOffice'    => 'required',
                     'selectedFeeder'        => 'required',
                     'deployment_date'       => 'required',
-                    'deployment_comment'    => 'required',
+                    'deployment_comment'    => 'string|nullable',
                   
                  ]);
                 break;
@@ -345,7 +345,7 @@ public $selectedFeeder      = null;
             
             //session()->flash('success', 'Employee records saved. Update qualifications and upload document to activate Employee account.');
             //return redirect()->route('employee-activate',['id' =>  $user]);
-            $this->flash('success', 'Successfully saved', [], 'employee-activate/'.$user);
+            $this->flash('info', 'Profile created', ['position' => 'center',  'toast' => false, 'text' => ''], 'employee-activate/'.$user);
             //clear form
             
         });

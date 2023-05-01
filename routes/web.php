@@ -32,7 +32,7 @@ use App\Http\Livewire\Admin\Deployment;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
