@@ -282,14 +282,14 @@
 
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                <span class="user-img"><img src="{{ asset("assets/img/profiles/avatar-g")}21. jp}" alt="">
+                <span class="user-img"><img src="{{ asset("assets/img/profiles/avatar-21.jpg")}}" alt="">
                     <span class="status online"></span></span>
                 <span>Admin</span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="profile.html">My Profile</a>
-                <a class="dropdown-item" href="settings.html">Settings</a>
-                <a class="dropdown-item" href="index.html">Logout</a>
+                <a class="dropdown-item" href="#">My Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" wire:click="logout">Logout</a>
             </div>
         </li>
     </ul>

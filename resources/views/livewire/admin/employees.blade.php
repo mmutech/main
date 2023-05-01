@@ -114,7 +114,7 @@
                                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                                     class="material-icons">more_vert</i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="{{ url('employee-profile') }}"><i class="fa fa-user m-r-5"></i>
+                                                <a class="dropdown-item" href="{{ url("employee-profile/$employee->id") }}"><i class="fa fa-user m-r-5"></i>
                                                     View Profile</a>
                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal"
                                                     data-bs-target="#delete_asset"><i class="fa fa-trash-o m-r-5"></i>

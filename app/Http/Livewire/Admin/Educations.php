@@ -3,13 +3,14 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Education;
-//use Illuminate\Support\Facades\DB;
-//use Carbon\Carbon;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 use Livewire\Component;
 
 class Educations extends Component
 {
+    use LivewireAlert;
+
     public $formData;
     public $employee_id;
    
@@ -35,7 +36,8 @@ class Educations extends Component
         ];
 
         Education::create($rec);
-            
+       
+        $this->alert('success', 'Education added');
     }
 
 

@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             UnitTableSeeder::class,
             StateTableSeeder::class,
             LGATableSeeder::class,
+            FeederSeeder::class,
+            AreaOfficeSeeder::class,
         ]);
         
          //\App\Models\User::factory(10)->create();

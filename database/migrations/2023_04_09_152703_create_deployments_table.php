@@ -16,9 +16,13 @@ return new class extends Migration
         Schema::create('deployments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('biodata_id');
-            $table->integer('location_id')->index('deployment_table_ibfk_2');
+            $table->integer('division_id');
+            $table->integer('department_id');
             $table->integer('unit_id')->index('unit_id');
-            $table->string('comment');
+            $table->integer('location_id')->index('deployment_table_ibfk_2');
+            $table->integer('area_office_id');
+            $table->integer('feeder_id');
+            $table->string('comment')->nullable();
             $table->enum('status', ['Active', 'Inactive'])->default('Active');
             $table->date('deployment_date');
             $table->timestamps();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 use Illuminate\Support\Facades\DB;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 use App\Models\Qualification;
 
@@ -9,6 +10,8 @@ use Livewire\Component;
 
 class Qualifications extends Component
 {
+    use LivewireAlert;
+
     public $formData;
     public $employee_id;
     public $user_qualifications;
@@ -28,7 +31,8 @@ class Qualifications extends Component
         
         //print_r($rec);
         Qualification::create($rec);
-        session()->flash('message', 'Certification successfully updated.');
+        
+        $this->alert('success', 'Certification added');
     }
 
 
