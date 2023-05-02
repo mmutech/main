@@ -50,15 +50,17 @@
 					<div class="account-box">
 						<div class="account-wrapper">
 							<h3 class="account-title">Login</h3>
-							<p class="account-subtitle">Access to our dashboard</p>
+							<p class="account-subtitle"><x-input-error for="email" class="text-danger text-center"></x-input-error></p>
 							
 							<!-- Account Form -->
 							<form method="POST" action="{{ route('login') }}">
                                 @csrf
+                                
 								<div class="form-group">
 									<label>Email Address</label>
                                     <x-label for="email" value="{{ __('Email') }}" />
 									<input class="form-control" type="email" id="email" name="email" :value="old('email')" required autofocus autocomplete="username">
+                                    
 								</div>
 								<div class="form-group">
 									<div class="row">
@@ -94,17 +96,17 @@
 		
 
 		<!-- jQuery -->
-        <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 		
 		<!-- Bootstrap Core JS -->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 		
 		 <!-- Theme Settings JS -->
-		<script src="assets/js/layout.js"></script>
-		<script src="assets/js/theme-settings.js"></script>
-		<script src="assets/js/greedynav.js"></script>
+		<script src="{{asset('assets/js/layout.js')}}"></script>
+		<script src="{{asset('assets/js/theme-settings.js')}}"></script>
+		<script src="{{asset('assets/js/greedynav.js')}}"></script>
 		<!-- Custom JS -->
-		<script src="assets/js/app.js"></script>
+		<script src="{{asset('assets/js/app.js')}}"></script>
 		
     
 <div class="sidebar-overlay"></div></body></html>
