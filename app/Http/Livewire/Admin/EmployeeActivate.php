@@ -161,7 +161,7 @@ class EmployeeActivate extends Component
         // Trigger onboarding email to employees personal email
 
         // Redirect to Full employee profile
-        $this->flash('success', 'Employee Profile Activated.', ['position' => 'center',  'toast' => false, 'text' => '.Account Activated. Onboarding mail was sent to the Employee'], 'employee-profile/'.$this->employee_id);
+        $this->flash('success', 'Employee Profile Activated.', ['position' => 'center',  'toast' => false, 'timer' => 6000, 'text' => '.Account Activated. Onboarding mail was sent to the Employee'], 'employee-profile/'.$this->employee_id);
 
     }
 

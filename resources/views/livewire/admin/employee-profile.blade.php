@@ -38,48 +38,38 @@
 												<div class="col-md-5">
 													<div class="profile-info-left">
 														<h3 class="user-name m-t-0 mb-0">{{ $employee->first_name." ".$employee->surname." ".$employee->other_name }}</h3>
-														<h6 class="text-muted">UI/UX Design Team</h6>
-														<small class="text-muted">{{ $employee->job_role }}</small>
+														<h6 class="text-muted">Job Role: {{ $employee->job_role }}</h6>
+														<small class="text-muted">Grade Level: {{ $employee->grade_level }}</small>
 														<div class="staff-id">Employee ID : {{ $employee->staff_id }}</div>
-														<div class="small doj text-muted">Date of Join : 1st Jan 2013</div>
-														
+														<div class="small doj text-muted">First Appointment : {{ $employee->date_of_first_appointment }}</div>
+														<small class="text-muted">Confirmation Date: {{ $employee->grade_level }}</small> <br>
+														<small class="text-muted">Last Promotion: {{ $employee->grade_level }}</small>
+														<div class="title">Supervisor: <a href="profile.html">Jeffery Lalor</a></div>
 													</div>
 												</div>
 												<div class="col-md-7">
 													<ul class="personal-info">
 														<li>
+															<div class="title">Gender:</div>
+															<div class="text">Male</div>
+														</li>
+														<li>
 															<div class="title">Phone:</div>
 															<div class="text"><a href="">{{ $employee->phone }}</a></div>
 														</li>
 														<li>
-															<div class="title">Email:</div>
+															<div class="title">Personal Email:</div>
 															<div class="text"><a href="">johndoe@example.com</a></div>
+														</li>
+														<li>
+															<div class="title">Official Email:</div>
+															<div class="text">johndoe@jedplc.com</div>
 														</li>
 														<li>
 															<div class="title">Birthday:</div>
 															<div class="text">24th July</div>
 														</li>
-														<li>
-															<div class="title">Address:</div>
-															<div class="text">1861 Bayonne Ave, Manchester Township, NJ, 08759</div>
-														</li>
-														<li>
-															<div class="title">Gender:</div>
-															<div class="text">Male</div>
-														</li>
-														<li>
-															<div class="title">Reports to:</div>
-															<div class="text">
-															   <div class="avatar-box">
-																  <div class="avatar avatar-xs">
-																	 <img src="{{ asset('assets/img/profiles/avatar-16.jpg') }}" alt="">
-																  </div>
-															   </div>
-															   <a href="profile.html">
-																	Jeffery Lalor
-																</a>
-															</div>
-														</li>
+														
 													</ul>
 												</div>
 											</div>
@@ -96,7 +86,8 @@
 							<div class="col-lg-12 col-md-12 col-sm-12 line-tabs">
 								<ul class="nav nav-tabs nav-tabs-bottom">
 									<li class="nav-item"><a href="#emp_profile" data-bs-toggle="tab" class="nav-link active">Profile</a></li>
-									<li class="nav-item"><a href="#emp_projects" data-bs-toggle="tab" class="nav-link">Uploads</a></li>
+									<li class="nav-item"><a href="#emp_deployment" data-bs-toggle="tab" class="nav-link">Deployment</a></li>
+									<li class="nav-item"><a href="#emp_projects" data-bs-toggle="tab" class="nav-link">Documents</a></li>
 									<li class="nav-item"><a href="#bank_statutory" data-bs-toggle="tab" class="nav-link"><i class="text-info">Click the pen icon () to edit contents of each card</i> <small class="text-danger">(Admin Only)</small></a></li>
 								</ul>
 							</div>
@@ -111,39 +102,45 @@
 								<div class="col-md-6 d-flex">
 									<div class="card profile-box flex-fill">
 										<div class="card-body">
-											<h3 class="card-title">Personal Informations <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#personal_info_modal"><i class="fa fa-pencil"></i></a></h3>
+											<h3 class="card-title">Personal Information <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#personal_info_modal"><i class="fa fa-pencil"></i></a></h3>
 											<ul class="personal-info">
 												<li>
-													<div class="title">Passport No.</div>
-													<div class="text">9876543210</div>
+													<div class="title">Contact Address </div>
+													<div class="text">&nbsp;</div>
 												</li>
 												<li>
-													<div class="title">Passport Exp Date.</div>
-													<div class="text">9876543210</div>
+													<div class="title">Home Address </div>
+													<div class="text">&nbsp;</div>
 												</li>
 												<li>
-													<div class="title">Tel</div>
-													<div class="text"><a href="">9876543210</a></div>
+													<div class="title">State</div>
+													<div class="text">&nbsp;</div>
 												</li>
 												<li>
-													<div class="title">Nationality</div>
-													<div class="text">Indian</div>
-												</li>
-												<li>
-													<div class="title">Religion</div>
+													<div class="title">Local Government</div>
 													<div class="text">Christian</div>
 												</li>
 												<li>
-													<div class="title">Marital status</div>
+													<div class="row">
+														<div class="title col-md-6 col-sm-12">Nationality: <span class="text">Nigerian</span></div>
+														<div class="title col-md-6 col-sm-12">National ID No.: <span class="text">&nbsp;</span></div>
+														
+													</div>
+												</li>
+												<li>
+													<div class="title">Marital Status</div>
 													<div class="text">Married</div>
 												</li>
 												<li>
-													<div class="title">Employment of spouse</div>
-													<div class="text">No</div>
+													<div class="title">Disability</div>
+													<div class="text">No (..)</div>
 												</li>
 												<li>
-													<div class="title">No. of children</div>
-													<div class="text">2</div>
+													<div class="row">
+														<div class="col-md-4 col-sm-12">Religion: <span class="text">NA</span></div>
+														<div class="col-md-4 col-sm-12">Debt status: <span class="text">no</span></div>
+														<div class="col-md-4 col-sm-12">Criminal Record: <span class="text">no</span></div>
+													</div>
 												</li>
 											</ul>
 										</div>
@@ -152,8 +149,8 @@
 								<div class="col-md-6 d-flex">
 									<div class="card profile-box flex-fill">
 										<div class="card-body">
-											<h3 class="card-title">Emergency Contact <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#emergency_contact_modal"><i class="fa fa-pencil"></i></a></h3>
-											<h5 class="section-title">Primary</h5>
+											<h3 class="card-title">Emergency <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#emergency_contact_modal"><i class="fa fa-pencil"></i></a></h3>
+											<h5 class="section-title fw-bold text-decoration-underline">Next of Kin</h5>
 											<ul class="personal-info">
 												<li>
 													<div class="title">Name</div>
@@ -167,25 +164,40 @@
 													<div class="title">Phone </div>
 													<div class="text">9876543210, 9876543210</div>
 												</li>
-											</ul>
-											<hr>
-											<h5 class="section-title">Secondary</h5>
+												<li>
+													<div class="title">Email </div>
+													<div class="text">john@email.com</div>
+												</li>
+											</ul><hr>
+											<br />
+											<h5 class="section-title fw-bold text-decoration-underline">Medical Data</h5>
+											
+											
 											<ul class="personal-info">
 												<li>
-													<div class="title">Name</div>
-													<div class="text">Karen Wills</div>
+													<div class="title">Blood Group</div>
+													<div class="text">BG</div>
 												</li>
 												<li>
-													<div class="title">Relationship</div>
-													<div class="text">Brother</div>
+													<div class="title">Genotype</div>
+													<div class="text">Gn</div>
 												</li>
 												<li>
-													<div class="title">Phone </div>
-													<div class="text">9876543210, 9876543210</div>
+													<div class="title">Pre-existing Condition </div>
+													<div class="text">Details</div>
 												</li>
 											</ul>
 										</div>
 									</div>
+								</div>
+							</div>
+							
+							<div class="row">  
+								<div class="col-md-6">
+									<livewire:admin.educations :employee_id="$employee_id" />
+								</div>
+								<div class="col-md-6">
+									<livewire:admin.qualifications :employee_id="$employee_id" />
 								</div>
 							</div>
 							<div class="row">
@@ -203,140 +215,33 @@
 													<div class="text">159843014641</div>
 												</li>
 												<li>
-													<div class="title">IFSC Code</div>
+													<div class="title">Bank account Name</div>
 													<div class="text">ICI24504</div>
 												</li>
-												<li>
-													<div class="title">PAN No</div>
-													<div class="text">TC000Y56</div>
-												</li>
+												
 											</ul>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-6 d-flex">
 									<div class="card profile-box flex-fill">
-										<div class="card-body">
-											<h3 class="card-title">Family Informations <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#family_info_modal"><i class="fa fa-pencil"></i></a></h3>
-											<div class="table-responsive">
-												<table class="table table-nowrap">
-													<thead>
-														<tr>
-															<th>Name</th>
-															<th>Relationship</th>
-															<th>Date of Birth</th>
-															<th>Phone</th>
-															<th></th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>Leo</td>
-															<td>Brother</td>
-															<td>Feb 16th, 2019</td>
-															<td>9876543210</td>
-															<td class="text-end">
-																<div class="dropdown dropdown-action">
-																	<a aria-expanded="false" data-bs-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
-																	<div class="dropdown-menu dropdown-menu-right">
-																		<a href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-																		<a href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-																	</div>
-																</div>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">  
-							    <div class="col-md-6">
-							        <livewire:admin.educations :employee_id="$employee_id" />
-							    </div>
-							    <div class="col-md-6">
-							        <livewire:admin.qualifications :employee_id="$employee_id" />
-							    </div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 d-flex">
-									<div class="card profile-box flex-fill">
-										<div class="card-body">
-											<h3 class="card-title">Education Informations <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
-											<div class="experience-box">
-												<ul class="experience-list">
-													<li>
-														<div class="experience-user">
-															<div class="before-circle"></div>
-														</div>
-														<div class="experience-content">
-															<div class="timeline-content">
-																<a href="#/" class="name">International College of Arts and Science (UG)</a>
-																<div>Bsc Computer Science</div>
-																<span class="time">2000 - 2003</span>
-															</div>
-														</div>
-													</li>
-													<li>
-														<div class="experience-user">
-															<div class="before-circle"></div>
-														</div>
-														<div class="experience-content">
-															<div class="timeline-content">
-																<a href="#/" class="name">International College of Arts and Science (PG)</a>
-																<div>Msc Computer Science</div>
-																<span class="time">2000 - 2003</span>
-															</div>
-														</div>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 d-flex">
-									<div class="card profile-box flex-fill">
-										<div class="card-body">
-											<h3 class="card-title">Experience <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#experience_info"><i class="fa fa-pencil"></i></a></h3>
-											<div class="experience-box">
-												<ul class="experience-list">
-													<li>
-														<div class="experience-user">
-															<div class="before-circle"></div>
-														</div>
-														<div class="experience-content">
-															<div class="timeline-content">
-																<a href="#/" class="name">Web Designer at Zen Corporation</a>
-																<span class="time">Jan 2013 - Present (5 years 2 months)</span>
-															</div>
-														</div>
-													</li>
-													<li>
-														<div class="experience-user">
-															<div class="before-circle"></div>
-														</div>
-														<div class="experience-content">
-															<div class="timeline-content">
-																<a href="#/" class="name">Web Designer at Ron-tech</a>
-																<span class="time">Jan 2013 - Present (5 years 2 months)</span>
-															</div>
-														</div>
-													</li>
-													<li>
-														<div class="experience-user">
-															<div class="before-circle"></div>
-														</div>
-														<div class="experience-content">
-															<div class="timeline-content">
-																<a href="#/" class="name">Web Designer at Dalt Technology</a>
-																<span class="time">Jan 2013 - Present (5 years 2 months)</span>
-															</div>
-														</div>
-													</li>
-												</ul>
-											</div>
+									<div class="card-body">
+											<h3 class="card-title">Pension information</h3>
+											<ul class="personal-info">
+												<li>
+													<div class="title">PFA name</div>
+													<div class="text">ICICI Bank</div>
+												</li>
+												<li>
+													<div class="title">PIN No.</div>
+													<div class="text">159843014641</div>
+												</li>
+												<li>
+													<div class="title">>Account Name</div>
+													<div class="text">Name</div>
+												</li>
+												
+											</ul>
 										</div>
 									</div>
 								</div>
@@ -344,260 +249,472 @@
 						</div>
 						<!-- /Profile Info Tab -->
 						
+						<!-- Deployment Tab -->
+						<div class="tab-pane fade" id="emp_deployment">
+							<div class="row">
+								<div class="card">
+									<div class="card-body">
+									
+										<h3 class="card-title">Deployment <a href="#" class="edit-icon" data-bs-toggle="modal" data-bs-target="#deployment_modal"><i class="fa fa-pencil"></i></a></h3>
+											<ul class="personal-info">
+												<div class="row">
+													<li class="col-lg-4 col-sm-6 col-md-4 col-xl-4">
+														<div class="title">Division</div>
+														<div class="text">John Doe</div>
+													</li>
+													<li class="col-lg-4 col-sm-6 col-md-4 col-xl-4">
+														<div class="title">Department</div>
+														<div class="text">John Doe</div>
+													</li>
+													<li class="col-lg-4 col-sm-6 col-md-4 col-xl-4">
+														<div class="title">Unit</div>
+														<div class="text">John Doe</div>
+													</li>
+												</div>
+												<br />
+												<!-- ### -->
+												<div class="row">
+													<li class="col-lg-4 col-sm-6 col-md-4 col-xl-4">
+														<div class="title">Location</div>
+														<div class="text">John Doe</div>
+													</li>
+													<li class="col-lg-4 col-sm-6 col-md-4 col-xl-4">
+														<div class="title">Area Unit</div>
+														<div class="text">John Doe</div>
+													</li>
+													<li class="col-lg-4 col-sm-6 col-md-4 col-xl-4">
+														<div class="title">Feeder</div>
+														<div class="text">John Doe</div>
+													</li>
+												</div>
+												<br />
+												<!-- ### -->
+												<div class="row">
+													<li class="col-lg-5 col-sm-6 col-md-5 col-xl-5">
+														<div class="title">Deployment Date</div>
+														<div class="text">1/1/2020</div>
+													</li>
+													<li class="col-lg-7 col-sm-12 col-md-7 col-xl-7">
+														<div class="title">Comment</div>
+														<div class="text">Details</div>
+													</li>
+												</div>
+
+											</ul>
+									</div>
+								
+								</div>
+								
+							</div>
+						</div>
+						<!-- /Deployment Tab -->
+
 						<!-- Projects Tab -->
 						<div class="tab-pane fade" id="emp_projects">
 							<div class="row">
-								<div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
-									<div class="card">
-										<div class="card-body">
-											<div class="dropdown profile-action">
-												<a aria-expanded="false" data-bs-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a data-bs-target="#edit_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a data-bs-target="#delete_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+							<div class="card">
+								<div class="card-body">
+								<div class="file-content">
+											<form class="file-search">
+												<div class="input-group">
+													<div class="input-group-prepend">
+														<i class="fa fa-search"></i>
+													</div>
+													<input type="text" class="form-control rounded-pill" placeholder="Search">
 												</div>
-											</div>
-											<h4 class="project-title"><a href="project-view.html">Office Management</a></h4>
-											<small class="block text-ellipsis m-b-15">
-												<span class="text-xs">1</span> <span class="text-muted">open tasks, </span>
-												<span class="text-xs">9</span> <span class="text-muted">tasks completed</span>
-											</small>
-											<p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-												typesetting industry. When an unknown printer took a galley of type and
-												scrambled it...
-											</p>
-											<div class="pro-deadline m-b-15">
-												<div class="sub-title">
-													Deadline:
+											</form>
+											<div class="file-body">
+												<div class="file-scroll">
+													<div class="file-content-inner">
+														<h4>Recent Files</h4>
+														<div class="row row-sm">
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-pdf-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Sample.pdf</a></h6>
+																		<span>10.45kb</span>
+																	</div>
+																	<div class="card-footer">
+																		<span class="d-none d-sm-inline">Last Modified: </span>1 min ago
+																	</div>
+																</div>
+															</div>
+
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-word-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Document.docx</a></h6>
+																		<span>22.67kb</span>
+																	</div>
+																	<div class="card-footer">
+																		<span class="d-none d-sm-inline">Last Modified: </span>30 mins ago
+																	</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-image-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">icon.png</a></h6>
+																		<span>12.47kb</span>
+																	</div>
+																	<div class="card-footer">
+																		<span class="d-none d-sm-inline">Last Modified: </span>1 hour ago
+																	</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-excel-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Users.xls</a></h6>
+																		<span>35.11kb</span>
+																	</div>
+																	<div class="card-footer">23 Jul 6:30 PM</div>
+																</div>
+															</div>
+
+														</div>
+
+														<h4>Files</h4>
+														<div class="row row-sm">
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-word-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Updates.docx</a></h6>
+																		<span>12mb</span>
+																	</div>
+																	<div class="card-footer">9 Aug 1:17 PM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-powerpoint-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Vision.ppt</a></h6>
+																		<span>72.50kb</span>
+																	</div>
+																	<div class="card-footer">6 Aug 11:42 AM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-audio-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Voice.mp3</a></h6>
+																		<span>2.17mb</span>
+																	</div>
+																	<div class="card-footer">
+																		<span class="d-none d-sm-inline">Last Modified: </span>30 Jul 9:00 PM
+																	</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-pdf-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Tutorials.pdf</a></h6>
+																		<span>8.2mb</span>
+																	</div>
+																	<div class="card-footer">21 Jul 10:45 PM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-excel-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Tasks.xls</a></h6>
+																		<span>92.82kb</span>
+																	</div>
+																	<div class="card-footer">16 Jun 4:59 PM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-image-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Page.psd</a></h6>
+																		<span>118.71mb</span>
+																	</div>
+																	<div class="card-footer">14 Jun 9:00 AM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-text-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">License.txt</a></h6>
+																		<span>18.7kb</span>
+																	</div>
+																	<div class="card-footer">5 May 8:21 PM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-word-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Expenses.docx</a></h6>
+																		<span>66.2kb</span>
+																	</div>
+																	<div class="card-footer">24 Apr 7:50 PM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-audio-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Music.mp3</a></h6>
+																		<span>3.6mb</span>
+																	</div>
+																	<div class="card-footer">13 Mar 2:00 PM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-text-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Installation.txt</a></h6>
+																		<span>43.9kb</span>
+																	</div>
+																	<div class="card-footer">26 Feb 5:01 PM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-video-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">Workflow.mp4</a></h6>
+																		<span>47.65mb</span>
+																	</div>
+																	<div class="card-footer">3 Jan 11:35 AM</div>
+																</div>
+															</div>
+															
+															<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+																<div class="card card-file">
+																	<div class="dropdown-file">
+																		<a href="" class="dropdown-link" data-bs-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+																		<div class="dropdown-menu dropdown-menu-right">
+																			<a href="#" class="dropdown-item">View Details</a>
+																			<a href="#" class="dropdown-item">Share</a>
+																			<a href="#" class="dropdown-item">Download</a>
+																			<a href="#" class="dropdown-item">Rename</a>
+																			<a href="#" class="dropdown-item">Delete</a>
+																		</div>
+																	</div>
+																	<div class="card-file-thumb">
+																		<i class="fa fa-file-code-o"></i>
+																	</div>
+																	<div class="card-body">
+																		<h6><a href="">index.html</a></h6>
+																		<span>23.7kb</span>
+																	</div>
+																	<div class="card-footer">1 Jan 8:55 AM</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
 												</div>
-												<div class="text-muted">
-													17 Apr 2019
-												</div>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Project Leader :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Jeffery Lalor" aria-label="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
-													</li>
-												</ul>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Team :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Doe" aria-label="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Richard Miles" aria-label="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Smith" aria-label="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Mike Litorus" aria-label="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
-													</li>
-													<li>
-														<a href="#" class="all-users">+15</a>
-													</li>
-												</ul>
-											</div>
-											<p class="m-b-5">Progress <span class="text-success float-end">40%</span></p>
-											<div class="progress progress-xs mb-0">
-												<div style="width: 40%" title="" data-bs-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%" data-bs-original-title=""></div>
 											</div>
 										</div>
-									</div>
 								</div>
-								
-								<div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
-									<div class="card">
-										<div class="card-body">
-											<div class="dropdown profile-action">
-												<a aria-expanded="false" data-bs-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a data-bs-target="#edit_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a data-bs-target="#delete_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-												</div>
-											</div>
-											<h4 class="project-title"><a href="project-view.html">Project Management</a></h4>
-											<small class="block text-ellipsis m-b-15">
-												<span class="text-xs">2</span> <span class="text-muted">open tasks, </span>
-												<span class="text-xs">5</span> <span class="text-muted">tasks completed</span>
-											</small>
-											<p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-												typesetting industry. When an unknown printer took a galley of type and
-												scrambled it...
-											</p>
-											<div class="pro-deadline m-b-15">
-												<div class="sub-title">
-													Deadline:
-												</div>
-												<div class="text-muted">
-													17 Apr 2019
-												</div>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Project Leader :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Jeffery Lalor" aria-label="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
-													</li>
-												</ul>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Team :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Doe" aria-label="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Richard Miles" aria-label="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Smith" aria-label="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Mike Litorus" aria-label="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
-													</li>
-													<li>
-														<a href="#" class="all-users">+15</a>
-													</li>
-												</ul>
-											</div>
-											<p class="m-b-5">Progress <span class="text-success float-end">40%</span></p>
-											<div class="progress progress-xs mb-0">
-												<div style="width: 40%" title="" data-bs-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%" data-bs-original-title=""></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
-									<div class="card">
-										<div class="card-body">
-											<div class="dropdown profile-action">
-												<a aria-expanded="false" data-bs-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a data-bs-target="#edit_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a data-bs-target="#delete_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-												</div>
-											</div>
-											<h4 class="project-title"><a href="project-view.html">Video Calling App</a></h4>
-											<small class="block text-ellipsis m-b-15">
-												<span class="text-xs">3</span> <span class="text-muted">open tasks, </span>
-												<span class="text-xs">3</span> <span class="text-muted">tasks completed</span>
-											</small>
-											<p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-												typesetting industry. When an unknown printer took a galley of type and
-												scrambled it...
-											</p>
-											<div class="pro-deadline m-b-15">
-												<div class="sub-title">
-													Deadline:
-												</div>
-												<div class="text-muted">
-													17 Apr 2019
-												</div>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Project Leader :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Jeffery Lalor" aria-label="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
-													</li>
-												</ul>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Team :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Doe" aria-label="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Richard Miles" aria-label="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Smith" aria-label="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Mike Litorus" aria-label="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
-													</li>
-													<li>
-														<a href="#" class="all-users">+15</a>
-													</li>
-												</ul>
-											</div>
-											<p class="m-b-5">Progress <span class="text-success float-end">40%</span></p>
-											<div class="progress progress-xs mb-0">
-												<div style="width: 40%" title="" data-bs-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%" data-bs-original-title=""></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
-									<div class="card">
-										<div class="card-body">
-											<div class="dropdown profile-action">
-												<a aria-expanded="false" data-bs-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a data-bs-target="#edit_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a data-bs-target="#delete_project" data-bs-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-												</div>
-											</div>
-											<h4 class="project-title"><a href="project-view.html">Hospital Administration</a></h4>
-											<small class="block text-ellipsis m-b-15">
-												<span class="text-xs">12</span> <span class="text-muted">open tasks, </span>
-												<span class="text-xs">4</span> <span class="text-muted">tasks completed</span>
-											</small>
-											<p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-												typesetting industry. When an unknown printer took a galley of type and
-												scrambled it...
-											</p>
-											<div class="pro-deadline m-b-15">
-												<div class="sub-title">
-													Deadline:
-												</div>
-												<div class="text-muted">
-													17 Apr 2019
-												</div>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Project Leader :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Jeffery Lalor" aria-label="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
-													</li>
-												</ul>
-											</div>
-											<div class="project-members m-b-15">
-												<div>Team :</div>
-												<ul class="team-members">
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Doe" aria-label="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Richard Miles" aria-label="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="John Smith" aria-label="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
-													</li>
-													<li>
-														<a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Mike Litorus" aria-label="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
-													</li>
-													<li>
-														<a href="#" class="all-users">+15</a>
-													</li>
-												</ul>
-											</div>
-											<p class="m-b-5">Progress <span class="text-success float-end">40%</span></p>
-											<div class="progress progress-xs mb-0">
-												<div style="width: 40%" title="" data-bs-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%" data-bs-original-title=""></div>
-											</div>
-										</div>
-									</div>
-								</div>
+							</div>
 							</div>
 						</div>
 						<!-- /Projects Tab -->
