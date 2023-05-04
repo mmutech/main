@@ -50,7 +50,7 @@
     <div class="main-wrapper">
 
         <!-- Header -->
-        <livewire:partials.user-header />
+        <livewire:partials.admin-header />
         <!-- /Header -->
 
         <!-- Sidebar -->

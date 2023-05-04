@@ -28,6 +28,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -59,4 +60,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getRedirectRoute()
+    {
+        return match((int)$this->is_admin) {
+            1 => 'admin/dashboard',
+            0 => 'user/dashboard',
+            // ...
+        };
+    }
 }

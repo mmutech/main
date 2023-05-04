@@ -23,7 +23,7 @@
 
                 <li class="submenu">
                     <a href="#"
-                        class="{{ Request::is('all-employees') || Request::is('create-employee') ? 'noti-dot active' : '' }}">
+                        class="{{ Request::is('user/all-employees') || Request::is('create-employee') ? 'noti-dot active' : '' }}">
                         <i class="la la-sign-out-alt"></i>
                         <span> Requests </span> <span class="menu-arrow"></span>
                     </a>

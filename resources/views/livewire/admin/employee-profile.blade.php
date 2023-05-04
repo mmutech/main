@@ -28,11 +28,30 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="profile-view">
+										<label for="profileImage">
+											<i class="fa fa-image" title="change profile image"></i>
+										</label>
+										
+										<input type="file" id="profileImage" style="display: none" wire:model="profileImage" accept="image/gif,image/jpeg,image/jpg,image/png" data-original-title="upload photo">
+										
 										<div class="profile-img-wrap">
 											<div class="profile-img">
-												<a href="#"><img alt="" src="{{asset('assets/img/profiles/avatar-02.jpg')}}"></a>
+											@if ($profileImage)
+    										    <img src="{{ $profileImage->temporaryUrl() }}">
+											@elseif(is_null($profileImage))
+											<img alt="" src="{{asset('assets/img/profiles/avatar-02.jpg')}}">
+    										@endif
+											<span class="position-absolute bottom-0 left-10 start-100 translate-middle badge rounded-pill bg-danger">
+											<label for="profileImage">
+											<i class="fa fa-image" title="change profile image"></i>
+										</label>
+    <span class="visually-hidden">unread messages</span>
+  </span>	
+												
 											</div>
+											
 										</div>
+								
 										<div class="profile-basic">
 											<div class="row">
 												<div class="col-md-5">
