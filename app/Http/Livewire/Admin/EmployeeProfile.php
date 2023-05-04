@@ -3,8 +3,14 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
+
 
 use App\Models\Biodata;
+use App\Models\User;
 use App\Models\MedicalHistory;
 use App\Models\NextOfKin;
 use App\Models\Bank;
@@ -21,9 +27,12 @@ use App\Models\Qualification;
 class  EmployeeProfile extends Component
 
 {
+    use WithFileUploads;
+    use LivewireAlert;
+
     public $addEdu = false, $addQual=false;
     
-    public $employee, $medical, $kin, $bank, $deployment, $division, $department, $unit, $location, $ao, $feeder, $employee_id;
+    public $employee, $profileImage, $medical, $kin, $bank, $deployment, $division, $department, $unit, $location, $ao, $feeder, $employee_id;
     
     # Biodata
     public $surname, $first_name, $other_name, $personal_mail, $phone, 
@@ -40,6 +49,7 @@ class  EmployeeProfile extends Component
     public function mount($id)
     {
         $this->employee_id = $id;
+        // update query to get profile photo pathh from Users table
         $this->employee = Biodata::find($this->employee_id);
         $this->medical = MedicalHistory::find($this->employee_id);
         $this->kin = NextOfKin::find($this->employee_id);
@@ -97,6 +107,32 @@ class  EmployeeProfile extends Component
 
         $this->addQual =false;  
     }
+
+    public function updatedProfileImage()
+{
+    $this->validate([
+        'profileImage' => 'image|max:1024', // 1MB Max
+    ]);
+
+    $file = $this->profileImage;
+    #resize image 300 x 300
+    $img = Image::make($file);
+    $img->resize(300, 300, function ($constraint) {
+        $constraint->aspectRatio();
+    });
+
+    #rename file
+    $extension = $file->guessExtension();
+    $newFileName = $this->employee_id.".".$extension;
+
+    //upload document and insert data into uploads table
+    $path = $img->save(public_path('profile_pic/' . $newFileName));
+    User::where('biodata_id', $this->employee_id)
+        ->update(['profile_photo_path' => 'profile_pic/' . $newFileName]);
+
+    $this->alert('success', 'Profile picture saved');
+    
+}
 
     public function clearForm() 
     {

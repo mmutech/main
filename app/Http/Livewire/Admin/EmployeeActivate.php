@@ -6,6 +6,8 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Hash;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Illuminate\Support\Facades\Mail;
+
 
 use App\Models\Education;
 use App\Models\Qualification;
@@ -42,6 +44,22 @@ class EmployeeActivate extends Component
         $this->document = '';
         $this->document_type = '';
     }
+
+    public function sendEmailNotification()
+    {
+        // Your email sending logic here
+        $emailData = [
+            'name' => 'John Doe',
+            'email' => 'johndoe@example.com',
+            'message' => 'Hello, this is a test email!'
+        ];
+
+        Mail::send('emails.notification', $emailData, function($message) use ($emailData) {
+            $message->to($emailData['email'], $emailData['name'])
+                ->subject('Test email notification');
+        });
+    }
+
 
     // upload employee educational docuemnets as jpg and pdf
     public function uploadDocument() {
@@ -151,14 +169,18 @@ class EmployeeActivate extends Component
         $name = $user->first_name." ".$user->surname;
         // Generate Random password
         $password = "password";
-        $new_user = User::create([
+
+        // Create User Account
+        $new_user = User::updateOrInsert([
                 'email' => $user->personal_email,
                 'biodata_id' => $this->employee_id,
                 'name' => $name,
                 'password' => Hash::make($password),
-                'active' => 1,
+                //'status' => 1,
         ]);
-        // Trigger onboarding email to employees personal email
+        
+         // Trigger onboarding email to employees personal email
+         $this->sendEmailNotification();
 
         // Redirect to Full employee profile
         $this->flash('success', 'Employee Profile Activated.', ['position' => 'center',  'toast' => false, 'timer' => 6000, 'text' => '.Account Activated. Onboarding mail was sent to the Employee'], 'employee-profile/'.$this->employee_id);

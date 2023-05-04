@@ -7,7 +7,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ url('/dashboard') }}" style="{{ Request::is('dashboard') ? 'color: #ff9b44;' : '' }}">
+                    <a href="{{ url('/admin/dashboard') }}" style="{{ Request::is('dashboard') ? 'color: #ff9b44;' : '' }}">
                         <i class="la la-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -18,9 +18,9 @@
                         <span> Employees </span> <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: none;">
-                        <li><a href="{{ url('all-employees') }}"
+                        <li><a href="{{ url('/admin/all-employees') }}"
                                 style="{{ Request::is('all-employees') ? 'color: #ff9b44;' : '' }}">Employees</a></li>
-                        <li><a href="{{ url('create-employee') }}"
+                        <li><a href="{{ url('/admin/create-employee') }}"
                                 style="{{ Request::is('create-employee') ? 'color: #ff9b44;' : '' }}">Add Employee</a>
                         </li>
                     </ul>
@@ -30,31 +30,31 @@
                     <a href="#"><i class="la la-bed"></i> <span> Leave </span> <span
                             class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="{{ url('all-reports') }}"
+                        <li><a href="{{ url('/admin/manage-leave') }}"
                                 style="{{ Request::is('all-reports') ? 'color: #ff9b44;' : '' }}">Leave Management</a>
                         </li>
-                        <li><a href="{{ url('new-report') }}"
-                                style="{{ Request::is('new-report') ? 'color: #ff9b44;' : '' }}"> /---/ </a></li>
+                        <li><a href="{{ url('/admin/leave-settings') }}"
+                                style="{{ Request::is('new-report') ? 'color: #ff9b44;' : '' }}"> Leave Settings </a></li>
                     </ul>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="la la-sign-out-alt"></i> <span> Exit Procedure</span> <span
                             class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="{{ url('exit-type-component') }}"
+                        <li><a href="{{ url('/admin/exit-type-component') }}"
                                 style="{{ Request::is('exit-type-component') ? 'color: #ff9b44;' : '' }}">Exit Type</a>
                         </li>
-                        <li><a href="{{ url('exit-interview-component') }}"
+                        <li><a href="{{ url('/admin/exit-interview-component') }}"
                                 style="{{ Request::is('exit-interview-component') ? 'color: #ff9b44;' : '' }}">Exit
                                 Interview Questions</a></li>
-                        <li><a href="{{ url('new-user') }}"
-                                style="{{ Request::is('') ? 'color: #ff9b44;' : 'new-user' }}">Setting</a></li>
-                        <li><a href="{{ url('exit-init-component') }}"
+                        <li><a href="{{ url('/admin/exit-init-component') }}"
                                 style="{{ Request::is('exit-init-component') ? 'color: #ff9b44;' : '' }}">Initiate/Check
                                 Status</a></li>
-                        <li><a href="{{ url('exit-init-component') }}"
+                        <li><a href="{{ url('/admin/exit-init-component') }}"
                                 style="{{ Request::is('exit-init-component') ? 'color: #ff9b44;' : '' }}">All Exit
                                 Procedures</a></li>
+                        <li><a href="{{ url('/admin/settings') }}"
+                                style="{{ Request::is('') ? 'color: #ff9b44;' : 'new-user' }}">Settings</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
