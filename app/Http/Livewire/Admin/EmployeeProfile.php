@@ -11,10 +11,20 @@ use Illuminate\Support\Facades\File;
 
 use App\Models\Biodata;
 use App\Models\User;
+use App\Models\MedicalHistory;
+use App\Models\NextOfKin;
+use App\Models\Bank;
+use App\Models\Deployment;
+use App\Models\DivisionModel;
+use App\Models\DepartmentModel;
+use App\Models\UnitModel;
+use App\Models\LocationModel;
+use App\Models\AreaOffice;
+use App\Models\Feeder;
 use App\Models\Education;
 use App\Models\Qualification;
 
-class EmployeeProfile extends Component
+class  EmployeeProfile extends Component
 
 {
     use WithFileUploads;
@@ -22,7 +32,8 @@ class EmployeeProfile extends Component
 
     public $addEdu = false, $addQual=false;
     
-    public $employee, $employee_id, $profileImage;
+    public $employee, $profileImage, $medical, $kin, $bank, $deployment, $division, $department, $unit, $location, $ao, $feeder, $employee_id;
+    
     # Biodata
     public $surname, $first_name, $other_name, $personal_mail, $phone, 
             $staff_id, $date_of_birth, $gender, $marital_status, 
@@ -40,6 +51,18 @@ class EmployeeProfile extends Component
         $this->employee_id = $id;
         // update query to get profile photo pathh from Users table
         $this->employee = Biodata::find($this->employee_id);
+        $this->medical = MedicalHistory::find($this->employee_id);
+        $this->kin = NextOfKin::find($this->employee_id);
+        $this->bank = Bank::find($this->employee_id);
+        $this->deployment = Deployment::find($this->employee_id);
+
+        $this->division = DivisionModel::find($this->deployment->division_id);
+        $this->department = DepartmentModel::find($this->deployment->department_id);
+        $this->unit = UnitModel::find($this->deployment->unit_id);
+        $this->location = LocationModel::find($this->deployment->location_id);
+        $this->ao = AreaOffice::find($this->deployment->area_office_id);
+        $this->feeder = Feeder::find($this->deployment->feeder_id);
+        
     }
     public function render()
     {

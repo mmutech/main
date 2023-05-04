@@ -9,5 +9,12 @@ class AreaOffice extends Model
 {
     use HasFactory;
 
-    public $fillable = ['location_id', 'description', 'comment', 'status', 'created_by', 'updated_by'];
+    public $fillable = [
+        'location_id', 
+        'description', 
+        'comment', 
+        'status', 
+        'created_by', 
+        'updated_by'
+    ];
 }
