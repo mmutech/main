@@ -61,23 +61,23 @@
                     <a href="#"><i class="la la-tools"></i> <span> Preferences </span> <span
                             class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="{{ url('division') }}"
+                        <li><a href="{{ url('/admin/division') }}"
                                 style="{{ Request::is('division') ? 'color: #ff9b44;' : '' }}">Division</a></li>
-                        <li><a href="{{ url('department-component') }}"
+                        <li><a href="{{ url('/admin/department-component') }}"
                                 style="{{ Request::is('department-component') ? 'color: #ff9b44;' : '' }}">Department</a>
                         </li>
-                        <li><a href="{{ url('unit-component') }}"
+                        <li><a href="{{ url('/admin/unit-component') }}"
                                 style="{{ Request::is('unit-component') ? 'color: #ff9b44;' : '' }}">Unit</a></li>
-                        <li><a href="{{ url('job-role-component') }}"
+                        <li><a href="{{ url('/admin/job-role-component') }}"
                                 style="{{ Request::is('job-role-component') ? 'color: #ff9b44;' : '' }}">Job Role</a>
                         </li>
-                        <li><a href="{{ url('designation-component') }}"
+                        <li><a href="{{ url('/admin/designation-component') }}"
                                 style="{{ Request::is('designation-component') ? 'color: #ff9b44;' : '' }}">Designation</a>
                         </li>
-                        <li><a href="{{ url('grade-level-component') }}"
+                        <li><a href="{{ url('/admin/grade-level-component') }}"
                                 style="{{ Request::is('grade-level-component') ? 'color: #ff9b44;' : '' }}">Grade
                                 Level</a></li>
-                        <li><a href="{{ url('location-component') }}"
+                        <li><a href="{{ url('/admin/location-component') }}"
                                 style="{{ Request::is('location-component') ? 'color: #ff9b44;' : '' }}">Location</a>
                         </li>
                     </ul>

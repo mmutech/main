@@ -33,8 +33,8 @@
                                 style="{{ Request::is('all-employees') ? 'color: #ff9b44;' : '' }}">Apply for Leave</a>
                         </li>
                         <li>
-                            <a href="{{ url('/user/exit') }}" class="text-danger"
-                                style="{{ Request::is('create-employee') ? 'color: #ff9b44;' : '' }}">Apply for
+                            <a href="{{ url('/user/exit-init') }}" class="text-danger"
+                                style="{{ Request::is('exit-init') ? 'color: #ff9b44;' : '' }}">Apply for
                                 Exit (Resignation)</a>
                         </li>
                     </ul>

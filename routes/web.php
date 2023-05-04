@@ -15,7 +15,6 @@ use App\Http\Livewire\Admin\DesignationComponent;
 use App\Http\Livewire\Admin\GradeLevelComponent;
 use App\Http\Livewire\Admin\LocationComponent;
 use App\Http\Livewire\Admin\ExitTypeComponent;
-use App\Http\Livewire\Admin\ExitInitComponent;
 use App\Http\Livewire\Admin\ExitViewComponent;
 use App\Http\Livewire\Admin\ExitInterviewComponent;
 use App\Http\Livewire\Admin\Deployment;
@@ -27,6 +26,7 @@ use App\Http\Livewire\Admin\LeaveSettings;
 use App\Http\Livewire\User\Myprofile;
 use App\Http\Livewire\User\UserDashboard;
 use App\Http\Livewire\User\Leave;
+use App\Http\Livewire\User\ExitInitComponent;
 
 
 /*
@@ -79,7 +79,7 @@ Route::group(['middleware' => ['auth:sanctum', config('jetstream.auth_session'),
 
         // Exit Procedures Routes.
         Route::get('/exit-type-component', ExitTypeComponent::class);
-        Route::get('/exit-init-component', ExitInitComponent::class);
+        //Route::get('/exit-init-component', ExitInitComponent::class);
         Route::get('/exit-interview-component', ExitInterviewComponent::class);
         Route::get('/exit-view-component/{id}', ExitViewComponent::class)->name('exit-view-component');
 
@@ -96,6 +96,7 @@ Route::group(['middleware' => ['auth:sanctum', config('jetstream.auth_session'),
        Route::get('/dashboard', UserDashboard::class);
        Route::get('/myprofile', Myprofile::class);
        Route::get('/leave', Leave::class);
+       Route::get('/exit-init', ExitInitComponent::class);
        
     });
 

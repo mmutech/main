@@ -143,7 +143,7 @@
 
 						<div class="col-lg-4 col-md-4">
 							<div class="dash-sidebar">
-								<section>
+								<!--<section>
 									<h5 class="dash-title">Projects</h5>
 									<div class="card">
 										<div class="card-body">
@@ -165,7 +165,7 @@
 											</div>
 										</div>
 									</div>
-								</section>
+								</section> -->
 								<section>
 									<h5 class="dash-title">Your Leave</h5>
 									<div class="card">
@@ -953,3 +953,5 @@
         </div>
     </div>
 </div> -->
+
+<livewire:user.leave-apply />
