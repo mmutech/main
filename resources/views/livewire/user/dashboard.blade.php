@@ -8,6 +8,11 @@
 								<div class="welcome-det">
 									<h3>Welcome, John Doe</h3>
 									<p>Monday, 20 May 2019</p>
+                                    <div class="flex justify-end mt-6">
+                        <button type="button" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                            Invite Member
+                        </button>
+                    </div>
 								</div>
 							</div>
 						</div>
