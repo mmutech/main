@@ -30,12 +30,11 @@
                     <ul style="display: none;">
                         <li>
                             <a href="{{ url('/user/leave') }}"
-                                style="{{ Request::is('all-employees') ? 'color: #ff9b44;' : '' }}">Apply for Leave</a>
+                                style="{{ Request::is('all-employees') ? 'color: #ff9b44;' : '' }}">Leave</a>
                         </li>
                         <li>
-                            <a href="{{ url('/user/exit') }}" class="text-danger"
-                                style="{{ Request::is('create-employee') ? 'color: #ff9b44;' : '' }}">Apply for
-                                Exit (Resignation)</a>
+                            <a href="{{ url('/user/exit-init') }}" class="text-warning"
+                                style="{{ Request::is('exit-init') ? 'color: #ff9b44;' : '' }}">Exit (Resignation)</a>
                         </li>
                     </ul>
                 </li>

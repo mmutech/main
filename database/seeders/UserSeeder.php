@@ -15,11 +15,21 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         //
-        User::create([
+        $users = [[
             'biodata_id' => '1',
             'name' => 'Administrator',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
-        ]);
+        ],
+        [
+            'biodata_id' => '2',
+            'name' => 'Employee',
+            'email' => 'user@user.com',
+            'password' => Hash::make('password'),
+        ]];
+        
+        foreach ($users as $user) {
+            User::create($user);
+        }
     }
 }

@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             LGATableSeeder::class,
             FeederSeeder::class,
             AreaOfficeSeeder::class,
+            BiodataSeeder::class,
+            LeaveTypeSeeder::class,
         ]);
         
          //\App\Models\User::factory(10)->create();
