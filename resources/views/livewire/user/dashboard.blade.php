@@ -1,3 +1,4 @@
+<div x-data="{ leaveApply: @entangle('leaveApply').defer }">
 <div class="content container-fluid">
 					<div class="row">
 						<div class="col-md-12">
@@ -8,11 +9,7 @@
 								<div class="welcome-det">
 									<h3>Welcome, John Doe</h3>
 									<p>Monday, 20 May 2019</p>
-                                    <div class="flex justify-end mt-6">
-                        <button type="button" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
-                            Invite Member
-                        </button>
-                    </div>
+                                    
 								</div>
 							</div>
 						</div>
@@ -21,7 +18,7 @@
 					<div class="row">
 						<div class="col-lg-8 col-md-8">
 							<section class="dash-section">
-								<h1 class="dash-sec-title">Today</h1>
+								<h1 class="dash-sec-title">Updates</h1>
 								<div class="dash-sec-content">
 									<div class="dash-info-list">
 										<a href="#" class="dash-card text-danger">
@@ -73,77 +70,13 @@
 
 								</div>
 							</section>
-
+                            
+                            <!-- Calender Section> -->
 							<section class="dash-section">
-								<h1 class="dash-sec-title">Tomorrow</h1>
-								<div class="dash-sec-content">
-									<div class="dash-info-list">
-										<div class="dash-card">
-											<div class="dash-card-container">
-												<div class="dash-card-icon">
-													<i class="fa fa-suitcase"></i>
-												</div>
-												<div class="dash-card-content">
-													<p>2 people will be away tomorrow</p>
-												</div>
-												<div class="dash-card-avatars">
-													<a href="#" class="e-avatar"><img src="assets/img/profiles/avatar-04.jpg" alt=""></a>
-													<a href="#" class="e-avatar"><img src="assets/img/profiles/avatar-08.jpg" alt=""></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+                            &nbsp;
 							</section>
 
-							<section class="dash-section">
-								<h1 class="dash-sec-title">Next seven days</h1>
-								<div class="dash-sec-content">
-									<div class="dash-info-list">
-										<div class="dash-card">
-											<div class="dash-card-container">
-												<div class="dash-card-icon">
-													<i class="fa fa-suitcase"></i>
-												</div>
-												<div class="dash-card-content">
-													<p>2 people are going to be away</p>
-												</div>
-												<div class="dash-card-avatars">
-													<a href="#" class="e-avatar"><img src="assets/img/profiles/avatar-05.jpg" alt=""></a>
-													<a href="#" class="e-avatar"><img src="assets/img/profiles/avatar-07.jpg" alt=""></a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="dash-info-list">
-										<div class="dash-card">
-											<div class="dash-card-container">
-												<div class="dash-card-icon">
-													<i class="fa fa-user-plus"></i>
-												</div>
-												<div class="dash-card-content">
-													<p>Your first day is going to be  on Thursday</p>
-												</div>
-												<div class="dash-card-avatars">
-													<div class="e-avatar"><img src="assets/img/profiles/avatar-02.jpg" alt=""></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="dash-info-list">
-										<a href="" class="dash-card">
-											<div class="dash-card-container">
-												<div class="dash-card-icon">
-													<i class="fa fa-calendar"></i>
-												</div>
-												<div class="dash-card-content">
-													<p>It's Spring Bank Holiday  on Monday</p>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
-							</section>
+							
 						</div>
 
 						<div class="col-lg-4 col-md-4">
@@ -172,13 +105,13 @@
 									</div>
 								</section> -->
 								<section>
-									<h5 class="dash-title">Your Leave</h5>
+									<h5 class="dash-title">Your Annual Leave</h5>
 									<div class="card">
 										<div class="card-body">
 											<div class="time-list">
 												<div class="dash-stats-list">
-													<h4>4.5</h4>
-													<p>Leave Taken</p>
+													<h4>5</h4>
+													<p>Days Taken</p>
 												</div>
 												<div class="dash-stats-list">
 													<h4>12</h4>
@@ -186,7 +119,7 @@
 												</div>
 											</div>
 											<div class="request-btn">
-												<a class="btn btn-primary" href="#">Apply Leave</a>
+												<a class="btn btn-primary" @click="leaveApply = true">Apply for Leave</a>
 											</div>
 										</div>
 									</div>
