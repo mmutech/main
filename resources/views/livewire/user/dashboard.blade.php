@@ -7,8 +7,8 @@
 									<img alt="" src="assets/img/profiles/avatar-02.jpg">
 								</div>
 								<div class="welcome-det">
-									<h3>Welcome, John Doe</h3>
-									<p>Monday, 20 May 2019</p>
+									<h3>Welcome, {{Auth()->user()->name}}</h3>
+									<p>{{date('l, d M Y')}}</p>
                                     
 								</div>
 							</div>
@@ -139,7 +139,7 @@
 												</div>
 											</div>
 											<div class="request-btn">
-												<a class="btn btn-primary" href="#">Apply Time Off</a>
+												<!--<a class="btn btn-primary" href="#">Apply Time Off</a>-->
 											</div>
 										</div>
 									</div>
@@ -148,7 +148,7 @@
 									<h5 class="dash-title">Upcoming Holiday</h5>
 									<div class="card">
 										<div class="card-body text-center">
-											<h4 class="holiday-title mb-0">Mon 20 May 2019 - Ramzan</h4>
+											<h4 class="holiday-title mb-0">Mon 12 June 2023 - <span class="text-info">Democracy Day</span></h4>
 										</div>
 									</div>
 								</section>

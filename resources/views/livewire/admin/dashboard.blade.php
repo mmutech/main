@@ -15,7 +15,7 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="page-title">Welcome Admin!</h3>
+                <h3 class="page-title">Welcome {{Auth()->user()->name}}</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ul>
@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
                     <div class="dash-widget-info">
-                        <h3>218</h3>
+                        <h3>{{$emp}}</h3>
                         <span>All Employees</span>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="card-body">
                     <span class="dash-widget-icon"><i class="fa fa-bed"></i></span>
                     <div class="dash-widget-info">
-                        <h3>112</h3>
+                        <h3>{{$this->leave}}</h3>
                         <span>On Leave</span>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                 <div class="card-body">
                     <span class="dash-widget-icon"><i class="fa fa-file"></i></span>
                     <div class="dash-widget-info">
-                        <h3>4</h3>
+                        <h3>{{$requests}}</h3>
                         <span>Leave Requests</span>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="card-body">
                     <span class="dash-widget-icon"><i class="la la-sign-out-alt"></i></span>
                     <div class="dash-widget-info">
-                        <h3>15</h3>
+                        <h3>..</h3>
                         <span>Exit Requests</span>
                     </div>
                 </div>

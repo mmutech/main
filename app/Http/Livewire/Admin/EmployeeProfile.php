@@ -50,6 +50,7 @@ class  EmployeeProfile extends Component
     {
         $this->employee_id = $id;
         // update query to get profile photo pathh from Users table
+
         $this->employee = Biodata::find($this->employee_id ?? null);
         $this->medical = MedicalHistory::find($this->employee_id ?? null);
         $this->kin = NextOfKin::find($this->employee_id ?? null);
@@ -58,10 +59,12 @@ class  EmployeeProfile extends Component
 
         $this->division = DivisionModel::find($this->deployment->division_id ?? null);
         $this->department = DepartmentModel::find($this->deployment->department_id ?? null);
+      
         $this->unit = UnitModel::find($this->deployment->unit_id ?? null);
         $this->location = LocationModel::find($this->deployment->location_id ?? null);
         $this->ao = AreaOffice::find($this->deployment->area_office_id ?? null);
         $this->feeder = Feeder::find($this->deployment->feeder_id ?? null);
+
     }
     public function render()
     {

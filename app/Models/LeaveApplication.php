@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\LeaveType;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 class LeaveApplication extends Model
 {
     use HasFactory;
@@ -22,6 +25,17 @@ class LeaveApplication extends Model
         'status',
     ];
 
-    protected $nullable = ['reason', 'status', 'approved_by'];
+    //protected $nullable = ['reason', 'status', 'approved_by'];
+
+    public function employee(): BelongsTo
+    {
+        return $this->belongsTo(Biodata::class);
+    }
+
+    public function leaveType(): BelongsTo
+    {
+        //return $this->belongsTo(LeaveType::class);
+        return $this->belongsTo(LeaveType::class, 'leave_type', 'id');
+    }
 
 }

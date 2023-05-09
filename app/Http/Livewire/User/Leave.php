@@ -17,10 +17,9 @@ class Leave extends Component
 
     public $search = '';
  
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
+    protected $listeners = [
+        'refreshComponent' => '$refresh'
+    ];
 
     public function mount() {
         //$this->myApplications = LeaveApplication::where('employee_id', auth()->user()->id)->paginate(10);

@@ -71,19 +71,12 @@ class LeaveApply extends Component
 
         // success message, clear & close form
         $this->alert('success', 'Leave Application Sent');
-       
+        //$this->emitUp('refreshComponent');
         // Clear form and close modal
         $this->clearForm();
         $this->emit('closeModal');
         
-        
-        
-        // Emit event to show flash message
-        
-        
-        
-
-        
+        // Emit event to show flash message   
   
     }
 
