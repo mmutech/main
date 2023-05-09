@@ -200,125 +200,130 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Emergency</h3>
-                                    <h5 class="section-title fw-bold text-decoration-underline">Next of Kin</h5>
-                                    <ul class="personal-info">
-                                        <li>
-                                            <div class="title">Name</div>
-                                            <div class="text">
-                                                {{ $kin->first_name . ' ' . $kin->surname }}
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Relationship</div>
-                                            <div class="text">{{ $kin->relationship ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Address </div>
-                                            <div class="text">{{ $kin->address ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Phone </div>
-                                            <div class="text">{{ $kin->phone ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Email </div>
-                                            <div class="text">{{ $kin->email ?: 'N/A' }}</div>
-                                        </li>
-                                    </ul>
-                                    <hr>
-                                    <br />
-                                    <h5 class="section-title fw-bold text-decoration-underline">Medical Data</h5>
-                                    <ul class="personal-info">
-                                        <li>
-                                            <div class="title">Blood Group</div>
-                                            <div class="text">{{ $medical->blood_group ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Genotype</div>
-                                            <div class="text">{{ $medical->genotype ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Pre-existing Condition </div>
-                                            <div class="text">{{ $medical->medical_condition ?: 'N/A' }}</div>
-                                        </li>
-                                    </ul>
+                        @if ($kin)
+                            <div class="col-md-6 d-flex">
+                                <div class="card profile-box flex-fill">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Emergency</h3>
+                                        <h5 class="section-title fw-bold text-decoration-underline">Next of Kin</h5>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Name</div>
+                                                <div class="text">
+                                                    {{ $kin->first_name . ' ' . $kin->surname }}
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Relationship</div>
+                                                <div class="text">{{ $kin->relationship ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Address </div>
+                                                <div class="text">{{ $kin->address ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Phone </div>
+                                                <div class="text">{{ $kin->phone ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Email </div>
+                                                <div class="text">{{ $kin->email ?: 'N/A' }}</div>
+                                            </li>
+                                        </ul>
+                                        <hr>
+                                        <br />
+                                        <h5 class="section-title fw-bold text-decoration-underline">Medical Data</h5>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Blood Group</div>
+                                                <div class="text">{{ $medical->blood_group ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Genotype</div>
+                                                <div class="text">{{ $medical->genotype ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Pre-existing Condition </div>
+                                                <div class="text">{{ $medical->medical_condition ?: 'N/A' }}</div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-md-6">
                             <livewire:admin.educations :employee_id="$employee_id" />
                         </div>
                         <div class="col-md-6">
                             <livewire:admin.qualifications :employee_id="$employee_id" />
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Bank information</h3>
-                                    <ul class="personal-info">
-                                        <li>
-                                            <div class="title">Bank name</div>
-                                            <div class="text">{{ $bank->bank_name ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Account Name</div>
-                                            <div class="text">{{ $bank->account_name ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Account No.</div>
-                                            <div class="text">{{ $bank->account_number ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">RSA</div>
-                                            <div class="text">{{ $bank->rsa ?: 'N/A' }}</div>
-                                        </li>
-                                    </ul>
-                                    <h5 class="section-title fw-bold text-decoration-underline">Mortgage Info:</h5>
-                                    <ul class="personal-info">
-                                        <li>
-                                            <div class="title">Account Name</div>
-                                            <div class="text">{{ $bank->mortgage_account_name ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Account No.</div>
-                                            <div class="text">{{ $bank->mortgage_account_number ?: 'N/A' }}</div>
-                                        </li>
+                        @if ($bank)
+                            <div class="col-md-6 d-flex">
+                                <div class="card profile-box flex-fill">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Bank information</h3>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Bank name</div>
+                                                <div class="text">{{ $bank->bank_name ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Account Name</div>
+                                                <div class="text">{{ $bank->account_name ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Account No.</div>
+                                                <div class="text">{{ $bank->account_number ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">RSA</div>
+                                                <div class="text">{{ $bank->rsa ?: 'N/A' }}</div>
+                                            </li>
+                                        </ul>
+                                        <h5 class="section-title fw-bold text-decoration-underline">Mortgage Info:</h5>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Account Name</div>
+                                                <div class="text">{{ $bank->mortgage_account_name ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Account No.</div>
+                                                <div class="text">{{ $bank->mortgage_account_number ?: 'N/A' }}
+                                                </div>
+                                            </li>
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Pension information</h3>
-                                    <ul class="personal-info">
-                                        <li>
-                                            <div class="title">PFA name</div>
-                                            <div class="text">{{ $bank->pfa_name ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Account Name</div>
-                                            <div class="text">{{ $bank->pfa_name ?: 'N/A' }}</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Account No.</div>
-                                            <div class="text">{{ $bank->pfa_account_name ?: 'N/A' }}</div>
-                                        </li>
+                            <div class="col-md-6 d-flex">
+                                <div class="card profile-box flex-fill">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Pension information</h3>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">PFA name</div>
+                                                <div class="text">{{ $bank->pfa_name ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Account Name</div>
+                                                <div class="text">{{ $bank->pfa_name ?: 'N/A' }}</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Account No.</div>
+                                                <div class="text">{{ $bank->pfa_account_name ?: 'N/A' }}</div>
+                                            </li>
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <!-- /Profile Info Tab -->
@@ -334,41 +339,55 @@
                                 <ul class="personal-info">
                                     <li>
                                         <div class="row">
-                                            <div class="col-md-4 col-sm-12">Division: <span
-                                                    class="text">{{ $division->description ?: 'N/A' }}</span>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">Department: <span
-                                                    class="text">{{ $department->description ?: 'N/A' }}</span>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">Unit: <span
-                                                    class="text">{{ $unit->description ?: 'N/A' }}</span>
-                                            </div>
+                                            @if ($division)
+                                                <div class="col-md-4 col-sm-12">Division: <span
+                                                        class="text">{{ $division->description ?: 'N/A' }}</span>
+                                                </div>
+                                            @endif
+                                            @if ($department)
+                                                <div class="col-md-4 col-sm-12">Department: <span
+                                                        class="text">{{ $department->description ?: 'N/A' }}</span>
+                                                </div>
+                                            @endif
+                                            @if ($unit)
+                                                <div class="col-md-4 col-sm-12">Unit: <span
+                                                        class="text">{{ $unit->description ?: 'N/A' }}</span>
+                                                </div>
+                                            @endif
                                         </div>
                                     </li>
                                     <li>
                                         <div class="row">
-                                            <div class="col-md-4 col-sm-12">Location: <span
-                                                    class="text">{{ $location->description ?: 'N/A' }}</span>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">Area Unit: <span
-                                                    class="text">{{ $ao->description ?: 'N/A' }}</span>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">Feeder: <span
-                                                    class="text">{{ $feeder->description ?: 'N/A' }}</span>
-                                            </div>
+                                            @if ($location)
+                                                <div class="col-md-4 col-sm-12">Location: <span
+                                                        class="text">{{ $location->description ?: 'N/A' }}</span>
+                                                </div>
+                                            @endif
+                                            @if ($ao)
+                                                <div class="col-md-4 col-sm-12">Area Unit: <span
+                                                        class="text">{{ $ao->description ?: 'N/A' }}</span>
+                                                </div>
+                                            @endif
+                                            @if ($feeder)
+                                                <div class="col-md-4 col-sm-12">Feeder: <span
+                                                        class="text">{{ $feeder->description ?: 'N/A' }}</span>
+                                                </div>
+                                            @endif
                                         </div>
                                     </li>
                                     <li>
                                         <div class="row">
-                                            <div class="col-md-4 col-sm-12">Status: <span
-                                                    class="text">{{ $deployment->status ?: 'N/A' }}</span>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">Deployment Date: <span
-                                                    class="text">{{ $deployment->deployment_date ?: 'N/A' }}</span>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">Comment: <span
-                                                    class="text">{{ $deployment->comment ?: 'N/A' }}</span>
-                                            </div>
+                                            @if ($deployment)
+                                                <div class="col-md-4 col-sm-12">Status: <span
+                                                        class="text">{{ $deployment->status ?: 'N/A' }}</span>
+                                                </div>
+                                                <div class="col-md-4 col-sm-12">Deployment Date: <span
+                                                        class="text">{{ $deployment->deployment_date ?: 'N/A' }}</span>
+                                                </div>
+                                                <div class="col-md-4 col-sm-12">Comment: <span
+                                                        class="text">{{ $deployment->comment ?: 'N/A' }}</span>
+                                                </div>
+                                            @endif
                                         </div>
                                     </li>
                                 </ul>

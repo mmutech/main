@@ -26,8 +26,8 @@ class Myprofile extends Component
     public function mount()
     {
         $this->user = auth()->user();
-        // $this->employee_id = $this->user->id;
-        $this->employee_id = 1;
+        $this->employee_id = $this->user->biodata_id;
+        // $this->employee_id = 1;
 
         $this->employee = Biodata::find($this->employee_id);
         $this->medical = MedicalHistory::find($this->employee_id);
@@ -35,12 +35,12 @@ class Myprofile extends Component
         $this->bank = Bank::find($this->employee_id);
         $this->deployment = Deployment::find($this->employee_id);
 
-        $this->division = DivisionModel::find($this->deployment->division_id);
-        $this->department = DepartmentModel::find($this->deployment->department_id);
-        $this->unit = UnitModel::find($this->deployment->unit_id);
-        $this->location = LocationModel::find($this->deployment->location_id);
-        $this->ao = AreaOffice::find($this->deployment->area_office_id);
-        $this->feeder = Feeder::find($this->deployment->feeder_id);
+        $this->division = DivisionModel::find($this->deployment->division_id ?? null);
+        $this->department = DepartmentModel::find($this->deployment->department_id ?? null);
+        $this->unit = UnitModel::find($this->deployment->unit_id ?? null);
+        $this->location = LocationModel::find($this->deployment->location_id ?? null);
+        $this->ao = AreaOffice::find($this->deployment->area_office_id ?? null);
+        $this->feeder = Feeder::find($this->deployment->feeder_id ?? null);
     }
     public function render()
     {
