@@ -19,7 +19,7 @@
                 <div class="col">
                     <h3 class="page-title">Employees</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item active">Employee List</li>
                     </ul>
                 </div>
@@ -27,7 +27,7 @@
                     <!--<a @click="addModal = true" class="btn add-btn" data-bs-toggle="modal"
                         data-bs-target="#add_employee"><i class="fa fa-plus"></i> Add Employee</a>-->
 
-                        <a href="{{url('create-employee')}}" class="btn add-btn"><i class="fa fa-plus"></i> Add New Employee</a>
+                        <a href="{{url('/admin/create-employee')}}" class="btn add-btn"><i class="fa fa-plus"></i> Add New Employee</a>
                 </div>
 
               
@@ -86,7 +86,7 @@
                                             <strong>{{$employee->staff_id}}</strong>
                                         </a></td>
                                     <td>
-                                        <a href="{{ url("employee-profile/$employee->id") }}">
+                                        <a href="{{ url("/admin/employee-profile/$employee->id") }}">
 
                                             {{ $employee->first_name ." ".$employee->surname." ".$employee->other_name }}
                                         </a>

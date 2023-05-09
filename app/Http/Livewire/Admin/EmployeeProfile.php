@@ -59,6 +59,7 @@ class  EmployeeProfile extends Component
         $this->division = DivisionModel::find($this->deployment->division_id);
         $this->department = DepartmentModel::find($this->deployment->department_id);
         $this->unit = UnitModel::find($this->deployment->unit_id);
+        
         $this->location = LocationModel::find($this->deployment->location_id);
         $this->ao = AreaOffice::find($this->deployment->area_office_id);
         $this->feeder = Feeder::find($this->deployment->feeder_id);

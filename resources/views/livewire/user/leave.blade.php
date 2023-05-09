@@ -23,27 +23,28 @@
         <div class="col-md-3">
             <div class="stats-info">
                 <h6>Annual Leave</h6>
-                <h4>12</h4>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="stats-info">
-                <h6>Medical Leave</h6>
-                <h4>3</h4>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="stats-info">
-                <h6>Other Leave</h6>
-                <h4>4</h4>
+                <h4 class="text-warning">12 Days Used</h4>
             </div>
         </div>
         <div class="col-md-3">
             <div class="stats-info">
                 <h6>Remaining Leave</h6>
-                <h4>5</h4>
+                <h4 class="text-success">5 Days</h4>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="stats-info">
+                <h6>Other Leave</h6>
+                <h4>3</h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-info">
+                <h6>Leave Approved {{date('Y')}}</h6>
+                <h4>18 days</h4>
+            </div>
+        </div>
+        
     </div>
     <!-- /Leave Statistics -->
 					
