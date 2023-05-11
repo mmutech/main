@@ -29,6 +29,10 @@ class DatabaseSeeder extends Seeder
             AreaOfficeSeeder::class,
             BiodataSeeder::class,
             LeaveTypeSeeder::class,
+            ExitTypeSeeder::class,
+            ExitInitiationSeeder::class,
+            ExitInterviewSeeder::class,
+            ClearanceSeeder::class,
         ]);
         
          //\App\Models\User::factory(10)->create();

@@ -17,15 +17,15 @@ class FeederSeeder extends Seeder
         $feeders = [
             [
                 'area_office_id'    => 1, 
-                'comment'           => 'Feeder 1', 
-                'description'       => 'Details',
+                'comment'           => 'Details', 
+                'description'       => 'Feeder 1',
                 'status'            => 1, 
                 'created_by'          => 1, 
             ],
             [
                 'area_office_id'    => 1, 
-                'comment'           => 'Feeder 2',
-                'description'       => 'Details',
+                'comment'           => 'Details',
+                'description'       => 'Feeder 2',
                 'status'            => 1, 
                 'created_by'          => 1, 
             ]

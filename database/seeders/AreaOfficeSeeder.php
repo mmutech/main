@@ -17,15 +17,15 @@ class AreaOfficeSeeder extends Seeder
         $area_office = [
             [
                 'location_id'    => 1, 
-                'comment'           => 'Area Office 1', 
-                'description'       => 'Details',
+                'comment'           => 'Details', 
+                'description'       => 'Area Office 1',
                 'status'            => 1, 
                 'created_by'          => 1, 
             ],
             [
                 'location_id'    => 1, 
-                'comment'           => 'Area Office 2',
-                'description'       => 'Details',
+                'comment'           => 'Details',
+                'description'       => 'Area Office 2',
                 'status'            => 1, 
                 'created_by'          => 1, 
             ]

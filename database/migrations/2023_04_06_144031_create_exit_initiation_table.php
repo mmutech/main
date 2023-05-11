@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('rdate')->useCurrent();
             $table->date('ldate');
             $table->string('adminComment')->nullable();
-            $table->string('upload')->nullable();
+            // $table->string('upload')->nullable();
             $table->integer('overallStatus')->index('status');
             $table->integer('added_by');
             $table->integer('updated_by')->nullable();

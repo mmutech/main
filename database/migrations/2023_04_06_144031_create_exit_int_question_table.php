@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('question');
             $table->string('comment');
             $table->integer('status')->index('status');
-            $table->integer('added_by');
+            $table->integer('added_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
