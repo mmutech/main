@@ -22,6 +22,7 @@ class ClearanceSeeder extends Seeder
                 'cleared_by'      => 1,
                 'clr_status'      => 3,
                 'unit_dept'      => 1,
+                'added_by'      => 2,
             ],
             [
                 'comment'   => 'Resign',
@@ -29,6 +30,7 @@ class ClearanceSeeder extends Seeder
                 'cleared_by'      => 2,
                 'clr_status'      => 5,
                 'unit_dept'      => 1,
+                'added_by'      => 1,
             ],
         ];
 

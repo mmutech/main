@@ -16,17 +16,17 @@ class ExitInterviewSeeder extends Seeder
         //
         $exit_interview = [
             [
-                'comment'   => '',
+                'comment'   => 'Reason for resign',
                 'exit_type_id'       => 1,
                 'status'        => 1,
-                'added_by'      => '',
+                'added_by'      => 1,
                 'question'      => 'Why do you want to resign?',
             ],
             [
-                'comment'   => '',
+                'comment'   => 'Reason for terminations',
                 'exit_type_id'       => 2,
                 'status'        => 1,
-                'added_by'      => '',
+                'added_by'      => 1,
                 'question'      => 'How do you get terminated?',
             ],
         ];

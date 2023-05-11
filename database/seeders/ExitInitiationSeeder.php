@@ -18,7 +18,6 @@ class ExitInitiationSeeder extends Seeder
             [
                 'comment'   => 'I resign for personel reasons',
                 'exit_type_id'       => 1,
-                'status'        => 4,
                 'added_by'      => 1,
                 'ldate'      => '2023-04-10',
                 'rdate'      => '2023-03-10',
@@ -28,7 +27,6 @@ class ExitInitiationSeeder extends Seeder
             [
                 'comment'   => 'I resign',
                 'exit_type_id'       => 2,
-                'status'        => 4,
                 'added_by'      => 2,
                 'ldate'      => '2023-05-11',
                 'rdate'      => '2023-04-11',

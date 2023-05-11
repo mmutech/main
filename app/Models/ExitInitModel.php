@@ -12,7 +12,6 @@ class ExitInitModel extends Model
     protected $fillable = [
         'comment', 
         'exit_type_id',
-        'status',
         'added_by',
         'rdate',
         'ldate',
